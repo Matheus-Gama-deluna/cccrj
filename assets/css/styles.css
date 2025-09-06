@@ -1,0 +1,71 @@
+/* Estilos personalizados para manter o padrão visual do CCCRJ-PROTOTIPO.html */
+
+/* Cores personalizadas */
+:root {
+  --color-bordeaux: 139, 38, 53;
+  --color-cream: 245, 240, 232;
+  --color-coffee: 107, 68, 35;
+  --color-olive: 196, 192, 154;
+  --color-blue-gray: 74, 107, 138;
+  --color-golden: 212, 165, 116;
+}
+
+/* Efeitos visuais */
+.gradient-bg {
+  background: linear-gradient(135deg, #8B2635 0%, #992D3D 50%, #A63545 100%);
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(139, 38, 53, 0.25);
+}
+
+.price-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(245, 240, 232, 0.9);
+  border: 1px solid rgba(139, 38, 53, 0.1);
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Estilos específicos para a seção de relatórios */
+#reports-container .card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#reports-container .card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(139, 38, 53, 0.25);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .gradient-bg h1 {
+    font-size: 2.5rem;
+  }
+  
+  .card-hover:hover {
+    transform: none;
+    box-shadow: 0 10px 20px -8px rgba(139, 38, 53, 0.25);
+  }
+}

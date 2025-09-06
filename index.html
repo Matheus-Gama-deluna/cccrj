@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <style>
         * { font-family: 'Inter', sans-serif; }
         
@@ -69,8 +70,11 @@
             <nav class="hidden md:flex space-x-6">
                 <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#cotacao">Cotações</a>
                 <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#noticias">Notícias</a>
-                <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#sobre">Sobre</a>
+                <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#relatorios">Relatórios</a>
                 <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#contato">Contato</a>
+                <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="login.html">
+                    <span class="material-icons align-middle">admin_panel_settings</span> Admin
+                </a>
             </nav>
             <button class="md:hidden text-[#6B4423]">
                 <span class="material-icons">menu</span>
@@ -195,6 +199,61 @@
         </div>
     </section>
 
+    <!-- Relatórios em PDF -->
+    <section class="py-20 bg-white" id="relatorios">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-[#6B4423] mb-4">Relatórios Técnicos</h2>
+                <p class="text-xl text-[#8B2635]">Acesse nossos relatórios completos em PDF</p>
+                <div class="w-24 h-1 bg-[#8B2635] mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="reports-container">
+                <!-- Os relatórios serão carregados dinamicamente aqui -->
+                <div class="bg-gradient-to-br from-white to-[#F5F0E8] rounded-2xl shadow-lg card-hover border border-[#F5F0E8]">
+                    <div class="h-48 bg-gradient-to-br from-[#8B2635] to-[#992D3D] relative flex items-center justify-center">
+                        <span class="material-icons text-white text-6xl">picture_as_pdf</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-[#6B4423] mb-2">15 de Julho, 2024</div>
+                        <h3 class="text-xl font-bold text-[#6B4423] mb-3">Relatório de Produção - Semestre 1</h3>
+                        <p class="text-[#8B2635] mb-4">Análise completa da produção cafeeira no Rio de Janeiro no primeiro semestre de 2024.</p>
+                        <button class="w-full bg-[#8B2635] text-white py-2 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300 font-medium flex items-center justify-center">
+                            <span class="material-icons mr-2">download</span> Baixar PDF
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-white to-[#F5F0E8] rounded-2xl shadow-lg card-hover border border-[#F5F0E8]">
+                    <div class="h-48 bg-gradient-to-br from-[#4A6B8A] to-[#8B2635] relative flex items-center justify-center">
+                        <span class="material-icons text-white text-6xl">picture_as_pdf</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-[#6B4423] mb-2">10 de Julho, 2024</div>
+                        <h3 class="text-xl font-bold text-[#6B4423] mb-3">Análise de Mercado - Trimestral</h3>
+                        <p class="text-[#8B2635] mb-4">Relatório detalhado sobre as tendências do mercado cafeeiro nacional e internacional.</p>
+                        <button class="w-full bg-[#8B2635] text-white py-2 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300 font-medium flex items-center justify-center">
+                            <span class="material-icons mr-2">download</span> Baixar PDF
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-white to-[#F5F0E8] rounded-2xl shadow-lg card-hover border border-[#F5F0E8]">
+                    <div class="h-48 bg-gradient-to-br from-[#D4A574] to-[#8B2635] relative flex items-center justify-center">
+                        <span class="material-icons text-white text-6xl">picture_as_pdf</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-[#6B4423] mb-2">5 de Julho, 2024</div>
+                        <h3 class="text-xl font-bold text-[#6B4423] mb-3">Sustentabilidade na Cafeicultura</h3>
+                        <p class="text-[#8B2635] mb-4">Estudo sobre práticas sustentáveis adotadas pelos produtores do Rio de Janeiro.</p>
+                        <button class="w-full bg-[#8B2635] text-white py-2 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300 font-medium flex items-center justify-center">
+                            <span class="material-icons mr-2">download</span> Baixar PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Cotações com gráficos -->
     <section class="py-20 bg-white" id="cotacao">
@@ -351,7 +410,7 @@
     
 
     <!-- Footer Moderno -->
-    <footer class="bg-[#6B4423] text-white py-16">
+    <footer class="bg-[#6B4423] text-white py-16" id="contato">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div class="md:col-span-2">
@@ -380,8 +439,8 @@
                     <ul class="space-y-2 text-[#F5F0E8]">
                         <li><a href="#" class="hover:text-white transition-colors">Cotações</a></li>
                         <li><a href="#" class="hover:text-white transition-colors">Notícias</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Relatórios</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contato</a></li>
+                        <li><a href="#relatorios" class="hover:text-white transition-colors">Relatórios</a></li>
+                        <li><a href="#contato" class="hover:text-white transition-colors">Contato</a></li>
                     </ul>
                 </div>
                 
@@ -402,205 +461,10 @@
         </div>
     </footer>
 
-    <script>
-        // Função para rolar até a seção de cotações
-        function scrollToCotacao() {
-            document.getElementById('cotacao').scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-
-        // Calculadora de conversão
-        function calcular() {
-            const sacas = parseFloat(document.getElementById('sacas').value) || 0;
-            const preco = parseFloat(document.getElementById('tipo-cafe').value);
-            const total = sacas * preco;
-            
-            document.getElementById('valor-total').textContent = 
-                'R$ ' + total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        }
-
-        // Simulação de atualização de preços em tempo real
-        function atualizarPrecos() {
-            const arabica = document.getElementById('arabica-price');
-            const conilon = document.getElementById('conilon-price');
-            const especial = document.getElementById('especial-price');
-            
-            // Simulação de pequenas variações nos preços
-            const variacao1 = (Math.random() - 0.5) * 5;
-            const variacao2 = (Math.random() - 0.5) * 3;
-            const variacao3 = (Math.random() - 0.5) * 10;
-            
-            arabica.textContent = (1250.75 + variacao1).toFixed(2);
-            conilon.textContent = (980.50 + variacao2).toFixed(2);
-            especial.textContent = (1800.00 + variacao3).toFixed(2);
-            
-            document.getElementById('last-update').textContent = new Date().toLocaleTimeString('pt-BR');
-        }
-
-        // Atualizar preços a cada 10 segundos (simulação)
-        setInterval(atualizarPrecos, 10000);
-
-        // Animação de entrada dos elementos
-        window.addEventListener('load', function() {
-            const elements = document.querySelectorAll('.card-hover');
-            elements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.style.transform = 'translateY(0)';
-                    el.style.opacity = '1';
-                }, index * 200);
-            });
-        });
-
-        // Inicializar elementos com animação
-        document.querySelectorAll('.card-hover').forEach(el => {
-            el.style.transform = 'translateY(50px)';
-            el.style.opacity = '0';
-            el.style.transition = 'all 0.6s ease';
-        });
-    </script>
-
-<!-- Adicione antes do fechamento do body -->
-<script>
-// Configurações
-const API_URL = '/api'; // Ajuste para a URL correta da sua API
-let paginaAtual = 1;
-const itensPorPagina = 6;
-
-// Estados da aplicação
-let carregando = false;
-let temMaisNoticias = true;
-
-// Função para formatar data
-function formatarData(data) {
-    return new Date(data).toLocaleDateString('pt-BR', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-    });
-}
-
-// Função para calcular tempo de leitura
-function calcularTempoLeitura(texto) {
-    const palavrasPorMinuto = 200;
-    const palavras = texto.split(/\s+/).length;
-    const minutos = Math.ceil(palavras / palavrasPorMinuto);
-    return `${minutos} min de leitura`;
-}
-
-// Função para mostrar loading
-function toggleLoading(mostrar) {
-    const loading = document.getElementById('noticias-loading');
-    const container = document.getElementById('noticias-container');
-    carregando = mostrar;
-    
-    loading.classList.toggle('hidden', !mostrar);
-    if (mostrar) {
-        container.classList.add('opacity-50');
-    } else {
-        container.classList.remove('opacity-50');
-    }
-}
-
-// Função para mostrar erro
-function mostrarErro(mostrar) {
-    const erro = document.getElementById('noticias-error');
-    erro.classList.toggle('hidden', !mostrar);
-}
-
-// Função para criar card de notícia
-function criarCardNoticia(noticia) {
-    const template = document.getElementById('noticia-template');
-    const clone = template.content.cloneNode(true);
-    
-    // Preencher dados
-    clone.querySelector('.noticia-categoria').textContent = noticia.categoria;
-    clone.querySelector('.noticia-data').textContent = formatarData(noticia.data);
-    clone.querySelector('.noticia-tempo-leitura').textContent = calcularTempoLeitura(noticia.conteudo);
-    clone.querySelector('.noticia-titulo').textContent = noticia.titulo;
-    clone.querySelector('.noticia-resumo').textContent = noticia.resumo;
-    clone.querySelector('.noticia-link').href = `/noticia/${noticia.id}`;
-    clone.querySelector('.noticia-icone').textContent = noticia.icone || 'article';
-
-    // Personalizar gradiente baseado na categoria
-    const gradientes = {
-        'Produção': 'from-[#8B2635] to-[#992D3D]',
-        'Exportação': 'from-[#4A6B8A] to-[#8B2635]',
-        'Evento': 'from-[#D4A574] to-[#8B2635]'
-    };
-    
-    const header = clone.querySelector('.h-48');
-    header.className = `h-48 bg-gradient-to-br ${gradientes[noticia.categoria] || 'from-[#8B2635] to-[#992D3D]'} relative`;
-
-    return clone;
-}
-
-// Função para carregar notícias
-async function carregarNoticias(limpar = false) {
-    if (carregando || (!temMaisNoticias && !limpar)) return;
-    
-    try {
-        toggleLoading(true);
-        mostrarErro(false);
-
-        // Simular chamada à API (substitua pelo fetch real)
-        /* 
-        const response = await fetch(`${API_URL}/noticias?pagina=${paginaAtual}&limite=${itensPorPagina}`);
-        if (!response.ok) throw new Error('Falha ao carregar notícias');
-        const data = await response.json();
-        */
-
-        // Dados mockados para teste
-        const data = {
-            noticias: [
-                {
-                    id: 1,
-                    categoria: 'Produção',
-                    data: '2024-02-20',
-                    titulo: 'Colheita de café avança no Sul de Minas',
-                    resumo: 'As condições climáticas favoráveis têm acelerado o ritmo da colheita na principal região produtora...',
-                    conteudo: 'Texto completo da notícia...',
-                    icone: 'agriculture'
-                },
-                // Adicione mais notícias mock aqui
-            ],
-            temMais: true
-        };
-
-        const container = document.getElementById('noticias-container');
-        if (limpar) {
-            container.innerHTML = '';
-            paginaAtual = 1;
-        }
-
-        data.noticias.forEach(noticia => {
-            const card = criarCardNoticia(noticia);
-            container.appendChild(card);
-            
-            // Animar entrada do card
-            setTimeout(() => {
-                card.querySelector('article').classList.remove('opacity-0', 'translate-y-4');
-            }, 100);
-        });
-
-        temMaisNoticias = data.temMais;
-        document.getElementById('carregar-mais').classList.toggle('hidden', !temMaisNoticias);
-        
-        if (!limpar) paginaAtual++;
-    } catch (erro) {
-        console.error('Erro ao carregar notícias:', erro);
-        mostrarErro(true);
-    } finally {
-        toggleLoading(false);
-    }
-}
-
-// Event Listeners
-document.getElementById('carregar-mais').addEventListener('click', () => carregarNoticias());
-
-// Carregar notícias iniciais
-document.addEventListener('DOMContentLoaded', () => carregarNoticias(true));
-</script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/components/quotes.js"></script>
+    <script src="assets/js/components/news.js"></script>
+    <script src="assets/js/components/reports.js"></script>
+    <script src="assets/js/components/calculator.js"></script>
 </body>
 </html>

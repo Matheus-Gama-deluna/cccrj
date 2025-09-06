@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Centro de Comércio de Café do Rio de Janeiro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #8B2635 0%, #992D3D 50%, #A63545 100%);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(245, 240, 232, 0.9);
+            border: 1px solid rgba(139, 38, 53, 0.1);
+        }
+        
+        .sidebar {
+            background: #6B4423;
+        }
+    </style>
+</head>
+<body class="bg-[#F5F0E8] min-h-screen flex">
+    <!-- Sidebar -->
+    <div class="sidebar w-64 min-h-screen text-white">
+        <div class="p-6 border-b border-[#8B2635]">
+            <div class="flex items-center">
+                <span class="material-icons text-3xl mr-2">coffee</span>
+                <h1 class="text-xl font-bold">CCCRJ Admin</h1>
+            </div>
+        </div>
+        
+        <nav class="mt-6">
+            <a href="#" class="flex items-center px-6 py-3 text-white bg-[#8B2635] border-l-4 border-white">
+                <span class="material-icons mr-3">dashboard</span>
+                Dashboard
+            </a>
+            <a href="#" class="flex items-center px-6 py-3 text-[#D4A574] hover:bg-[#8B2635] hover:text-white transition-colors">
+                <span class="material-icons mr-3">upload</span>
+                Envio de Arquivos
+            </a>
+            <a href="#" class="flex items-center px-6 py-3 text-[#D4A574] hover:bg-[#8B2635] hover:text-white transition-colors">
+                <span class="material-icons mr-3">description</span>
+                Relatórios
+            </a>
+            <a href="#" class="flex items-center px-6 py-3 text-[#D4A574] hover:bg-[#8B2635] hover:text-white transition-colors">
+                <span class="material-icons mr-3">settings</span>
+                Configurações
+            </a>
+        </nav>
+        
+        <div class="absolute bottom-0 w-64 p-4 border-t border-[#8B2635]">
+            <button id="logoutButton" class="flex items-center text-[#D4A574] hover:text-white">
+                <span class="material-icons mr-3">exit_to_app</span>
+                Sair
+            </button>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="flex-1">
+        <!-- Header -->
+        <header class="glass-effect py-4 px-6 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-[#6B4423]">Dashboard Administrativo</h1>
+            <div class="flex items-center">
+                <span class="material-icons text-[#6B4423] mr-2">account_circle</span>
+                <span class="text-[#6B4423] font-medium">Administrador</span>
+            </div>
+        </header>
+        
+        <!-- Content -->
+        <main class="p-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center">
+                        <div class="p-3 bg-[#8B2635] bg-opacity-10 rounded-full">
+                            <span class="material-icons text-[#8B2635]">description</span>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-semibold text-[#6B4423]">Relatórios</h3>
+                            <p class="text-2xl font-bold text-[#8B2635]">24</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center">
+                        <div class="p-3 bg-[#D4A574] bg-opacity-10 rounded-full">
+                            <span class="material-icons text-[#D4A574]">cloud_upload</span>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-semibold text-[#6B4423]">Uploads Hoje</h3>
+                            <p class="text-2xl font-bold text-[#8B2635]">5</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="flex items-center">
+                        <div class="p-3 bg-[#4A6B8A] bg-opacity-10 rounded-full">
+                            <span class="material-icons text-[#4A6B8A]">storage</span>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-semibold text-[#6B4423]">Armazenamento</h3>
+                            <p class="text-2xl font-bold text-[#8B2635]">85%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- File Upload Section -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+                <h2 class="text-xl font-bold text-[#6B4423] mb-6">Envio de Relatórios</h2>
+                
+                <form id="uploadForm" class="space-y-6">
+                    <div>
+                        <label class="block text-[#6B4423] font-medium mb-2">Título do Relatório</label>
+                        <input type="text" id="reportTitle" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B2635] focus:border-[#8B2635]" placeholder="Ex: Relatório Mensal de Produção - Julho/2024" required>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-[#6B4423] font-medium mb-2">Descrição</label>
+                        <textarea id="reportDescription" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B2635] focus:border-[#8B2635]" placeholder="Descreva brevemente o conteúdo do relatório"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-[#6B4423] font-medium mb-2">Arquivo PDF</label>
+                        <div class="flex items-center justify-center w-full">
+                            <label for="fileInput" class="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <span class="material-icons text-4xl text-[#8B2635] mb-2">cloud_upload</span>
+                                    <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Clique para selecionar</span> ou arraste o arquivo</p>
+                                    <p class="text-xs text-gray-500">PDF (MAX. 10MB)</p>
+                                </div>
+                                <input id="fileInput" type="file" class="hidden" accept=".pdf" required />
+                            </label>
+                        </div>
+                        <div id="fileInfo" class="mt-2 text-sm text-[#6B4423] hidden"></div>
+                    </div>
+                    
+                    <div class="flex justify-end">
+                        <button type="submit" class="bg-[#8B2635] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#992D3D] transition-colors duration-300">
+                            Enviar Relatório
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Recent Reports Section -->
+            <div class="bg-white rounded-2xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-[#6B4423] mb-6">Relatórios Recentes</h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-[#6B4423] uppercase tracking-wider">Título</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-[#6B4423] uppercase tracking-wider">Data</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-[#6B4423] uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-[#6B4423] uppercase tracking-wider">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#6B4423]">Relatório Mensal de Produção - Junho/2024</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">15/06/2024</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Publicado</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-[#8B2635]">
+                                    <button class="hover:text-[#992D3D] mr-3">Visualizar</button>
+                                    <button class="hover:text-[#992D3D]">Excluir</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-[#6B4423]">Análise de Mercado - Trimestral</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">10/06/2024</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Publicado</span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-[#8B2635]">
+                                    <button class="hover:text-[#992D3D] mr-3">Visualizar</button>
+                                    <button class="hover:text-[#992D3D]">Excluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>
