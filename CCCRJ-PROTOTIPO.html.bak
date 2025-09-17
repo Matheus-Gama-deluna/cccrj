@@ -1,0 +1,606 @@
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Comércio de Café do Rio de Janeiro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #8B2635 0%, #992D3D 50%, #A63545 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(139, 38, 53, 0.25);
+        }
+        
+        .price-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(245, 240, 232, 0.9);
+            border: 1px solid rgba(139, 38, 53, 0.1);
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Adicionando cores personalizadas ao Tailwind */
+        :root {
+            --color-bordeaux: 139, 38, 53;
+            --color-cream: 245, 240, 232;
+            --color-coffee: 107, 68, 35;
+            --color-olive: 196, 192, 154;
+            --color-blue-gray: 74, 107, 138;
+            --color-golden: 212, 165, 116;
+        }
+    </style>
+</head>
+<body class="bg-[#F5F0E8] min-h-screen">
+    <!-- Header com efeito glassmorphism -->
+    <header class="fixed top-0 w-full z-50 glass-effect">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a class="text-2xl font-bold text-[#8B2635] flex items-center" href="#">
+                <span class="material-icons text-3xl mr-2 floating text-[#6B4423]">coffee</span>
+                CCCRJ
+            </a>
+            <nav class="hidden md:flex space-x-6">
+                <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#cotacao">Cotações</a>
+                <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#noticias">Notícias</a>
+                <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#sobre">Sobre</a>
+                <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#contato">Contato</a>
+            </nav>
+            <button class="md:hidden text-[#6B4423]">
+                <span class="material-icons">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section com animações -->
+    <section class="gradient-bg text-white py-32 mt-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="floating absolute top-20 left-10 text-6xl">☕</div>
+            <div class="floating absolute top-40 right-20 text-4xl" style="animation-delay: 1s;">🌱</div>
+            <div class="floating absolute bottom-20 left-1/3 text-5xl" style="animation-delay: 2s;">📈</div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
+               Saiba tudo sobre o café no Rio de Janeiro
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90">
+                Sua fonte confiável para cotações em tempo real, análises de mercado e notícias do setor cafeeiro no Rio de Janeiro.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="scrollToCotacao()" class="bg-white text-[#8B2635] font-semibold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                    Ver Cotações
+                </button>
+                <!-- <button class="border-2 border-white text-white font-semibold py-4 px-8 rounded-full hover:bg-white hover:text-[#8B2635] transition-all duration-300">
+                    Assinar Alertas
+                </button> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Status Bar em tempo real
+    <div class="bg-white shadow-lg py-4 sticky top-20 z-40">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-8 text-center">
+                <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 bg-[#D4A574] rounded-full animate-pulse"></span>
+                    <span class="text-sm font-medium text-[#6B4423]">Mercado Aberto</span>
+                </div>
+                <div class="text-sm text-[#6B4423]">
+                    <span class="font-semibold">Última atualização:</span> <span id="last-update">Agora</span>
+                </div>
+                <div class="text-sm text-[#6B4423]">
+                    <span class="font-semibold">Dólar:</span> R$ 5,24 <span class="text-[#D4A574]">+0.8%</span>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+<!-- Notícias Modernas -->
+    <section class="py-20 bg-[#F5F0E8]" id="noticias">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-[#6B4423] mb-4">Últimas do Mercado</h2>
+                <p class="text-xl text-[#8B2635]">Fique por dentro das principais notícias</p>
+                <div class="w-24 h-1 bg-[#8B2635] mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-[#8B2635] to-[#992D3D] relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="material-icons text-white text-6xl">agriculture</span>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-sm font-medium text-[#8B2635]">
+                            Produção
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-[#6B4423] mb-2">24 de Julho, 2024 • 5 min de leitura</div>
+                        <h3 class="text-xl font-bold text-[#6B4423] mb-3">Colheita de café no Rio de Janeiro tem melhores resultados do ano</h3>
+                        <p class="text-[#8B2635] mb-4">As condições climáticas favoráveis têm acelerado o ritmo da colheita na principal região produtora...</p>
+                        <button class="text-[#8B2635] hover:text-[#992D3D] font-medium flex items-center group">
+                            Leia mais 
+                            <span class="material-icons ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-indigo-500 relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="noticia-icone material-icons text-white text-6xl">article</span>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-sm font-medium text-blue-600">
+                            Exportação
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">23 de Julho, 2024 • 3 min de leitura</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Exportações registram alta de 15%</h3>
+                        <p class="text-gray-600 mb-4">Os números recentes apontam para um aumento significativo nas exportações brasileiras...</p>
+                        <button class="text-emerald-600 hover:text-emerald-700 font-medium flex items-center group">
+                            Leia mais 
+                            <span class="material-icons ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="h-48 bg-gradient-to-br from-[#4A6B8A] to-[#8B2635] relative">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="material-icons text-white text-6xl">event</span>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-sm font-medium text-[#4A6B8A]">
+                            Evento
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">22 de Julho, 2024 • 7 min de leitura</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Futuro dos cafés especiais em debate</h3>
+                        <p class="text-gray-600 mb-4">Especialistas discutem tendências e desafios do mercado premium...</p>
+                        <button class="text-emerald-600 hover:text-emerald-700 font-medium flex items-center group">
+                            Leia mais 
+                            <span class="material-icons ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Cotações com gráficos -->
+    <section class="py-20 bg-white" id="cotacao">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-[#6B4423] mb-4">Cotações em Tempo Real</h2>
+                <p class="text-xl text-[#8B2635]">Valores atualizados automaticamente</p>
+                <div class="w-24 h-1 bg-[#8B2635] mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Card Arábica -->
+                <div class="bg-gradient-to-br from-white to-[#F5F0E8] p-8 rounded-2xl shadow-lg card-hover border border-[#F5F0E8]">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-[#6B4423]">Café Arábica</h3>
+                            <p class="text-[#8B2635]">Tipo 6 - Bebida Dura</p>
+                        </div>
+                        <div class="p-3 bg-[#D4A574] bg-opacity-20 rounded-full">
+                            <span class="material-icons text-[#D4A574] text-2xl">grain</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="text-4xl font-bold text-[#8B2635] price-animation mb-2">
+                            R$ <span id="arabica-price">1.250,75</span>
+                            <span class="text-lg text-[#6B4423] font-normal">/ saca 60kg</span>
+                        </div>
+                        <!-- <div class="flex items-center">
+                            <span class="material-icons text-[#D4A574] mr-1">trending_up</span>
+                            <span class="text-[#D4A574] font-semibold mr-2">+1.5%</span>
+                            <span class="text-[#6B4423]">vs. ontem</span>
+                        </div> -->
+                    </div>
+                    
+                    <!-- Mini gráfico -->
+                    <div class="h-16 bg-gradient-to-r from-[#F5F0E8] to-white rounded-lg flex items-end justify-between p-2 mb-4">
+                        <div class="w-2 bg-[#8B2635] rounded-t" style="height: 60%"></div>
+                        <div class="w-2 bg-[#992D3D] rounded-t" style="height: 70%"></div>
+                        <div class="w-2 bg-[#8B2635] rounded-t" style="height: 50%"></div>
+                        <div class="w-2 bg-[#992D3D] rounded-t" style="height: 80%"></div>
+                        <div class="w-2 bg-[#A63545] rounded-t" style="height: 90%"></div>
+                    </div>
+                    
+                    <button class="w-full bg-[#8B2635] text-white py-3 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300 font-medium">
+                        Ver Histórico Detalhado
+                    </button>
+                </div>
+
+                <!-- Card Conilon -->
+                <div class="bg-gradient-to-br from-white to-[#F5F0E8] p-8 rounded-2xl shadow-lg card-hover border border-[#F5F0E8]">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-[#6B4423]">Café Conilon</h3>
+                            <p class="text-[#8B2635]">Tipo 7/8 - Rio Zona</p>
+                        </div>
+                        <div class="p-3 bg-[#D4A574] bg-opacity-20 rounded-full">
+                            <span class="material-icons text-[#D4A574] text-2xl">eco</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="text-4xl font-bold text-[#8B2635] price-animation mb-2">
+                            R$ <span id="conilon-price">980,50</span>
+                            <span class="text-lg text-[#6B4423] font-normal">/ saca 60kg</span>
+                        </div>
+                        <!-- <div class="flex items-center">
+                            <span class="material-icons text-[#8B2635] mr-1">trending_down</span>
+                            <span class="text-[#8B2635] font-semibold mr-2">-0.8%</span>
+                            <span class="text-[#6B4423]">vs. ontem</span>
+                        </div> -->
+                    </div>
+                    
+                    <!-- Mini gráfico -->
+                    <div class="h-16 bg-gradient-to-r from-[#F5F0E8] to-white rounded-lg flex items-end justify-between p-2 mb-4">
+                        <div class="w-2 bg-[#8B2635] rounded-t" style="height: 80%"></div>
+                        <div class="w-2 bg-[#992D3D] rounded-t" style="height: 70%"></div>
+                        <div class="w-2 bg-[#8B2635] rounded-t" style="height: 60%"></div>
+                        <div class="w-2 bg-[#992D3D] rounded-t" style="height: 50%"></div>
+                        <div class="w-2 bg-[#A63545] rounded-t" style="height: 45%"></div>
+                    </div>
+                    
+                    <button class="w-full bg-[#8B2635] text-white py-3 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300 font-medium">
+                        Ver Histórico Detalhado
+                    </button>
+                </div>
+
+                <!-- Card Especial -->
+                <div class="bg-gradient-to-br from-white to-[#F5F0E8] p-8 rounded-2xl shadow-lg card-hover border border-[#F5F0E8] md:col-span-2 lg:col-span-1">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-[#6B4423]">Café Especial</h3>
+                            <p class="text-[#8B2635]">Acima de 80 pontos</p>
+                        </div>
+                        <div class="p-3 bg-[#D4A574] bg-opacity-20 rounded-full">
+                            <span class="material-icons text-[#D4A574] text-2xl">star</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="text-4xl font-bold text-[#8B2635] price-animation mb-2">
+                            R$ <span id="especial-price">1.800,00</span>
+                            <span class="text-lg text-[#6B4423] font-normal">/ saca 60kg</span>
+                        </div>
+                        <!-- <div class="flex items-center">
+                            <span class="material-icons text-[#D4A574] mr-1">trending_up</span>
+                            <span class="text-[#D4A574] font-semibold mr-2">+2.1%</span>
+                            <span class="text-[#6B4423]">vs. ontem</span>
+                        </div> -->
+                    </div>
+                    
+                    <!-- Mini gráfico -->
+                    <div class="h-16 bg-gradient-to-r from-[#F5F0E8] to-white rounded-lg flex items-end justify-between p-2 mb-4">
+                        <div class="w-2 bg-[#8B2635] rounded-t" style="height: 60%"></div>
+                        <div class="w-2 bg-[#992D3D] rounded-t" style="height: 75%"></div>
+                        <div class="w-2 bg-[#A63545] rounded-t" style="height: 80%"></div>
+                        <div class="w-2 bg-[#B33D51] rounded-t" style="height: 85%"></div>
+                        <div class="w-2 bg-[#C04559] rounded-t" style="height: 95%"></div>
+                    </div>
+                    
+                    <button class="w-full bg-[#8B2635] text-white py-3 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300 font-medium">
+                        Ver Histórico Detalhado
+                    </button>
+                </div>
+            </div>
+
+            <!-- Calculadora de Conversão
+            <div class="bg-gradient-to-r from-emerald-50 to-teal-50 p-8 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Calculadora de Conversão</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Quantidade (sacas)</label>
+                        <input type="number" id="sacas" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500" placeholder="Ex: 10" oninput="calcular()">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Tipo de Café</label>
+                        <select id="tipo-cafe" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500" onchange="calcular()">
+                            <option value="1250.75">Arábica Tipo 6</option>
+                            <option value="980.50">Conilon Tipo 7/8</option>
+                            <option value="1800.00">Café Especial</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-2">Valor Total</label>
+                        <div class="w-full px-4 py-3 bg-gray-100 border border-gray-300 rounded-lg text-2xl font-bold text-emerald-600" id="valor-total">
+                            R$ 0,00
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </section>
+
+    
+
+    <!-- Footer Moderno -->
+    <footer class="bg-[#6B4423] text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <span class="material-icons text-3xl mr-2 text-[#D4A574]">coffee</span>
+                        <span class="text-2xl font-bold">Centro de Comércio de Café <br>do Rio de Janeiro</span>
+                    </div>
+                    <p class="text-[#F5F0E8] mb-4 max-w-md">
+                        A principal referência do mercado cafeeiro brasileiro, conectando produtores, exportadores e entusiastas há décadas.
+                    </p>
+                    <div class="flex space-x-4">
+                        <button class="p-2 bg-[#8B2635] rounded-full hover:bg-[#992D3D] transition-colors">
+                            <span class="material-icons">facebook</span>
+                        </button>
+                        <button class="p-2 bg-[#8B2635] rounded-full hover:bg-[#992D3D] transition-colors">
+                            <span class="material-icons">email</span>
+                        </button>
+                        <button class="p-2 bg-[#8B2635] rounded-full hover:bg-[#992D3D] transition-colors">
+                            <span class="material-icons">phone</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4 text-[#D4A574]">Links Rápidos</h4>
+                    <ul class="space-y-2 text-[#F5F0E8]">
+                        <li><a href="#" class="hover:text-white transition-colors">Cotações</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Notícias</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Relatórios</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4 text-[#D4A574]">Contato</h4>
+                    <div class="space-y-2 text-[#F5F0E8] text-sm">
+                        <p>Rua do Café, 123</p>
+                        <p>Centro, Rio de Janeiro - RJ</p>
+                        <p>CEP: 20000-000</p>
+                        <p class="mt-4 text-[#D4A574]">(21) 3000-0000</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-[#8B2635] pt-8 text-center text-[#F5F0E8] text-sm">
+                <p>&copy; 2024 Centro de Comércio de Café do Rio de Janeiro. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Função para rolar até a seção de cotações
+        function scrollToCotacao() {
+            document.getElementById('cotacao').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Calculadora de conversão
+        function calcular() {
+            const sacas = parseFloat(document.getElementById('sacas').value) || 0;
+            const preco = parseFloat(document.getElementById('tipo-cafe').value);
+            const total = sacas * preco;
+            
+            document.getElementById('valor-total').textContent = 
+                'R$ ' + total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        // Simulação de atualização de preços em tempo real
+        function atualizarPrecos() {
+            const arabica = document.getElementById('arabica-price');
+            const conilon = document.getElementById('conilon-price');
+            const especial = document.getElementById('especial-price');
+            
+            // Simulação de pequenas variações nos preços
+            const variacao1 = (Math.random() - 0.5) * 5;
+            const variacao2 = (Math.random() - 0.5) * 3;
+            const variacao3 = (Math.random() - 0.5) * 10;
+            
+            arabica.textContent = (1250.75 + variacao1).toFixed(2);
+            conilon.textContent = (980.50 + variacao2).toFixed(2);
+            especial.textContent = (1800.00 + variacao3).toFixed(2);
+            
+            document.getElementById('last-update').textContent = new Date().toLocaleTimeString('pt-BR');
+        }
+
+        // Atualizar preços a cada 10 segundos (simulação)
+        setInterval(atualizarPrecos, 10000);
+
+        // Animação de entrada dos elementos
+        window.addEventListener('load', function() {
+            const elements = document.querySelectorAll('.card-hover');
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.transform = 'translateY(0)';
+                    el.style.opacity = '1';
+                }, index * 200);
+            });
+        });
+
+        // Inicializar elementos com animação
+        document.querySelectorAll('.card-hover').forEach(el => {
+            el.style.transform = 'translateY(50px)';
+            el.style.opacity = '0';
+            el.style.transition = 'all 0.6s ease';
+        });
+    </script>
+
+<!-- Adicione antes do fechamento do body -->
+<script>
+// Configurações
+const API_URL = '/api'; // Ajuste para a URL correta da sua API
+let paginaAtual = 1;
+const itensPorPagina = 6;
+
+// Estados da aplicação
+let carregando = false;
+let temMaisNoticias = true;
+
+// Função para formatar data
+function formatarData(data) {
+    return new Date(data).toLocaleDateString('pt-BR', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+}
+
+// Função para calcular tempo de leitura
+function calcularTempoLeitura(texto) {
+    const palavrasPorMinuto = 200;
+    const palavras = texto.split(/\s+/).length;
+    const minutos = Math.ceil(palavras / palavrasPorMinuto);
+    return `${minutos} min de leitura`;
+}
+
+// Função para mostrar loading
+function toggleLoading(mostrar) {
+    const loading = document.getElementById('noticias-loading');
+    const container = document.getElementById('noticias-container');
+    carregando = mostrar;
+    
+    loading.classList.toggle('hidden', !mostrar);
+    if (mostrar) {
+        container.classList.add('opacity-50');
+    } else {
+        container.classList.remove('opacity-50');
+    }
+}
+
+// Função para mostrar erro
+function mostrarErro(mostrar) {
+    const erro = document.getElementById('noticias-error');
+    erro.classList.toggle('hidden', !mostrar);
+}
+
+// Função para criar card de notícia
+function criarCardNoticia(noticia) {
+    const template = document.getElementById('noticia-template');
+    const clone = template.content.cloneNode(true);
+    
+    // Preencher dados
+    clone.querySelector('.noticia-categoria').textContent = noticia.categoria;
+    clone.querySelector('.noticia-data').textContent = formatarData(noticia.data);
+    clone.querySelector('.noticia-tempo-leitura').textContent = calcularTempoLeitura(noticia.conteudo);
+    clone.querySelector('.noticia-titulo').textContent = noticia.titulo;
+    clone.querySelector('.noticia-resumo').textContent = noticia.resumo;
+    clone.querySelector('.noticia-link').href = `/noticia/${noticia.id}`;
+    clone.querySelector('.noticia-icone').textContent = noticia.icone || 'article';
+
+    // Personalizar gradiente baseado na categoria
+    const gradientes = {
+        'Produção': 'from-[#8B2635] to-[#992D3D]',
+        'Exportação': 'from-[#4A6B8A] to-[#8B2635]',
+        'Evento': 'from-[#D4A574] to-[#8B2635]'
+    };
+    
+    const header = clone.querySelector('.h-48');
+    header.className = `h-48 bg-gradient-to-br ${gradientes[noticia.categoria] || 'from-[#8B2635] to-[#992D3D]'} relative`;
+
+    return clone;
+}
+
+// Função para carregar notícias
+async function carregarNoticias(limpar = false) {
+    if (carregando || (!temMaisNoticias && !limpar)) return;
+    
+    try {
+        toggleLoading(true);
+        mostrarErro(false);
+
+        // Simular chamada à API (substitua pelo fetch real)
+        /* 
+        const response = await fetch(`${API_URL}/noticias?pagina=${paginaAtual}&limite=${itensPorPagina}`);
+        if (!response.ok) throw new Error('Falha ao carregar notícias');
+        const data = await response.json();
+        */
+
+        // Dados mockados para teste
+        const data = {
+            noticias: [
+                {
+                    id: 1,
+                    categoria: 'Produção',
+                    data: '2024-02-20',
+                    titulo: 'Colheita de café avança no Sul de Minas',
+                    resumo: 'As condições climáticas favoráveis têm acelerado o ritmo da colheita na principal região produtora...',
+                    conteudo: 'Texto completo da notícia...',
+                    icone: 'agriculture'
+                },
+                // Adicione mais notícias mock aqui
+            ],
+            temMais: true
+        };
+
+        const container = document.getElementById('noticias-container');
+        if (limpar) {
+            container.innerHTML = '';
+            paginaAtual = 1;
+        }
+
+        data.noticias.forEach(noticia => {
+            const card = criarCardNoticia(noticia);
+            container.appendChild(card);
+            
+            // Animar entrada do card
+            setTimeout(() => {
+                card.querySelector('article').classList.remove('opacity-0', 'translate-y-4');
+            }, 100);
+        });
+
+        temMaisNoticias = data.temMais;
+        document.getElementById('carregar-mais').classList.toggle('hidden', !temMaisNoticias);
+        
+        if (!limpar) paginaAtual++;
+    } catch (erro) {
+        console.error('Erro ao carregar notícias:', erro);
+        mostrarErro(true);
+    } finally {
+        toggleLoading(false);
+    }
+}
+
+// Event Listeners
+document.getElementById('carregar-mais').addEventListener('click', () => carregarNoticias());
+
+// Carregar notícias iniciais
+document.addEventListener('DOMContentLoaded', () => carregarNoticias(true));
+</script>
+</body>
+</html>
