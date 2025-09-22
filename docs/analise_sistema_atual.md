@@ -26,10 +26,17 @@
    - `admin.css`: Estilos específicos para a área administrativa
 
 4. **Arquitetura do Sistema:**
-   - Arquitetura frontend-only (sem backend visível)
+   - Arquitetura frontend com backend PHP para integração FTP
    - Componentização modular dos recursos
    - Sistema de rotas baseado em âncoras HTML
    - Armazenamento local usando localStorage para sessão
+   - Integração com servidor FTP para gerenciamento de relatórios
+
+5. **Backend (API PHP):**
+   - `api/config.php`: Configurações do sistema e credenciais FTP
+   - `api/ftp_service.php`: Serviço de conexão e operações FTP
+   - `api/reports/list.php`: Endpoint para listagem de relatórios
+   - `api/reports/download.php`: Endpoint para download de relatórios
 
 ### 1.1.2. Identificação de Pontos Críticos de Falha
 
@@ -40,6 +47,7 @@
    - Uso de `alert()` para mensagens de erro e validação (não profissional)
    - Armazenamento de dados sensíveis no localStorage sem criptografia
    - Falta de proteção contra ataques XSS e CSRF
+   - Credenciais do servidor FTP visíveis em `api/config.php`
 
 2. **Manutenibilidade:**
    - Código JavaScript duplicado entre `index.html` e `CCCRJ-PROTOTIPO.html`
@@ -52,10 +60,10 @@
    - Falta de lazy loading para seções não visíveis imediatamente
    - Ausência de cache para dados que não mudam frequentemente
    - Todos os scripts são carregados em todas as páginas, mesmo quando não utilizados
+   - Conexões FTP não são reutilizadas, criando nova conexão para cada operação
 
 4. **Arquitetura:**
    - Sistema de autenticação simulado sem integração real com backend
-   - Integração com FTP simulada sem implementação real
    - Falta de estrutura para expansão modular
    - Ausência de padrões de design consistentes entre componentes
 
@@ -79,7 +87,7 @@
    - Componentes JavaScript organizados em `assets/js/components/`:
      - `quotes.js`: Gerencia as cotações de café com atualização automática
      - `news.js`: Gerencia a exibição de notícias
-     - `reports.js`: Gerencia os relatórios em PDF
+     - `reports.js`: Gerencia os relatórios em PDF (agora integrado com FTP)
      - `calculator.js`: Gerencia a calculadora de conversão (atualmente desativada)
    - Scripts principais:
      - `main.js`: Funções gerais da página index.html
@@ -92,7 +100,8 @@
    - Sistema de autenticação baseado em localStorage
 
 4. **Integração de Dados:**
-   - Dados simulados para cotações, notícias e relatórios
+   - Dados simulados para cotações e notícias
+   - Relatórios agora são carregados de servidor FTP através da API PHP
    - Atualização automática de cotações a cada 10 segundos
    - Upload de arquivos simulado na área administrativa
 
@@ -248,10 +257,10 @@
 3. **Módulo de Relatórios:**
    - Componente: `assets/js/components/reports.js`
    - Responsabilidades:
-     - Carregar e exibir relatórios técnicos em PDF
+     - Carregar e exibir relatórios técnicos em PDF do servidor FTP
      - Interface para download de relatórios
      - Exibição de metadados dos relatórios (data, título, descrição)
-   - Dependências: Nenhuma dependência externa crítica
+   - Dependências: API PHP para acesso ao FTP
    - Pontos de integração: Seção #relatorios no index.html
 
 ### 1.3.2. Interface Padronizada para Ativação/Desativação de Módulos
