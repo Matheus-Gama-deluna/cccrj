@@ -89,16 +89,16 @@ class AdminDashboard {
         
         try {
             // Mostrar indicador de carregamento
-            this.showUploadStatus('Enviando arquivo para processamento com IA...', 'processing');
+            this.showUploadStatus('Enviando arquivo...', 'processing');
             
             // Preparar dados para envio
             const formData = new FormData();
-            formData.append('pdf_file', file);
+            formData.append('file', file);
             formData.append('title', reportTitle);
             formData.append('description', reportDescription);
             
-            // Enviar arquivo para o servidor para processamento com IA
-            const response = await fetch('api/upload_report_openrouter.php', {
+            // Enviar arquivo para o servidor
+            const response = await fetch('api/upload_report.php', {
                 method: 'POST',
                 body: formData
             });
@@ -110,7 +110,7 @@ class AdminDashboard {
             const result = await response.json();
             
             if (result.success) {
-                this.showUploadStatus('Arquivo enviado e processado com sucesso pela IA!', 'success');
+                this.showUploadStatus('Arquivo enviado com sucesso!', 'success');
                 
                 // Limpar formulário
                 document.getElementById('uploadForm').reset();
@@ -121,14 +121,8 @@ class AdminDashboard {
                 
                 // Atualizar lista de relatórios
                 this.refreshReportsList();
-                
-                // Notificar o componente de cotações sobre a atualização
-                if (window.CoffeeQuotes) {
-                    const quotesInstance = new window.CoffeeQuotes();
-                    quotesInstance.updateDynamicPrices();
-                }
             } else {
-                throw new Error(result.error || 'Falha no processamento do arquivo pela IA');
+                throw new Error(result.message || 'Falha no upload do arquivo');
             }
         } catch (error) {
             console.error('Erro ao enviar arquivo:', error);

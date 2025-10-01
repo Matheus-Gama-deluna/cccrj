@@ -102,7 +102,7 @@ Conforme definido no plano, os próximos passos incluem:
 - Gerenciamento de múltiplos usuários administradores
 - Filtros e busca avançada nos relatórios
 - Visualizador de PDF com ferramentas avançadas
-- Implementação do processamento automático de PDFs para extração de cotações
+- Implementação do processamento automático de PDFs para extração de cotações (a ser implementado em futura iteração)
 
 ## Manutenção
 
