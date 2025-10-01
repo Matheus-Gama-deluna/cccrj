@@ -89,17 +89,28 @@ class AdminDashboard {
         
         try {
             // Mostrar indicador de carregamento
-            this.showUploadStatus('Enviando arquivo...', 'processing');
+            this.showUploadStatus('Enviando arquivo para processamento com IA...', 'processing');
             
-            // Simular envio para FTP
-            // Em implementação real, substituir por chamada real ao FTP
-            await new Promise(resolve => setTimeout(resolve, 3000));
+            // Preparar dados para envio
+            const formData = new FormData();
+            formData.append('pdf_file', file);
+            formData.append('title', reportTitle);
+            formData.append('description', reportDescription);
             
-            // Simular sucesso ou erro aleatório
-            const success = Math.random() > 0.2; // 80% de chance de sucesso
+            // Enviar arquivo para o servidor para processamento com IA
+            const response = await fetch('api/upload_report_openrouter.php', {
+                method: 'POST',
+                body: formData
+            });
             
-            if (success) {
-                this.showUploadStatus('Arquivo enviado com sucesso!', 'success');
+            if (!response.ok) {
+                throw new Error(`Erro no upload: ${response.status}`);
+            }
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                this.showUploadStatus('Arquivo enviado e processado com sucesso pela IA!', 'success');
                 
                 // Limpar formulário
                 document.getElementById('uploadForm').reset();
@@ -110,8 +121,14 @@ class AdminDashboard {
                 
                 // Atualizar lista de relatórios
                 this.refreshReportsList();
+                
+                // Notificar o componente de cotações sobre a atualização
+                if (window.CoffeeQuotes) {
+                    const quotesInstance = new window.CoffeeQuotes();
+                    quotesInstance.updateDynamicPrices();
+                }
             } else {
-                throw new Error('Falha ao enviar arquivo para o servidor FTP.');
+                throw new Error(result.error || 'Falha no processamento do arquivo pela IA');
             }
         } catch (error) {
             console.error('Erro ao enviar arquivo:', error);
@@ -156,7 +173,76 @@ class AdminDashboard {
     }
 }
 
-// Inicializar quando o DOM estiver pronto
-document.addEventListener('DOMContentLoaded', () => {
+// Função para atualizar notícias
+async function updateNews() {
+    const updateBtn = document.getElementById('updateNewsBtn');
+    const statusDiv = document.getElementById('updateNewsStatus');
+    
+    if (!updateBtn || !statusDiv) return;
+    
+    updateBtn.disabled = true;
+    updateBtn.textContent = 'Atualizando...';
+    statusDiv.innerHTML = '<div class="text-center"><div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#8B2635]"></div><p class="mt-2 text-[#6B4423]">Buscando notícias...</p></div>';
+    statusDiv.classList.remove('hidden');
+    
+    try {
+        const response = await fetch('api/news_scraper.php?force_update=1', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error(`Erro na requisição: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        
+        if (result.updated) {
+            statusDiv.innerHTML = `
+                <div class="text-center">
+                    <span class="material-icons text-5xl text-green-500">check_circle</span>
+                    <p class="mt-2 text-[#6B4423] font-medium">Notícias atualizadas com sucesso!</p>
+                    <p class="mt-1 text-gray-600">${result.items} notícias encontradas</p>
+                </div>
+            `;
+            statusDiv.classList.remove('bg-red-100', 'text-red-800');
+            statusDiv.classList.add('bg-green-100', 'text-green-800');
+        } else {
+            statusDiv.innerHTML = `
+                <div class="text-center">
+                    <span class="material-icons text-5xl text-red-500">error</span>
+                    <p class="mt-2 text-[#6B4423] font-medium">Erro ao atualizar notícias</p>
+                    <p class="mt-1 text-gray-600">${result.error || 'Erro desconhecido'}</p>
+                </div>
+            `;
+            statusDiv.classList.remove('bg-green-100', 'text-green-800');
+            statusDiv.classList.add('bg-red-100', 'text-red-800');
+        }
+    } catch (error) {
+        console.error('Erro ao atualizar notícias:', error);
+        statusDiv.innerHTML = `
+            <div class="text-center">
+                <span class="material-icons text-5xl text-red-500">error</span>
+                <p class="mt-2 text-[#6B4423] font-medium">Erro ao atualizar notícias</p>
+                <p class="mt-1 text-gray-600">Verifique o console para mais detalhes</p>
+            </div>
+        `;
+        statusDiv.classList.remove('bg-green-100', 'text-green-800');
+        statusDiv.classList.add('bg-red-100', 'text-red-800');
+    } finally {
+        updateBtn.disabled = false;
+        updateBtn.textContent = 'Atualizar Notícias Agora';
+    }
+}
+
+// Adicionar evento ao botão de atualização de notícias
+document.addEventListener('DOMContentLoaded', function() {
+    const updateNewsBtn = document.getElementById('updateNewsBtn');
+    if (updateNewsBtn) {
+        updateNewsBtn.addEventListener('click', updateNews);
+    }
+    
     new AdminDashboard();
 });

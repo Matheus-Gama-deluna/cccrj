@@ -54,7 +54,7 @@ cccrj/
 
 - Design responsivo com animações e efeitos visuais
 - Seção hero com call-to-action
-- Cotações em tempo real para diferentes tipos de café (Arábica, Conilon, Especial)
+- Cotações atualizadas mensalmente com upload do arquivo `boletim.pdf` (Arábica, Conilon, Especial)
 - Seção de notícias do mercado
 - Seção de relatórios PDF com carregamento do FTP
 - Footer com informações de contato
@@ -62,7 +62,7 @@ cccrj/
 ### Área Administrativa
 
 - **Página de Login** (`login.html`) - Autenticação de usuários administradores
-- **Dashboard** (`admin.html`) - Interface para envio de relatórios em PDF via FTP
+- **Dashboard** (`admin.html`) - Interface para envio de relatórios em PDF via FTP e upload do arquivo `boletim.pdf` para atualização das cotações
 
 ## Como Executar
 
@@ -102,6 +102,7 @@ Conforme definido no plano, os próximos passos incluem:
 - Gerenciamento de múltiplos usuários administradores
 - Filtros e busca avançada nos relatórios
 - Visualizador de PDF com ferramentas avançadas
+- Implementação do processamento automático de PDFs para extração de cotações
 
 ## Manutenção
 

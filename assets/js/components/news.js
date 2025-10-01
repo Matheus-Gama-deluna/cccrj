@@ -6,11 +6,13 @@ class NewsManager {
         this.itemsPerPage = 6;
         this.isLoading = false;
         this.hasMoreNews = true;
+        this.newsData = [];
+        this.apiUrl = 'api/news_scraper.php?get_static_news=1'; // Nova URL para obter notícias estáticas
         this.init();
     }
 
-    init() {
-        // Carregar notícias iniciais
+    async init() {
+        await this.loadNewsData();
         this.loadNews(true);
         
         // Adicionar evento para carregar mais notícias
@@ -20,77 +22,82 @@ class NewsManager {
         }
     }
 
-    async loadNews(clear = false) {
-        if (this.isLoading || (!this.hasMoreNews && !clear)) return;
+    async loadNewsData() {
+        try {
+            // Mostrar indicador de carregamento
+            this.toggleLoading(true);
+            
+            // Chamar API para obter notícias estáticas
+            const response = await fetch(this.apiUrl);
+            
+            if (!response.ok) {
+                throw new Error(`Erro na requisição: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            this.newsData = data.noticias || [];
+            
+            // Atualizar informações de última atualização (opcional)
+            this.updateLastUpdateInfo(data.ultima_atualizacao);
+        } catch (error) {
+            console.error('Erro ao carregar dados das notícias:', error);
+            this.showError(true, 'Não foi possível carregar as notícias. Tente novamente mais tarde.');
+        } finally {
+            this.toggleLoading(false);
+        }
+    }
+
+    updateLastUpdateInfo(date) {
+        const lastUpdateElement = document.getElementById('last-news-update');
+        if (lastUpdateElement && date) {
+            lastUpdateElement.textContent = `Última atualização: ${new Date(date).toLocaleString('pt-BR')}`;
+        }
+    }
+
+    loadNews(clear = false) {
+        if (this.isLoading) return;
         
         this.isLoading = true;
         this.toggleLoading(true);
         this.showError(false);
         
         try {
-            // Simular chamada à API
-            // Em implementação real, substituir por fetch real
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            
-            // Dados mockados para teste
-            const data = {
-                noticias: [
-                    {
-                        id: 1,
-                        categoria: 'Produção',
-                        data: '2024-07-20',
-                        titulo: 'Colheita de café no Rio de Janeiro tem melhores resultados do ano',
-                        resumo: 'As condições climáticas favoráveis têm acelerado o ritmo da colheita na principal região produtora...',
-                        conteudo: 'Texto completo da notícia...',
-                        icone: 'agriculture'
-                    },
-                    {
-                        id: 2,
-                        categoria: 'Exportação',
-                        data: '2024-07-18',
-                        titulo: 'Exportações registram alta de 15%',
-                        resumo: 'Os números recentes apontam para um aumento significativo nas exportações brasileiras...',
-                        conteudo: 'Texto completo da notícia...',
-                        icone: 'article'
-                    },
-                    {
-                        id: 3,
-                        categoria: 'Evento',
-                        data: '2024-07-15',
-                        titulo: 'Futuro dos cafés especiais em debate',
-                        resumo: 'Especialistas discutem tendências e desafios do mercado premium...',
-                        conteudo: 'Texto completo da notícia...',
-                        icone: 'event'
-                    }
-                ],
-                temMais: false
-            };
-            
             if (clear) {
                 if (this.newsContainer) this.newsContainer.innerHTML = '';
                 this.currentPage = 1;
             }
             
-            data.noticias.forEach(noticia => {
+            const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+            const endIndex = startIndex + this.itemsPerPage;
+            const newsToShow = this.newsData.slice(startIndex, endIndex);
+            
+            this.hasMoreNews = endIndex < this.newsData.length;
+            
+            newsToShow.forEach(noticia => {
                 const card = this.createNewsCard(noticia);
                 if (this.newsContainer) this.newsContainer.appendChild(card);
                 
+                // Adicionar evento de clique para ler mais
+                const readMoreButton = card.querySelector('.read-more-button');
+                if (readMoreButton) {
+                    readMoreButton.addEventListener('click', () => this.showFullNews(noticia.link));
+                }
+                
                 // Animar entrada do card
                 setTimeout(() => {
-                    card.querySelector('article').classList.remove('opacity-0', 'translate-y-4');
+                    card.classList.remove('opacity-0', 'translate-y-4');
                 }, 100);
             });
             
-            this.hasMoreNews = data.temMais;
             const loadMoreButton = document.getElementById('carregar-mais');
             if (loadMoreButton) {
                 loadMoreButton.classList.toggle('hidden', !this.hasMoreNews);
             }
             
-            if (!clear) this.currentPage++;
+            this.currentPage++;
         } catch (error) {
             console.error('Erro ao carregar notícias:', error);
-            this.showError(true);
+            this.showError(true, 'Ocorreu um erro ao carregar as notícias.');
         } finally {
             this.toggleLoading(false);
             this.isLoading = false;
@@ -121,10 +128,10 @@ class NewsManager {
                 </div>
             </div>
             <div class="p-6">
-                <div class="text-sm text-[#6B4423] mb-2">${this.formatDate(noticia.data)} • ${this.calculateReadingTime(noticia.conteudo)}</div>
+                <div class="text-sm text-[#6B4423] mb-2">${this.formatDate(noticia.data)} • ${this.calculateReadingTime(noticia.resumo)}</div>
                 <h3 class="text-xl font-bold text-[#6B4423] mb-3">${noticia.titulo}</h3>
                 <p class="text-[#8B2635] mb-4">${noticia.resumo}</p>
-                <button class="text-[#8B2635] hover:text-[#992D3D] font-medium flex items-center group">
+                <button class="read-more-button text-[#8B2635] hover:text-[#992D3D] font-medium flex items-center group">
                     Leia mais 
                     <span class="material-icons ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </button>
@@ -134,9 +141,31 @@ class NewsManager {
         return article;
     }
 
+    async showFullNews(newsUrl) {
+        try {
+            // Mostrar modal ou nova página com conteúdo completo
+            // Esta função pode ser expandida para mostrar o conteúdo em um modal
+            window.open(newsUrl, '_blank');
+        } catch (error) {
+            console.error('Erro ao carregar notícia completa:', error);
+            alert('Não foi possível carregar a notícia completa. Você será redirecionado para o site original.');
+            window.open(newsUrl, '_blank');
+        }
+    }
+
     formatDate(dateString) {
         const options = { day: 'numeric', month: 'long', year: 'numeric' };
-        return new Date(dateString).toLocaleDateString('pt-BR', options);
+        const date = new Date(dateString);
+        // Formatar mês em português
+        const months = {
+            'January': 'janeiro', 'February': 'fevereiro', 'March': 'março',
+            'April': 'abril', 'May': 'maio', 'June': 'junho',
+            'July': 'julho', 'August': 'agosto', 'September': 'setembro',
+            'October': 'outubro', 'November': 'novembro', 'December': 'dezembro'
+        };
+        
+        const month = months[date.toLocaleString('en-US', { month: 'long' })] || date.toLocaleString('pt-BR', { month: 'long' });
+        return `${date.getDate()} de ${month} de ${date.getFullYear()}`;
     }
 
     calculateReadingTime(text) {
@@ -156,9 +185,15 @@ class NewsManager {
         }
     }
 
-    showError(show) {
+    showError(show, message = null) {
         const error = document.getElementById('noticias-error');
         if (error) {
+            if (message) {
+                const messageElement = error.querySelector('.error-message');
+                if (messageElement) {
+                    messageElement.textContent = message;
+                }
+            }
             error.classList.toggle('hidden', !show);
         }
     }

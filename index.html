@@ -129,72 +129,31 @@
 <!-- Notícias Modernas -->
     <section class="py-20 bg-[#F5F0E8]" id="noticias">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-[#6B4423] mb-4">Últimas do Mercado</h2>
-                <p class="text-xl text-[#8B2635]">Fique por dentro das principais notícias</p>
-                <div class="w-24 h-1 bg-[#8B2635] mx-auto mt-4"></div>
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-[#6B4423] mb-4">Notícias do Setor</h2>
+                <p class="text-xl text-[#8B2635]">Últimas notícias do mercado cafeeiro</p>
+                <p id="last-news-update" class="text-sm text-[#6B4423] mt-2"></p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                    <div class="h-48 bg-gradient-to-br from-[#8B2635] to-[#992D3D] relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="material-icons text-white text-6xl">agriculture</span>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-sm font-medium text-[#8B2635]">
-                            Produção
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="text-sm text-[#6B4423] mb-2">24 de Julho, 2024 • 5 min de leitura</div>
-                        <h3 class="text-xl font-bold text-[#6B4423] mb-3">Colheita de café no Rio de Janeiro tem melhores resultados do ano</h3>
-                        <p class="text-[#8B2635] mb-4">As condições climáticas favoráveis têm acelerado o ritmo da colheita na principal região produtora...</p>
-                        <button class="text-[#8B2635] hover:text-[#992D3D] font-medium flex items-center group">
-                            Leia mais 
-                            <span class="material-icons ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                        </button>
-                    </div>
-                </article>
-
-                <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                    <div class="h-48 bg-gradient-to-br from-blue-400 to-indigo-500 relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="noticia-icone material-icons text-white text-6xl">article</span>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-sm font-medium text-blue-600">
-                            Exportação
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="text-sm text-gray-500 mb-2">23 de Julho, 2024 • 3 min de leitura</div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Exportações registram alta de 15%</h3>
-                        <p class="text-gray-600 mb-4">Os números recentes apontam para um aumento significativo nas exportações brasileiras...</p>
-                        <button class="text-emerald-600 hover:text-emerald-700 font-medium flex items-center group">
-                            Leia mais 
-                            <span class="material-icons ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                    <div class="h-48 bg-gradient-to-br from-[#4A6B8A] to-[#8B2635] relative">
-                        <div class="absolute inset-0 flex items-center justify-center">
-                            <span class="material-icons text-white text-6xl">event</span>
-                        </div>
-                        <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-sm font-medium text-[#4A6B8A]">
-                            Evento
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="text-sm text-gray-500 mb-2">22 de Julho, 2024 • 7 min de leitura</div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-3">Futuro dos cafés especiais em debate</h3>
-                        <p class="text-gray-600 mb-4">Especialistas discutem tendências e desafios do mercado premium...</p>
-                        <button class="text-emerald-600 hover:text-emerald-700 font-medium flex items-center group">
-                            Leia mais 
-                            <span class="material-icons ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                        </button>
-                    </div>
-                </article>
+            
+            <!-- Container das notícias -->
+            <div id="noticias-loading" class="text-center py-12 hidden">
+                <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#8B2635]"></div>
+                <p class="mt-4 text-[#6B4423]">Carregando notícias...</p>
+            </div>
+            
+            <div id="noticias-error" class="text-center py-12 hidden">
+                <span class="material-icons text-5xl text-[#8B2635] mb-4">error</span>
+                <p class="text-[#6B4423] text-xl error-message">Não foi possível carregar as notícias. Tente novamente mais tarde.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="news-container">
+                <!-- Notícias serão carregadas aqui dinamicamente -->
+            </div>
+            
+            <div class="text-center mt-12">
+                <button id="carregar-mais" class="bg-[#8B2635] text-white font-semibold py-3 px-8 rounded-lg hover:bg-[#992D3D] transition-colors duration-300">
+                    Carregar Mais Notícias
+                </button>
             </div>
         </div>
     </section>
@@ -264,120 +223,8 @@
                 <div class="w-24 h-1 bg-[#8B2635] mx-auto mt-4"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <!-- Card Arábica -->
-                <div class="bg-gradient-to-br from-white to-[#F5F0E8] p-8 rounded-2xl shadow-lg card-hover border border-[#F5F0E8]">
-                    <div class="flex justify-between items-start mb-6">
-                        <div>
-                            <h3 class="text-2xl font-bold text-[#6B4423]">Café Arábica</h3>
-                            <p class="text-[#8B2635]">Tipo 6 - Bebida Dura</p>
-                        </div>
-                        <div class="p-3 bg-[#D4A574] bg-opacity-20 rounded-full">
-                            <span class="material-icons text-[#D4A574] text-2xl">grain</span>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <div class="text-4xl font-bold text-[#8B2635] price-animation mb-2">
-                            R$ <span id="arabica-price">1.250,75</span>
-                            <span class="text-lg text-[#6B4423] font-normal">/ saca 60kg</span>
-                        </div>
-                        <!-- <div class="flex items-center">
-                            <span class="material-icons text-[#D4A574] mr-1">trending_up</span>
-                            <span class="text-[#D4A574] font-semibold mr-2">+1.5%</span>
-                            <span class="text-[#6B4423]">vs. ontem</span>
-                        </div> -->
-                    </div>
-                    
-                    <!-- Mini gráfico -->
-                    <div class="h-16 bg-gradient-to-r from-[#F5F0E8] to-white rounded-lg flex items-end justify-between p-2 mb-4">
-                        <div class="w-2 bg-[#8B2635] rounded-t" style="height: 60%"></div>
-                        <div class="w-2 bg-[#992D3D] rounded-t" style="height: 70%"></div>
-                        <div class="w-2 bg-[#8B2635] rounded-t" style="height: 50%"></div>
-                        <div class="w-2 bg-[#992D3D] rounded-t" style="height: 80%"></div>
-                        <div class="w-2 bg-[#A63545] rounded-t" style="height: 90%"></div>
-                    </div>
-                    
-                    <button class="w-full bg-[#8B2635] text-white py-3 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300 font-medium">
-                        Ver Histórico Detalhado
-                    </button>
-                </div>
-
-                <!-- Card Conilon -->
-                <div class="bg-gradient-to-br from-white to-[#F5F0E8] p-8 rounded-2xl shadow-lg card-hover border border-[#F5F0E8]">
-                    <div class="flex justify-between items-start mb-6">
-                        <div>
-                            <h3 class="text-2xl font-bold text-[#6B4423]">Café Conilon</h3>
-                            <p class="text-[#8B2635]">Tipo 7/8 - Rio Zona</p>
-                        </div>
-                        <div class="p-3 bg-[#D4A574] bg-opacity-20 rounded-full">
-                            <span class="material-icons text-[#D4A574] text-2xl">eco</span>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <div class="text-4xl font-bold text-[#8B2635] price-animation mb-2">
-                            R$ <span id="conilon-price">980,50</span>
-                            <span class="text-lg text-[#6B4423] font-normal">/ saca 60kg</span>
-                        </div>
-                        <!-- <div class="flex items-center">
-                            <span class="material-icons text-[#8B2635] mr-1">trending_down</span>
-                            <span class="text-[#8B2635] font-semibold mr-2">-0.8%</span>
-                            <span class="text-[#6B4423]">vs. ontem</span>
-                        </div> -->
-                    </div>
-                    
-                    <!-- Mini gráfico -->
-                    <div class="h-16 bg-gradient-to-r from-[#F5F0E8] to-white rounded-lg flex items-end justify-between p-2 mb-4">
-                        <div class="w-2 bg-[#8B2635] rounded-t" style="height: 80%"></div>
-                        <div class="w-2 bg-[#992D3D] rounded-t" style="height: 70%"></div>
-                        <div class="w-2 bg-[#8B2635] rounded-t" style="height: 60%"></div>
-                        <div class="w-2 bg-[#992D3D] rounded-t" style="height: 50%"></div>
-                        <div class="w-2 bg-[#A63545] rounded-t" style="height: 45%"></div>
-                    </div>
-                    
-                    <button class="w-full bg-[#8B2635] text-white py-3 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300 font-medium">
-                        Ver Histórico Detalhado
-                    </button>
-                </div>
-
-                <!-- Card Especial -->
-                <div class="bg-gradient-to-br from-white to-[#F5F0E8] p-8 rounded-2xl shadow-lg card-hover border border-[#F5F0E8] md:col-span-2 lg:col-span-1">
-                    <div class="flex justify-between items-start mb-6">
-                        <div>
-                            <h3 class="text-2xl font-bold text-[#6B4423]">Café Especial</h3>
-                            <p class="text-[#8B2635]">Acima de 80 pontos</p>
-                        </div>
-                        <div class="p-3 bg-[#D4A574] bg-opacity-20 rounded-full">
-                            <span class="material-icons text-[#D4A574] text-2xl">star</span>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-4">
-                        <div class="text-4xl font-bold text-[#8B2635] price-animation mb-2">
-                            R$ <span id="especial-price">1.800,00</span>
-                            <span class="text-lg text-[#6B4423] font-normal">/ saca 60kg</span>
-                        </div>
-                        <!-- <div class="flex items-center">
-                            <span class="material-icons text-[#D4A574] mr-1">trending_up</span>
-                            <span class="text-[#D4A574] font-semibold mr-2">+2.1%</span>
-                            <span class="text-[#6B4423]">vs. ontem</span>
-                        </div> -->
-                    </div>
-                    
-                    <!-- Mini gráfico -->
-                    <div class="h-16 bg-gradient-to-r from-[#F5F0E8] to-white rounded-lg flex items-end justify-between p-2 mb-4">
-                        <div class="w-2 bg-[#8B2635] rounded-t" style="height: 60%"></div>
-                        <div class="w-2 bg-[#992D3D] rounded-t" style="height: 75%"></div>
-                        <div class="w-2 bg-[#A63545] rounded-t" style="height: 80%"></div>
-                        <div class="w-2 bg-[#B33D51] rounded-t" style="height: 85%"></div>
-                        <div class="w-2 bg-[#C04559] rounded-t" style="height: 95%"></div>
-                    </div>
-                    
-                    <button class="w-full bg-[#8B2635] text-white py-3 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300 font-medium">
-                        Ver Histórico Detalhado
-                    </button>
-                </div>
+            <div id="coffee-quotes-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Os cards de cotação serão gerados dinamicamente pelo JavaScript -->
             </div>
 
             <!-- Calculadora de Conversão
@@ -407,7 +254,6 @@
         </div> -->
     </section>
 
-    
 
     <!-- Footer Moderno -->
     <footer class="bg-[#6B4423] text-white py-16" id="contato">
