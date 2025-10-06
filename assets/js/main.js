@@ -38,4 +38,30 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         document.head.appendChild(script);
     }
+    
+    // Inicializar outros componentes se os elementos existirem na página
+    if (typeof NewsManager !== 'undefined' && document.getElementById('news-container')) {
+        new NewsManager();
+    }
+    
+    if (typeof ReportsManager !== 'undefined' && document.getElementById('reports-container')) {
+        new ReportsManager();
+    }
+    
+    // Inicializar componentes adicionais se os elementos existirem
+    if (typeof AboutManager !== 'undefined' && document.getElementById('about-content')) {
+        new AboutManager();
+    }
+    
+    if (typeof HistoryManager !== 'undefined' && document.getElementById('historical-timeline')) {
+        new HistoryManager();
+    }
+    
+    if (typeof PublicationsManager !== 'undefined' && document.getElementById('publications-container')) {
+        new PublicationsManager();
+    }
+    
+    if (typeof ClippingManager !== 'undefined' && document.getElementById('clipping-container')) {
+        new ClippingManager();
+    }
 });

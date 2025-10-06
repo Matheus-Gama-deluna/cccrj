@@ -68,6 +68,7 @@
                 CCCRJ
             </a>
             <nav class="hidden md:flex space-x-6">
+                <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#sobre">Sobre</a>
                 <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#cotacao">Cotações</a>
                 <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#noticias">Notícias</a>
                 <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#relatorios">Relatórios</a>
@@ -125,6 +126,59 @@
             </div>
         </div>
     </div> -->
+
+    <!-- Sobre Nós -->
+    <section class="py-20 bg-white" id="sobre">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-[#6B4423] mb-4">Sobre o CCCRJ</h2>
+                <p class="text-xl text-[#8B2635]">Conheça a história e atuação do Centro de Comércio do Café do Rio de Janeiro</p>
+                <div class="w-24 h-1 bg-[#8B2635] mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h3 class="text-2xl font-bold text-[#6B4423] mb-4">Nossa História</h3>
+                    <p class="text-[#8B2635] mb-4">O Centro do Comércio do Café do Rio de Janeiro foi fundado em 1901 com o objetivo de defender os direitos e interesses do comércio de café. Ao longo de mais de um século de existência, temos atuado de forma constante na política cafeeira, sempre buscando medidas que sejam benéficas ao setor.</p>
+                    <p class="text-[#8B2635]">O CCCRJ foi uma presença constante em todos os momentos de crise e de euforia cafeeira, mantendo-se atuante em uma época em que o café busca conquistar novos mercados e o Porto do Rio de Janeiro retoma sua importância como um grande centro de escoamento do café brasileiro para o exterior.</p>
+                </div>
+                <div class="flex justify-center">
+                    <img src="assets/images/cccrj-historia.jpg" alt="Sede do CCCRJ" class="rounded-lg shadow-lg max-w-full h-auto">
+                </div>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-[#6B4423] mb-6 text-center">Estatutos e Diretoria</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md">
+                        <div class="text-center">
+                            <span class="material-icons text-4xl text-[#8B2635] mb-3">gavel</span>
+                            <h4 class="font-bold text-[#6B4423] mb-2">Estatuto</h4>
+                            <p class="text-[#8B2635] text-sm">Conheça as diretrizes que regem nossa instituição</p>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md">
+                        <div class="text-center">
+                            <span class="material-icons text-4xl text-[#8B2635] mb-3">group</span>
+                            <h4 class="font-bold text-[#6B4423] mb-2">Diretoria</h4>
+                            <p class="text-[#8B2635] text-sm">Conheça os membros da atual diretoria</p>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md">
+                        <div class="text-center">
+                            <span class="material-icons text-4xl text-[#8B2635] mb-3">history_edu</span>
+                            <h4 class="font-bold text-[#6B4423] mb-2">História</h4>
+                            <p class="text-[#8B2635] text-sm">Nossa trajetória ao longo dos anos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="historical-timeline" class="mt-12">
+                <!-- A timeline histórica será carregada via JavaScript -->
+            </div>
+        </div>
+    </section>
 
 <!-- Notícias Modernas -->
     <section class="py-20 bg-[#F5F0E8]" id="noticias">
@@ -312,5 +366,12 @@
     <script src="assets/js/components/news.js"></script>
     <script src="assets/js/components/reports.js"></script>
     <script src="assets/js/components/calculator.js"></script>
+    <script src="assets/js/components/about.js"></script>
+    <script src="assets/js/components/history.js"></script>
+    <script src="assets/js/components/publications.js"></script>
+    <script src="assets/js/components/clipping.js"></script>
+    <script src="assets/js/components/crmc.js"></script>
+    <script src="assets/js/components/archive.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

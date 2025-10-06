@@ -1,0 +1,562 @@
+/* style.css - Folha de estilo principal do sistema */
+
+/* Importar estilos do Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos personalizados */
+
+/* Gradientes corporativos */
+.gradient-bg {
+    background: linear-gradient(135deg, #8B2635 0%, #992D3D 50%, #A63545 100%);
+}
+
+/* Efeitos de hover para cards */
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(139, 38, 53, 0.25);
+}
+
+/* Animações */
+.price-animation {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Efeitos de glassmorphism */
+.glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(245, 240, 232, 0.9);
+    border: 1px solid rgba(139, 38, 53, 0.1);
+}
+
+/* Cores personalizadas */
+:root {
+    --color-bordeaux: 139, 38, 53;
+    --color-cream: 245, 240, 232;
+    --color-coffee: 107, 68, 35;
+    --color-olive: 196, 192, 154;
+    --color-blue-gray: 74, 107, 138;
+    --color-golden: 212, 165, 116;
+}
+
+/* Estilos para botões */
+.read-more-button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.read-more-button:hover {
+    transform: translateX(4px);
+}
+
+.download-report {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.download-report:hover {
+    background-color: #992D3D !important;
+}
+
+/* Estilos para formulários */
+.form-input {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-color: #F5F0E8;
+}
+
+.form-input:focus {
+    border-color: #8B2635;
+    box-shadow: 0 0 0 3px rgba(139, 38, 53, 0.1);
+}
+
+/* Estilos para tabelas */
+.table-header {
+    background-color: #8B2635;
+    color: white;
+}
+
+.table-row:nth-child(even) {
+    background-color: #F5F0E8;
+}
+
+.table-row:hover {
+    background-color: #E1D8C8;
+}
+
+/* Estilos para timeline histórica */
+.timeline-item {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilos para galeria de fotos */
+.gallery-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para breadcrumb */
+.breadcrumb-item:not(:last-child)::after {
+    content: " > ";
+    margin: 0 8px;
+}
+
+/* Estilos para accordion */
+.accordion-header {
+    cursor: pointer;
+    user-select: none;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-content.open {
+    max-height: 1000px;
+}
+
+/* Estilos para tabs */
+.tab-active {
+    border-bottom: 3px solid #8B2635;
+    color: #8B2635;
+    font-weight: 600;
+}
+
+/* Estilos para alertas */
+.alert-success {
+    background-color: #D4EDDA;
+    color: #155724;
+    border-color: #C3E6CB;
+}
+
+.alert-error {
+    background-color: #F8D7DA;
+    color: #721C24;
+    border-color: #F5C6CB;
+}
+
+.alert-warning {
+    background-color: #FFF3CD;
+    color: #856404;
+    border-color: #FFEAA7;
+}
+
+.alert-info {
+    background-color: #D1ECF1;
+    color: #0C5460;
+    border-color: #BEE5EB;
+}
+
+/* Estilos para spinner de carregamento */
+.loading-spinner {
+    border: 4px solid rgba(139, 38, 53, 0.1);
+    border-left-color: #8B2635;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Estilos para barra de progresso */
+.progress-bar {
+    height: 8px;
+    background-color: #F5F0E8;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #8B2635, #992D3D);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Estilos para tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #8B2635;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Estilos para modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+}
+
+/* Estilos para breadcrumb */
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb-item {
+    color: #8B2635;
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    font-weight: bold;
+}
+
+/* Estilos para paginação */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.pagination-button {
+    padding: 8px 12px;
+    margin: 0 4px;
+    border: 1px solid #8B2635;
+    background-color: white;
+    color: #8B2635;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination-button:hover {
+    background-color: #8B2635;
+    color: white;
+}
+
+.pagination-button.active {
+    background-color: #8B2635;
+    color: white;
+    font-weight: bold;
+}
+
+/* Estilos para tags */
+.tag {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: #8B2635;
+    color: white;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background-color: #992D3D;
+    transform: translateY(-2px);
+}
+
+/* Estilos para badge */
+.badge {
+    display: inline-block;
+    padding: 2px 6px;
+    background-color: #8B2635;
+    color: white;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* Estilos para divider */
+.divider {
+    height: 1px;
+    background-color: #F5F0E8;
+    margin: 20px 0;
+}
+
+/* Estilos para card */
+.card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para avatar */
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #8B2635;
+}
+
+.avatar-lg {
+    width: 80px;
+    height: 80px;
+}
+
+.avatar-xl {
+    width: 120px;
+    height: 120px;
+}
+
+/* Estilos para banner */
+.banner {
+    background: linear-gradient(135deg, #8B2635 0%, #992D3D 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.banner h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Estilos para sidebar */
+.sidebar {
+    background-color: #F5F0E8;
+    border-radius: 12px;
+    padding: 20px;
+    height: fit-content;
+}
+
+.sidebar h3 {
+    color: #8B2635;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E1D8C8;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    color: #6B4423;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #E1D8C8;
+    color: #8B2635;
+}
+
+/* Estilos para footer */
+.footer {
+    background-color: #6B4423;
+    color: white;
+    padding: 40px 0;
+}
+
+.footer a {
+    color: #D4A574;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #F5F0E8;
+}
+
+.footer h4 {
+    color: #D4A574;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.footer p {
+    color: #F5F0E8;
+    margin-bottom: 10px;
+}
+
+/* Estilos para responsividade */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 20px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .mobile-hidden {
+        display: none;
+    }
+    
+    .mobile-full-width {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-content {
+        padding: 40px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Estilos para impressão */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    .print-only {
+        display: block !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        color: black;
+        background: white;
+    }
+    
+    a:link, a:visited {
+        color: #000;
+        text-decoration: underline;
+    }
+    
+    .banner {
+        background: none;
+        color: black;
+        border: 1px solid #000;
+    }
+}

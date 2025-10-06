@@ -1,0 +1,234 @@
+.BordaCheia {  border: thin #CCCCCC solid}
+.BordaEsquerda {  border-color: black black black #CCCCCC; border-style: dashed; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: thin}
+.Links {  color: #000000; text-decoration: underline overline}
+
+A.Menu:LINK
+{
+Color: #666666;
+Font-Family: Verdana;
+Font-Size: 95%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: none;
+}
+
+A.Menu:VISITED
+{
+Color: #666666;
+Font-Family: Verdana;
+Font-Size: 95%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: none;
+}
+
+A.Menu:HOVER
+{
+Color: #990000;
+Font-Family: Verdana;
+Font-Size: 95%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: underline overline;
+}
+
+A.Menu1:LINK
+{
+Color: #996600;
+Font-Family: verdana;
+Font-Size: 80%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: none;
+}
+
+A.Menu1:VISITED
+{
+Color: #996600;
+Font-Family: verdana;
+Font-Size: 80%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: none;
+}
+
+A.Menu1:HOVER
+{
+Color: #996600;
+Font-Family: verdana;
+Font-Size: 80%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: underline;
+}
+
+A.Menu2:LINK
+{
+Color: #333333;
+Font-Family: verdana;
+Font-Size: 80%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: none;
+}
+
+A.Menu2:VISITED
+{
+Color: #333333;
+Font-Family: verdana;
+Font-Size: 80%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: none;
+}
+
+A.Menu2:HOVER
+{
+Color: black;
+Font-Family: verdana;
+Font-Size: 80%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: underline overline;
+}
+
+A.Menu3:LINK
+{
+Color: #993333;
+Font-Family: verdana;
+Font-Size: 80%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: none;
+}
+
+A.Menu3:VISITED
+{
+Color: #993333;
+Font-Family: verdana;
+Font-Size: 80%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: none;
+}
+
+A.Menu3:HOVER
+{
+Color: #993333;
+Font-Family: verdana;
+Font-Size: 80%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: underline;
+}
+
+A.TTI:LINK
+{
+Color: #666666;
+Font-Family: Verdana;
+Font-Size: 95%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: none;
+}
+
+A.TTI:VISITED
+{
+Color: #666666;
+Font-Family: Verdana;
+Font-Size: 95%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: none;
+}
+
+A.TTI:HOVER
+{
+Color: #333333;
+Font-Family: Verdana;
+Font-Size: 95%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: underline;
+}
+
+A.LATERAL:LINK
+{
+Color: blue;
+Font-Family: Verdana;
+Font-Size: 95%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: none;
+}
+
+A.LATERAL:VISITED
+{
+Color: blue;
+Font-Family: Verdana;
+Font-Size: 95%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: none;
+}
+
+A.LATERAL:HOVER
+{
+Color: #333333;
+Font-Family: Verdana;
+Font-Size: 95%;
+Font-Weight: normal;
+Font-Style: normal;
+Text-Decoration: underline;
+}
+
+.EmUso {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-weight: normal; color: #333333}
+
+BODY{
+scrollbar-3d-light-color:#cc3333; 
+scrollbar-arrow-color:#ff0000;
+scrollbar-base-color:#cccccc;
+scrollbar-dark-shadow-color:#cccccc;
+scrollbar-face-color:#ffffff;
+scrollbar-highlight-color:#999999;
+scrollbar-shadow-color:#cccccc;}
+
+.BordaBaixo {
+	border-bottom-width: thin;
+	border-bottom-style: dotted;
+	border-bottom-color: #0099CC;
+}
+.BordaCheiaRosa {
+	border: thin solid #990000;
+}
+.BordaLateralRosa {
+	border-left-width: thin;
+	border-left-style: dashed;
+	border-left-color: #FF99CC;
+}
+.Recheio {
+	border-top-width: thick;
+	border-right-width: thick;
+	border-bottom-width: thick;
+	border-left-width: thick;
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: solid;
+	border-top-color: #990000;
+	border-right-color: #990000;
+	border-bottom-color: #990000;
+	border-left-color: #990000;
+}
+.Bordaaltabaixa {
+	border-top-width: thin;
+	border-bottom-width: thin;
+	border-top-style: solid;
+	border-right-style: none;
+	border-bottom-style: solid;
+	border-left-style: none;
+	border-top-color: #CCCCCC;
+	border-bottom-color: #CCCCCC;
+	border-right-width: 0px;
+	border-left-width: 0px;
+}

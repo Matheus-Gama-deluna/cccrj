@@ -4,12 +4,16 @@ class ReportsManager {
         this.reportsContainer = document.getElementById('reports-container');
         this.apiUrl = 'api/reports/list.php'; // URL da API PHP
         this.downloadUrl = 'api/reports/download.php?file='; // URL para download
+        this.currentCategory = 'all'; // Adicionando filtro por categoria
         this.init();
     }
 
     init() {
         // Carregar relatórios iniciais
         this.loadReports();
+        
+        // Adicionar funcionalidade de filtro por categoria se o elemento existir
+        this.addCategoryFilter();
     }
 
     async loadReports() {
@@ -18,7 +22,12 @@ class ReportsManager {
             this.showLoading();
             
             // Chamar API para obter relatórios do FTP
-            const response = await fetch(this.apiUrl);
+            let apiUrl = this.apiUrl;
+            if (this.currentCategory !== 'all') {
+                apiUrl += `?category=${this.currentCategory}`;
+            }
+            
+            const response = await fetch(apiUrl);
             
             if (!response.ok) {
                 throw new Error(`Erro na requisição: ${response.status}`);
@@ -51,29 +60,43 @@ class ReportsManager {
         const article = document.createElement('div');
         article.className = 'bg-gradient-to-br from-white to-[#F5F0E8] rounded-2xl shadow-lg card-hover border border-[#F5F0E8]';
         
-        // Gradientes para diferentes tipos de relatórios
-        const gradients = [
-            'from-[#8B2635] to-[#992D3D]',
-            'from-[#4A6B8A] to-[#8B2635]',
-            'from-[#D4A574] to-[#8B2635]'
-        ];
+        // Determinar tipo e gradientes com base nas informações do relatório
+        let type = report.type || 'relatorio'; // 'relatorio', 'publicacao', 'acervo', etc.
+        let title = report.title || this.formatFileName(report.name);
+        let description = report.description || 'Documento em formato PDF';
+        let icon = 'picture_as_pdf';
+        let date = report.date || this.extractDateFromFilename(report.name) || new Date().toISOString().split('T')[0];
         
-        const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
+        // Gradientes para diferentes tipos de documentos
+        const gradients = {
+            'relatorio': 'from-[#8B2635] to-[#992D3D]',
+            'publicacao': 'from-[#4A6B8A] to-[#8B2635]',
+            'acervo': 'from-[#D4A574] to-[#A63545]',
+            'outro': 'from-[#6B4423] to-[#8B2635]'
+        };
         
-        // Extrair data do nome do arquivo ou usar data de modificação
-        const fileName = report.name;
-        const fileDate = this.extractDateFromFilename(fileName) || new Date().toISOString().split('T')[0];
+        const gradient = gradients[type] || gradients['outro'];
+        
+        // Definir ícone com base no tipo
+        if (type === 'acervo') {
+            icon = 'history';
+        } else if (type === 'publicacao') {
+            icon = 'menu_book';
+        }
         
         article.innerHTML = `
-            <div class="h-48 bg-gradient-to-br ${randomGradient} relative flex items-center justify-center">
-                <span class="material-icons text-white text-6xl">picture_as_pdf</span>
+            <div class="h-48 bg-gradient-to-br ${gradient} relative flex items-center justify-center">
+                <div class="text-center">
+                    <span class="material-icons text-white text-6xl">${icon}</span>
+                    <div class="mt-2 text-white text-sm capitalize">${type}</div>
+                </div>
             </div>
             <div class="p-6">
-                <div class="text-sm text-[#6B4423] mb-2">${this.formatDate(fileDate)}</div>
-                <h3 class="text-xl font-bold text-[#6B4423] mb-3">${this.formatFileName(fileName)}</h3>
-                <p class="text-[#8B2635] mb-4">Relatório técnico em formato PDF</p>
-                <button class="w-full bg-[#8B2635] text-white py-2 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300 font-medium flex items-center justify-center download-report" data-file="${fileName}">
-                    <span class="material-icons mr-2">download</span> Baixar PDF
+                <div class="text-sm text-[#6B4423] mb-2">${this.formatDate(date)} • ${report.category || 'Documento'}</div>
+                <h3 class="text-xl font-bold text-[#6B4423] mb-3">${title}</h3>
+                <p class="text-[#8B2635] mb-4">${description}</p>
+                <button class="w-full bg-[#8B2635] text-white py-2 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300 font-medium flex items-center justify-center download-report" data-file="${report.name}">
+                    <span class="material-icons mr-2">download</span> Baixar ${type === 'publicacao' ? 'Publicação' : type === 'acervo' ? 'Documento Histórico' : 'PDF'}
                 </button>
             </div>
         `;
@@ -83,7 +106,7 @@ class ReportsManager {
         if (downloadButton) {
             downloadButton.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.downloadReport(fileName);
+                this.downloadReport(report.name);
             });
         }
         
@@ -156,6 +179,44 @@ class ReportsManager {
                     <p class="text-[#8B2635] mt-2">Ainda não há relatórios disponíveis para download.</p>
                 </div>
             `;
+        }
+    }
+
+    addCategoryFilter() {
+        // Verificar se já existe um elemento de filtro na página
+        const filterContainer = document.querySelector('.reports-filter');
+        if (filterContainer) {
+            // Criar elementos de filtro
+            const filterHTML = `
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button class="filter-btn bg-[#8B2635] text-white py-2 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300" data-category="all">Todos</button>
+                    <button class="filter-btn bg-white text-[#8B2635] py-2 px-4 rounded-lg border border-[#8B2635] hover:bg-[#F5F0E8] transition-colors duration-300" data-category="relatorio">Relatórios Técnicos</button>
+                    <button class="filter-btn bg-white text-[#8B2635] py-2 px-4 rounded-lg border border-[#8B2635] hover:bg-[#F5F0E8] transition-colors duration-300" data-category="publicacao">Publicações</button>
+                    <button class="filter-btn bg-white text-[#8B2635] py-2 px-4 rounded-lg border border-[#8B2635] hover:bg-[#F5F0E8] transition-colors duration-300" data-category="acervo">Acervo Histórico</button>
+                </div>
+            `;
+            
+            filterContainer.innerHTML = filterHTML;
+            
+            // Adicionar eventos de clique aos botões de filtro
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    // Remover classe ativa de todos os botões
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-[#8B2635]', 'text-white');
+                        btn.classList.add('bg-white', 'text-[#8B2635]');
+                    });
+                    
+                    // Adicionar classe ativa ao botão clicado
+                    e.target.classList.remove('bg-white', 'text-[#8B2635]');
+                    e.target.classList.add('bg-[#8B2635]', 'text-white');
+                    
+                    // Atualizar categoria e recarregar relatórios
+                    this.currentCategory = e.target.getAttribute('data-category');
+                    this.loadReports();
+                });
+            });
         }
     }
 
