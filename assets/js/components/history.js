@@ -5,7 +5,7 @@ class HistoryManager {
         this.currentPage = 1;
         this.itemsPerPage = 10;
         this.hasMoreEvents = true;
-        this.apiUrl = 'api/history/list.php';
+        this.apiUrl = 'api/json/history/list.php'; // Novo endpoint JSON
         this.init();
     }
 

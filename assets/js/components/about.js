@@ -2,7 +2,7 @@
 class AboutManager {
     constructor() {
         this.sections = [];
-        this.apiUrl = 'api/about/list.php';
+        this.apiUrl = 'api/json/about/list.php'; // Novo endpoint JSON
         this.init();
     }
 

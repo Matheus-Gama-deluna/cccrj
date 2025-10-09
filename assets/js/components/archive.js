@@ -5,7 +5,7 @@ class ArchiveManager {
         this.currentPage = 1;
         this.itemsPerPage = 6;
         this.hasMoreItems = true;
-        this.apiUrl = 'api/archive/list.php'; // URL da API em PHP puro
+        this.apiUrl = 'api/json/archive/list.php'; // Novo endpoint JSON
         this.init();
     }
 

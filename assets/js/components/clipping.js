@@ -5,7 +5,7 @@ class ClippingManager {
         this.currentPage = 1;
         this.itemsPerPage = 6;
         this.hasMoreClippings = true;
-        this.apiUrl = 'api/clipping/list.php';
+        this.apiUrl = 'api/json/clipping/list.php'; // Novo endpoint JSON
         this.init();
     }
 

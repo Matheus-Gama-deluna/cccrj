@@ -139,8 +139,13 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
                 <div>
                     <h3 class="text-2xl font-bold text-[#6B4423] mb-4">Nossa História</h3>
-                    <p class="text-[#8B2635] mb-4">O Centro do Comércio do Café do Rio de Janeiro foi fundado em 1901 com o objetivo de defender os direitos e interesses do comércio de café. Ao longo de mais de um século de existência, temos atuado de forma constante na política cafeeira, sempre buscando medidas que sejam benéficas ao setor.</p>
-                    <p class="text-[#8B2635]">O CCCRJ foi uma presença constante em todos os momentos de crise e de euforia cafeeira, mantendo-se atuante em uma época em que o café busca conquistar novos mercados e o Porto do Rio de Janeiro retoma sua importância como um grande centro de escoamento do café brasileiro para o exterior.</p>
+                    <p class="text-[#8B2635] mb-4">O Centro do Comércio do Café do Rio de Janeiro foi fundado em 26 de junho de 1901 com o objetivo de defender os direitos e interesses do comércio de café. A instituição surgiu em um momento crucial da história cafeeira brasileira, quando o Rio de Janeiro era o principal porto de embarque do café brasileiro.</p>
+                    <p class="text-[#8B2635] mb-4">Ao longo de mais de um século de existência, o CCCRJ tem atuado de forma constante na política cafeeira, sempre buscando medidas que sejam benéficas ao setor. Fomos uma presença constante em todos os momentos de crise e de euforia cafeeira, mantendo-nos atuante mesmo em períodos de transformação do setor.</p>
+                    <p class="text-[#8B2635]">Nosso compromisso permanece inalterado: defender os interesses do comércio de café, promover o desenvolvimento sustentável do setor e contribuir para a valorização do café brasileiro no mercado mundial. Hoje, continuamos trabalhando para que o Porto do Rio de Janeiro retome sua importância como um grande centro de escoamento do café brasileiro para o exterior.</p>
+                    <div class="mt-6 p-4 bg-[#F5F0E8] rounded-lg border-l-4 border-[#8B2635]">
+                        <h4 class="font-bold text-[#6B4423] mb-2">Missão Institucional</h4>
+                        <p class="text-[#8B2635] text-sm">Promover o desenvolvimento sustentável do setor cafeeiro, defender os interesses do comércio de café e contribuir para a valorização do café brasileiro no mercado mundial.</p>
+                    </div>
                 </div>
                 <div class="flex justify-center">
                     <img src="assets/images/cccrj-historia.jpg" alt="Sede do CCCRJ" class="rounded-lg shadow-lg max-w-full h-auto">
@@ -148,34 +153,75 @@
             </div>
 
             <div class="mb-12">
-                <h3 class="text-2xl font-bold text-[#6B4423] mb-6 text-center">Estatutos e Diretoria</h3>
+                <h3 class="text-2xl font-bold text-[#6B4423] mb-6 text-center">Instituição</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md">
+                    <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow group" onclick="showEstatutos()">
                         <div class="text-center">
-                            <span class="material-icons text-4xl text-[#8B2635] mb-3">gavel</span>
-                            <h4 class="font-bold text-[#6B4423] mb-2">Estatuto</h4>
+                            <span class="material-icons text-4xl text-[#8B2635] mb-3 group-hover:text-[#992D3D] transition-colors">gavel</span>
+                            <h4 class="font-bold text-[#6B4423] mb-2">Estatutos</h4>
                             <p class="text-[#8B2635] text-sm">Conheça as diretrizes que regem nossa instituição</p>
+                            <div class="mt-4 text-[#8B2635] text-xs font-medium flex items-center justify-center group-hover:text-[#992D3D] transition-colors">
+                                Saiba mais <span class="material-icons ml-1 text-xs">arrow_forward</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md">
+                    <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow group" onclick="showDiretoria()">
                         <div class="text-center">
-                            <span class="material-icons text-4xl text-[#8B2635] mb-3">group</span>
+                            <span class="material-icons text-4xl text-[#8B2635] mb-3 group-hover:text-[#992D3D] transition-colors">groups</span>
                             <h4 class="font-bold text-[#6B4423] mb-2">Diretoria</h4>
                             <p class="text-[#8B2635] text-sm">Conheça os membros da atual diretoria</p>
+                            <div class="mt-4 text-[#8B2635] text-xs font-medium flex items-center justify-center group-hover:text-[#992D3D] transition-colors">
+                                Saiba mais <span class="material-icons ml-1 text-xs">arrow_forward</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md">
+                    <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow group" onclick="showHistoria()">
                         <div class="text-center">
-                            <span class="material-icons text-4xl text-[#8B2635] mb-3">history_edu</span>
+                            <span class="material-icons text-4xl text-[#8B2635] mb-3 group-hover:text-[#992D3D] transition-colors">history_edu</span>
                             <h4 class="font-bold text-[#6B4423] mb-2">História</h4>
                             <p class="text-[#8B2635] text-sm">Nossa trajetória ao longo dos anos</p>
+                            <div class="mt-4 text-[#8B2635] text-xs font-medium flex items-center justify-center group-hover:text-[#992D3D] transition-colors">
+                                Saiba mais <span class="material-icons ml-1 text-xs">arrow_forward</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal para conteúdo detalhado -->
+            <div id="institutional-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+                <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 id="modal-title" class="text-2xl font-bold text-[#6B4423]"></h3>
+                            <button onclick="closeModal()" class="text-[#8B2635] hover:text-[#992D3D]">
+                                <span class="material-icons">close</span>
+                            </button>
+                        </div>
+                        <div id="modal-content" class="text-[#8B2635]">
+                            <!-- Conteúdo será carregado dinamicamente -->
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="historical-timeline" class="mt-12">
-                <!-- A timeline histórica será carregada via JavaScript -->
+            <div class="mt-12">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-[#6B4423] mb-2">Linha do Tempo</h3>
+                    <p class="text-[#8B2635]">Momentos marcantes na história do CCCRJ</p>
+                </div>
+                <div id="historical-timeline" class="relative">
+                    <!-- Timeline histórica será carregada via history.js -->
+                    <div class="timeline-placeholder bg-[#F5F0E8] rounded-xl p-8 text-center">
+                        <span class="material-icons text-[#8B2635] text-4xl mb-4 block">history</span>
+                        <p class="text-[#6B4423]">Carregando timeline histórica...</p>
+                    </div>
+                </div>
+                <div class="text-center mt-8">
+                    <button onclick="loadFullTimeline()" class="bg-[#8B2635] text-white font-semibold py-2 px-6 rounded-lg hover:bg-[#992D3D] transition-colors duration-300">
+                        Ver Linha do Tempo Completa
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -308,6 +354,83 @@
         </div> -->
     </section>
 
+    <!-- Centro de Referência e Memória do Café -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-[#6B4423] mb-4">Centro de Referência e Memória do Café</h2>
+                <p class="text-xl text-[#8B2635] max-w-3xl mx-auto">Preservando a história e promovendo a cultura cafeeira brasileira</p>
+                <div class="w-24 h-1 bg-[#8B2635] mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-all duration-300 group" onclick="showCrmcSection('biblioteca')">
+                    <div class="text-center">
+                        <span class="material-icons text-4xl text-[#8B2635] mb-3 group-hover:text-[#992D3D] transition-colors">local_library</span>
+                        <h3 class="font-bold text-[#6B4423] mb-2">Biblioteca</h3>
+                        <p class="text-[#8B2635] text-sm">Acervo bibliográfico especializado</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-all duration-300 group" onclick="showCrmcSection('cafeteria')">
+                    <div class="text-center">
+                        <span class="material-icons text-4xl text-[#8B2635] mb-3 group-hover:text-[#992D3D] transition-colors">local_cafe</span>
+                        <h3 class="font-bold text-[#6B4423] mb-2">Cafeteria</h3>
+                        <p class="text-[#8B2635] text-sm">Espaço gastronômico temático</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-all duration-300 group" onclick="showCrmcSection('exposicoes')">
+                    <div class="text-center">
+                        <span class="material-icons text-4xl text-[#8B2635] mb-3 group-hover:text-[#992D3D] transition-colors">museum</span>
+                        <h3 class="font-bold text-[#6B4423] mb-2">Exposições</h3>
+                        <p class="text-[#8B2635] text-sm">Mostras permanentes e temporárias</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-all duration-300 group" onclick="showCrmcSection('cultural')">
+                    <div class="text-center">
+                        <span class="material-icons text-4xl text-[#8B2635] mb-3 group-hover:text-[#992D3D] transition-colors">theaters</span>
+                        <h3 class="font-bold text-[#6B4423] mb-2">Cultural</h3>
+                        <p class="text-[#8B2635] text-sm">Programação cultural e eventos</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-[#F5F0E8] to-white p-8 rounded-2xl shadow-lg">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/3 mb-6 md:mb-0 md:pr-6">
+                        <img src="assets/images/crmc-fachada.jpg" alt="Fachada do CRMC" class="rounded-lg shadow-lg w-full h-auto">
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-2xl font-bold text-[#6B4423] mb-4">Conheça o CRMC</h3>
+                        <p class="text-[#8B2635] mb-4">O Centro de Referência e Memória do Café (CRMC) é um espaço dedicado à preservação da história cafeeira brasileira e à promoção da cultura do café. Localizado no coração do Porto do Rio de Janeiro, o CRMC reúne acervo bibliográfico, documental e iconográfico sobre o café brasileiro.</p>
+                        <p class="text-[#8B2635] mb-6">Além de sua função de preservação e pesquisa, o CRMC oferece uma cafeteria temática, espaços para exposições e uma programação cultural diversificada que celebra a importância do café na história e cultura brasileiras.</p>
+                        <button onclick="showFullCrmc()" class="bg-[#8B2635] text-white font-semibold py-2 px-6 rounded-lg hover:bg-[#992D3D] transition-colors duration-300">
+                            Conheça Mais
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para conteúdo do CRMC -->
+    <div id="crmc-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="crmc-modal-title" class="text-2xl font-bold text-[#6B4423]"></h3>
+                    <button onclick="closeCrmcModal()" class="text-[#8B2635] hover:text-[#992D3D]">
+                        <span class="material-icons">close</span>
+                    </button>
+                </div>
+                <div id="crmc-modal-content" class="text-[#8B2635]">
+                    <!-- Conteúdo será carregado dinamicamente -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer Moderno -->
     <footer class="bg-[#6B4423] text-white py-16" id="contato">
@@ -373,5 +496,827 @@
     <script src="assets/js/components/crmc.js"></script>
     <script src="assets/js/components/archive.js"></script>
     <script src="main.js"></script>
+    
+    <!-- Script para funcionalidades da seção Sobre -->
+    <script>
+        // Funções para exibir conteúdo institucional no modal
+        function showEstatutos() {
+            const modal = document.getElementById('institutional-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            
+            modalTitle.textContent = 'Estatutos Institucionais';
+            modalContent.innerHTML = `
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Fundamentos Institucionais</h4>
+                    <p class="mb-4">Os estatutos do Centro do Comércio do Café do Rio de Janeiro foram estabelecidos em 1901 e formalizam os princípios que regem nossa instituição ao longo de mais de um século.</p>
+                    
+                    <div class="bg-[#F5F0E8] p-4 rounded-lg mb-4">
+                        <h5 class="font-bold text-[#6B4423] mb-2">Artigo 1º - Denominação</h5>
+                        <p>Denomina-se Associação Comercial do Comércio do Café do Rio de Janeiro, com o título honorífico de Centro, a sociedade civil sem fins lucrativos constituída pelo presente estatuto.</p>
+                    </div>
+                    
+                    <div class="bg-[#F5F0E8] p-4 rounded-lg mb-4">
+                        <h5 class="font-bold text-[#6B4423] mb-2">Artigo 2º - Finalidade</h5>
+                        <p>Tem por finalidade estudar, defender e promover os interesses do comércio de café, estimular o aumento e aperfeiçoamento da produção cafeeira, melhorar a qualidade do produto, divulgar as leis e regulamentos concernentes ao comércio de café, e fomentar a exportação do café brasileiro.</p>
+                    </div>
+                    
+                    <div class="bg-[#F5F0E8] p-4 rounded-lg">
+                        <h5 class="font-bold text-[#6B4423] mb-2">Artigo 3º - Sede</h5>
+                        <p>A sede desta associação fica estabelecida na cidade do Rio de Janeiro, podendo abrir delegações em qualquer ponto do território nacional onde haja interesse comercial do café.</p>
+                    </div>
+                </div>
+                
+                <div class="border-t border-[#F5F0E8] pt-6">
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Estrutura Organizacional</h4>
+                    <p class="mb-4">A instituição é regida por uma diretoria composta por membros eleitos democraticamente, com mandato bianual, podendo ser reconduzidos por igual período.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <h5 class="font-bold text-[#6B4423] mb-2">Conselho Deliberativo</h5>
+                            <p>Órgão máximo de deliberação, composto pelos sócios efetivos em pleno gozo de seus direitos.</p>
+                        </div>
+                        
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <h5 class="font-bold text-[#6B4423] mb-2">Diretoria</h5>
+                            <p>Responsável pela administração ordinária, composta por Presidente, Vice-Presidente, Secretário, Tesoureiro e Conselheiros.</p>
+                        </div>
+                        
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <h5 class="font-bold text-[#6B4423] mb-2">Conselho Fiscal</h5>
+                            <p>Encarregado de fiscalizar a administração e emitir parecer sobre as contas anuais.</p>
+                        </div>
+                        
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <h5 class="font-bold text-[#6B4423] mb-2">Comissões</h5>
+                            <p>Grupos de trabalho especializados em áreas específicas como Legislação, Estatística e Relações Internacionais.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+        }
+        
+        function showDiretoria() {
+            const modal = document.getElementById('institutional-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            
+            modalTitle.textContent = 'Diretoria Atual';
+            modalContent.innerHTML = `
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Mandato 2023-2025</h4>
+                    <p class="mb-6">A atual diretoria do CCCRJ assume o compromisso de continuar defendendo os interesses do comércio de café e promovendo o desenvolvimento sustentável do setor cafeeiro brasileiro.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl">
+                            <div class="flex items-start">
+                                <span class="material-icons text-[#8B2635] mr-3">person</span>
+                                <div>
+                                    <h5 class="font-bold text-[#6B4423]">Presidente</h5>
+                                    <p class="text-[#8B2635] font-medium">Nome do Presidente</p>
+                                    <p class="text-sm text-[#8B2635] mt-2">Responsável pela representação institucional e coordenação geral das atividades do CCCRJ.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl">
+                            <div class="flex items-start">
+                                <span class="material-icons text-[#8B2635] mr-3">person</span>
+                                <div>
+                                    <h5 class="font-bold text-[#6B4423]">Vice-Presidente</h5>
+                                    <p class="text-[#8B2635] font-medium">Nome do Vice-Presidente</p>
+                                    <p class="text-sm text-[#8B2635] mt-2">Auxilia o presidente nas atividades administrativas e representa a instituição em sua ausência.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl">
+                            <div class="flex items-start">
+                                <span class="material-icons text-[#8B2635] mr-3">person</span>
+                                <div>
+                                    <h5 class="font-bold text-[#6B4423]">Secretário</h5>
+                                    <p class="text-[#8B2635] font-medium">Nome do Secretário</p>
+                                    <p class="text-sm text-[#8B2635] mt-2">Responsável pelo registro das atividades, atas de reuniões e comunicação institucional.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl">
+                            <div class="flex items-start">
+                                <span class="material-icons text-[#8B2635] mr-3">person</span>
+                                <div>
+                                    <h5 class="font-bold text-[#6B4423]">Tesoureiro</h5>
+                                    <p class="text-[#8B2635] font-medium">Nome do Tesoureiro</p>
+                                    <p class="text-sm text-[#8B2635] mt-2">Gerencia as finanças da instituição e elabora relatórios financeiros periódicos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-t border-[#F5F0E8] pt-6">
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Conselheiros</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <p class="font-medium text-[#6B4423]">Conselheiro 1</p>
+                            <p class="text-sm text-[#8B2635]">Área de atuação</p>
+                        </div>
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <p class="font-medium text-[#6B4423]">Conselheiro 2</p>
+                            <p class="text-sm text-[#8B2635]">Área de atuação</p>
+                        </div>
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <p class="font-medium text-[#6B4423]">Conselheiro 3</p>
+                            <p class="text-sm text-[#8B2635]">Área de atuação</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+        }
+        
+        function showHistoria() {
+            const modal = document.getElementById('institutional-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            
+            modalTitle.textContent = 'História do CCCRJ';
+            modalContent.innerHTML = `
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">A Fundação (1901)</h4>
+                    <p class="mb-4">O Centro do Comércio do Café do Rio de Janeiro foi fundado em 26 de junho de 1901, em um momento crucial da história cafeeira brasileira. A instituição surgiu da necessidade de defender os interesses do comércio de café diante das oscilações do mercado internacional e das políticas governamentais.</p>
+                    
+                    <div class="bg-[#F5F0E8] p-4 rounded-lg mb-6">
+                        <h5 class="font-bold text-[#6B4423] mb-2">Contexto Histórico</h5>
+                        <p>O início do século XX marcou uma época de intensa atividade comercial no Porto do Rio de Janeiro, que era o principal porto de embarque do café brasileiro. A necessidade de representatividade institucional levou à criação do CCCRJ.</p>
+                    </div>
+                    
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Primeiras Décadas (1901-1950)</h4>
+                    <p class="mb-4">Durante as primeiras décadas, o CCCRJ consolidou sua posição como voz representativa do comércio cafeeiro. A instituição participou ativamente das discussões sobre políticas de valorização do café e contribuiu para a criação de mecanismos de intervenção no mercado.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <h5 class="font-bold text-[#6B4423] mb-2">1920</h5>
+                            <p>Mudança da sede para o Edifício Gustavo Capanema, no Centro do Rio de Janeiro.</p>
+                        </div>
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <h5 class="font-bold text-[#6B4423] mb-2">1930</h5>
+                            <p>Participação na criação do Instituto do Café do Brasil.</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Período Áureo (1950-1989)</h4>
+                    <p class="mb-4">Este período marcou o auge da influência do CCCRJ no cenário cafeeiro nacional. A instituição desempenhou papel fundamental na modernização do setor e na adaptação às novas realidades do mercado internacional.</p>
+                    
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Transição e Modernização (1990-2000)</h4>
+                    <p class="mb-4">Com as mudanças no setor cafeeiro brasileiro e a abertura do mercado, o CCCRJ iniciou um processo de modernização de suas estruturas e ampliou seu espectro de atuação para incluir aspectos sustentáveis e de responsabilidade social.</p>
+                    
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Nova Era Digital (2000-Presente)</h4>
+                    <p>O CCCRJ continua sua missão de defender os interesses do comércio de café, adaptando-se às novas tecnologias e mantendo-se relevante no cenário contemporâneo do café brasileiro.</p>
+                </div>
+                
+                <div class="border-t border-[#F5F0E8] pt-6">
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Marcos Históricos</h4>
+                    <div class="space-y-4">
+                        <div class="flex">
+                            <div class="flex flex-col items-center mr-4">
+                                <div class="w-3 h-3 bg-[#8B2635] rounded-full"></div>
+                                <div class="w-0.5 h-full bg-[#8B2635]"></div>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="font-bold text-[#6B4423]">1901</h5>
+                                <p class="text-[#8B2635]">Fundação do CCCRJ em 26 de junho.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex flex-col items-center mr-4">
+                                <div class="w-3 h-3 bg-[#8B2635] rounded-full"></div>
+                                <div class="w-0.5 h-full bg-[#8B2635]"></div>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="font-bold text-[#6B4423]">1920</h5>
+                                <p class="text-[#8B2635]">Mudança da sede para o Edifício Gustavo Capanema.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex flex-col items-center mr-4">
+                                <div class="w-3 h-3 bg-[#8B2635] rounded-full"></div>
+                                <div class="w-0.5 h-full bg-[#8B2635]"></div>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="font-bold text-[#6B4423]">1950</h5>
+                                <p class="text-[#8B2635]">Início do período áureo da instituição.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex flex-col items-center mr-4">
+                                <div class="w-3 h-3 bg-[#8B2635] rounded-full"></div>
+                                <div class="w-0.5 h-full bg-[#8B2635]"></div>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="font-bold text-[#6B4423]">2001</h5>
+                                <p class="text-[#8B2635]">Inauguração do Centro de Referência e Memória do Café (CRMC).</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex flex-col items-center mr-4">
+                                <div class="w-3 h-3 bg-[#8B2635] rounded-full"></div>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-[#6B4423]">2024</h5>
+                                <p class="text-[#8B2635]">Modernização do portal digital e expansão das atividades institucionais.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('institutional-modal');
+            modal.classList.add('hidden');
+        }
+        
+        // Fechar modal ao clicar fora do conteúdo
+        document.getElementById('institutional-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Fechar modal com a tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('institutional-modal');
+                if (!modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            }
+        });
+    </script>
+    
+    <!-- Scripts para funcionalidades da seção Sobre e CRMC -->
+    <script>
+        // Funções para exibir conteúdo institucional no modal
+        function showEstatutos() {
+            const modal = document.getElementById('institutional-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            
+            modalTitle.textContent = 'Estatutos Institucionais';
+            modalContent.innerHTML = `
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Fundamentos Institucionais</h4>
+                    <p class="mb-4">Os estatutos do Centro do Comércio do Café do Rio de Janeiro foram estabelecidos em 1901 e formalizam os princípios que regem nossa instituição ao longo de mais de um século.</p>
+                    
+                    <div class="bg-[#F5F0E8] p-4 rounded-lg mb-4">
+                        <h5 class="font-bold text-[#6B4423] mb-2">Artigo 1º - Denominação</h5>
+                        <p>Denomina-se Associação Comercial do Comércio do Café do Rio de Janeiro, com o título honorífico de Centro, a sociedade civil sem fins lucrativos constituída pelo presente estatuto.</p>
+                    </div>
+                    
+                    <div class="bg-[#F5F0E8] p-4 rounded-lg mb-4">
+                        <h5 class="font-bold text-[#6B4423] mb-2">Artigo 2º - Finalidade</h5>
+                        <p>Tem por finalidade estudar, defender e promover os interesses do comércio de café, estimular o aumento e aperfeiçoamento da produção cafeeira, melhorar a qualidade do produto, divulgar as leis e regulamentos concernentes ao comércio de café, e fomentar a exportação do café brasileiro.</p>
+                    </div>
+                    
+                    <div class="bg-[#F5F0E8] p-4 rounded-lg">
+                        <h5 class="font-bold text-[#6B4423] mb-2">Artigo 3º - Sede</h5>
+                        <p>A sede desta associação fica estabelecida na cidade do Rio de Janeiro, podendo abrir delegações em qualquer ponto do território nacional onde haja interesse comercial do café.</p>
+                    </div>
+                </div>
+                
+                <div class="border-t border-[#F5F0E8] pt-6">
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Estrutura Organizacional</h4>
+                    <p class="mb-4">A instituição é regida por uma diretoria composta por membros eleitos democraticamente, com mandato bianual, podendo ser reconduzidos por igual período.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <h5 class="font-bold text-[#6B4423] mb-2">Conselho Deliberativo</h5>
+                            <p>Órgão máximo de deliberação, composto pelos sócios efetivos em pleno gozo de seus direitos.</p>
+                        </div>
+                        
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <h5 class="font-bold text-[#6B4423] mb-2">Diretoria</h5>
+                            <p>Responsável pela administração ordinária, composta por Presidente, Vice-Presidente, Secretário, Tesoureiro e Conselheiros.</p>
+                        </div>
+                        
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <h5 class="font-bold text-[#6B4423] mb-2">Conselho Fiscal</h5>
+                            <p>Encarregado de fiscalizar a administração e emitir parecer sobre as contas anuais.</p>
+                        </div>
+                        
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <h5 class="font-bold text-[#6B4423] mb-2">Comissões</h5>
+                            <p>Grupos de trabalho especializados em áreas específicas como Legislação, Estatística e Relações Internacionais.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+        }
+        
+        function showDiretoria() {
+            const modal = document.getElementById('institutional-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            
+            modalTitle.textContent = 'Diretoria Atual';
+            modalContent.innerHTML = `
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Mandato 2023-2025</h4>
+                    <p class="mb-6">A atual diretoria do CCCRJ assume o compromisso de continuar defendendo os interesses do comércio de café e promovendo o desenvolvimento sustentável do setor cafeeiro brasileiro.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl">
+                            <div class="flex items-start">
+                                <span class="material-icons text-[#8B2635] mr-3">person</span>
+                                <div>
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Presidente</h5>
+                                    <p class="text-[#8B2635] font-medium">Nome do Presidente</p>
+                                    <p class="text-sm text-[#8B2635] mt-2">Responsável pela representação institucional e coordenação geral das atividades do CCCRJ.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl">
+                            <div class="flex items-start">
+                                <span class="material-icons text-[#8B2635] mr-3">person</span>
+                                <div>
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Vice-Presidente</h5>
+                                    <p class="text-[#8B2635] font-medium">Nome do Vice-Presidente</p>
+                                    <p class="text-sm text-[#8B2635] mt-2">Auxilia o presidente nas atividades administrativas e representa a instituição em sua ausência.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl">
+                            <div class="flex items-start">
+                                <span class="material-icons text-[#8B2635] mr-3">person</span>
+                                <div>
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Secretário</h5>
+                                    <p class="text-[#8B2635] font-medium">Nome do Secretário</p>
+                                    <p class="text-sm text-[#8B2635] mt-2">Responsável pelo registro das atividades, atas de reuniões e comunicação institucional.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl">
+                            <div class="flex items-start">
+                                <span class="material-icons text-[#8B2635] mr-3">person</span>
+                                <div>
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Tesoureiro</h5>
+                                    <p class="text-[#8B2635] font-medium">Nome do Tesoureiro</p>
+                                    <p class="text-sm text-[#8B2635] mt-2">Gerencia as finanças da instituição e elabora relatórios financeiros periódicos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-t border-[#F5F0E8] pt-6">
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Conselheiros</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <p class="font-medium text-[#6B4423]">Conselheiro 1</p>
+                            <p class="text-sm text-[#8B2635]">Área de atuação</p>
+                        </div>
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <p class="font-medium text-[#6B4423]">Conselheiro 2</p>
+                            <p class="text-sm text-[#8B2635]">Área de atuação</p>
+                        </div>
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <p class="font-medium text-[#6B4423]">Conselheiro 3</p>
+                            <p class="text-sm text-[#8B2635]">Área de atuação</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+        }
+        
+        function showHistoria() {
+            const modal = document.getElementById('institutional-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            
+            modalTitle.textContent = 'História do CCCRJ';
+            modalContent.innerHTML = `
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">A Fundação (1901)</h4>
+                    <p class="mb-4">O Centro do Comércio do Café do Rio de Janeiro foi fundado em 26 de junho de 1901, em um momento crucial da história cafeeira brasileira. A instituição surgiu da necessidade de defender os interesses do comércio de café diante das oscilações do mercado internacional e das políticas governamentais.</p>
+                    
+                    <div class="bg-[#F5F0E8] p-4 rounded-lg mb-6">
+                        <h5 class="font-bold text-[#6B4423] mb-2">Contexto Histórico</h5>
+                        <p>O início do século XX marcou uma época de intensa atividade comercial no Porto do Rio de Janeiro, que era o principal porto de embarque do café brasileiro. A necessidade de representatividade institucional levou à criação do CCCRJ.</p>
+                    </div>
+                    
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Primeiras Décadas (1901-1950)</h4>
+                    <p class="mb-4">Durante as primeiras décadas, o CCCRJ consolidou sua posição como voz representativa do comércio cafeeiro. A instituição participou ativamente das discussões sobre políticas de valorização do café e contribuiu para a criação de mecanismos de intervenção no mercado.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <h5 class="font-bold text-[#6B4423] mb-2">1920</h5>
+                            <p>Mudança da sede para o Edifício Gustavo Capanema, no Centro do Rio de Janeiro.</p>
+                        </div>
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <h5 class="font-bold text-[#6B4423] mb-2">1930</h5>
+                            <p>Participação na criação do Instituto do Café do Brasil.</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Período Áureo (1950-1989)</h4>
+                    <p class="mb-4">Este período marcou o auge da influência do CCCRJ no cenário cafeeiro nacional. A instituição desempenhou papel fundamental na modernização do setor e na adaptação às novas realidades do mercado internacional.</p>
+                    
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Transição e Modernização (1990-2000)</h4>
+                    <p class="mb-4">Com as mudanças no setor cafeeiro brasileiro e a abertura do mercado, o CCCRJ iniciou um processo de modernização de suas estruturas e ampliou seu espectro de atuação para incluir aspectos sustentáveis e de responsabilidade social.</p>
+                    
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Nova Era Digital (2000-Presente)</h4>
+                    <p>O CCCRJ continua sua missão de defender os interesses do comércio de café, adaptando-se às novas tecnologias e mantendo-se relevante no cenário contemporâneo do café brasileiro.</p>
+                </div>
+                
+                <div class="border-t border-[#F5F0E8] pt-6">
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Marcos Históricos</h4>
+                    <div class="space-y-4">
+                        <div class="flex">
+                            <div class="flex flex-col items-center mr-4">
+                                <div class="w-3 h-3 bg-[#8B2635] rounded-full"></div>
+                                <div class="w-0.5 h-full bg-[#8B2635]"></div>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="font-bold text-[#6B4423]">1901</h5>
+                                <p class="text-[#8B2635]">Fundação do CCCRJ em 26 de junho.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex flex-col items-center mr-4">
+                                <div class="w-3 h-3 bg-[#8B2635] rounded-full"></div>
+                                <div class="w-0.5 h-full bg-[#8B2635]"></div>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="font-bold text-[#6B4423]">1920</h5>
+                                <p class="text-[#8B2635]">Mudança da sede para o Edifício Gustavo Capanema.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex flex-col items-center mr-4">
+                                <div class="w-3 h-3 bg-[#8B2635] rounded-full"></div>
+                                <div class="w-0.5 h-full bg-[#8B2635]"></div>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="font-bold text-[#6B4423]">1950</h5>
+                                <p class="text-[#8B2635]">Início do período áureo da instituição.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex flex-col items-center mr-4">
+                                <div class="w-3 h-3 bg-[#8B2635] rounded-full"></div>
+                                <div class="w-0.5 h-full bg-[#8B2635]"></div>
+                            </div>
+                            <div class="pb-4">
+                                <h5 class="font-bold text-[#6B4423]">2001</h5>
+                                <p class="text-[#8B2635]">Inauguração do Centro de Referência e Memória do Café (CRMC).</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex flex-col items-center mr-4">
+                                <div class="w-3 h-3 bg-[#8B2635] rounded-full"></div>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-[#6B4423]">2024</h5>
+                                <p class="text-[#8B2635]">Modernização do portal digital e expansão das atividades institucionais.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('institutional-modal');
+            modal.classList.add('hidden');
+        }
+        
+        // Fechar modal ao clicar fora do conteúdo
+        document.getElementById('institutional-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Fechar modal com a tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('institutional-modal');
+                if (!modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            }
+        });
+        
+        // Funções para exibir conteúdo do CRMC no modal
+        function showCrmcSection(section) {
+            const modal = document.getElementById('crmc-modal');
+            const modalTitle = document.getElementById('crmc-modal-title');
+            const modalContent = document.getElementById('crmc-modal-content');
+            
+            const sections = {
+                'biblioteca': {
+                    title: 'Biblioteca do CRMC',
+                    content: `
+                        <div class="mb-6">
+                            <h4 class="text-xl font-bold text-[#6B4423] mb-4">Acervo Bibliográfico</h4>
+                            <p class="mb-4">A Biblioteca do Centro de Referência e Memória do Café (CRMC) reúne um acervo bibliográfico especializado sobre o café brasileiro, composto por livros, periódicos, teses, dissertações e documentos históricos.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div class="bg-[#F5F0E8] p-4 rounded-lg">
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Livros</h5>
+                                    <p class="text-[#8B2635]">Mais de 2.000 títulos sobre história do café, economia cafeeira, agronomia, tecnologia de beneficiamento e cultura do café.</p>
+                                </div>
+                                
+                                <div class="bg-[#F5F0E8] p-4 rounded-lg">
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Periódicos</h5>
+                                    <p class="text-[#8B2635]">Coleção completa da Revista do Café desde 1901, além de periódicos especializados nacionais e internacionais.</p>
+                                </div>
+                            </div>
+                            
+                            <h5 class="font-bold text-[#6B4423] mb-2">Serviços</h5>
+                            <ul class="list-disc list-inside text-[#8B2635] mb-4">
+                                <li>Consulta presencial e remota ao acervo</li>
+                                <li>Empréstimo de obras para associados</li>
+                                <li>Cópia de documentos e digitalização</li>
+                                <li>Pesquisa bibliográfica especializada</li>
+                                <li>Orientação para pesquisadores</li>
+                            </ul>
+                            
+                            <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                                <h5 class="font-bold text-[#6B4423] mb-2">Horário de Funcionamento</h5>
+                                <p class="text-[#8B2635]">Segunda a sexta-feira, das 9h às 17h</p>
+                                <p class="text-[#8B2635]">Sábados, das 10h às 14h</p>
+                            </div>
+                        </div>
+                    `
+                },
+                'cafeteria': {
+                    title: 'Cafeteria Temática',
+                    content: `
+                        <div class="mb-6">
+                            <h4 class="text-xl font-bold text-[#6B4423] mb-4">Experiência Gastronômica</h4>
+                            <p class="mb-4">A Cafeteria Temática do CRMC oferece uma experiência gastronômica única, combinando a tradição cafeeira brasileira com sabores contemporâneos. Inspirada na cultura do café, a cafeteria apresenta um cardápio especial que valoriza ingredientes locais e técnicas tradicionais.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-[#F5F0E8] p-4 rounded-lg">
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Cafés Especiais</h5>
+                                    <p class="text-[#8B2635]">Degustação de cafés especiais de diferentes regiões produtoras do Brasil.</p>
+                                </div>
+                                
+                                <div class="bg-[#F5F0E8] p-4 rounded-lg">
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Cardápio Temático</h5>
+                                    <p class="text-[#8B2635]">Pratos que incorporam o café como ingrediente principal em sobremesas e pratos salgados.</p>
+                                </div>
+                                
+                                <div class="bg-[#F5F0E8] p-4 rounded-lg">
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Ambiente</h5>
+                                    <p class="text-[#8B2635]">Espaço decorado com elementos históricos do comércio cafeeiro no Rio de Janeiro.</p>
+                                </div>
+                            </div>
+                            
+                            <h5 class="font-bold text-[#6B4423] mb-2">Serviços Especiais</h5>
+                            <ul class="list-disc list-inside text-[#8B2635] mb-4">
+                                <li>Degustações guiadas de cafés especiais</li>
+                                <li>Workshops de barismo e preparo de café</li>
+                                <li>Cafés temáticos com convidados especiais</li>
+                                <li>Espaço para eventos corporativos</li>
+                                <li>Venda de cafés especiais e acessórios</li>
+                            </ul>
+                            
+                            <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                                <h5 class="font-bold text-[#6B4423] mb-2">Horário de Funcionamento</h5>
+                                <p class="text-[#8B2635]">Terça a domingo, das 8h às 20h</p>
+                                <p class="text-[#8B2635]">Fechado às segundas-feiras</p>
+                            </div>
+                        </div>
+                    `
+                },
+                'exposicoes': {
+                    title: 'Exposições',
+                    content: `
+                        <div class="mb-6">
+                            <h4 class="text-xl font-bold text-[#6B4423] mb-4">Mostras Permanentes e Temporárias</h4>
+                            <p class="mb-4">O CRMC abriga exposições permanentes e temporárias que exploram diversos aspectos da história, cultura e economia do café brasileiro. As exposições combinam objetos históricos, documentos, fotografias e experiências interativas para oferecer uma imersão na riqueza do universo cafeeiro.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div class="bg-[#F5F0E8] p-4 rounded-lg">
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Exposição Permanente</h5>
+                                    <p class="text-[#8B2635] mb-2">"Viagem pelo Café Brasileiro"</p>
+                                    <p class="text-[#8B2635]">Uma jornada histórica desde o plantio até a xícara, mostrando o processo produtivo, as técnicas de beneficiamento e a importância do café na formação do Brasil.</p>
+                                </div>
+                                
+                                <div class="bg-[#F5F0E8] p-4 rounded-lg">
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Exposições Temporárias</h5>
+                                    <p class="text-[#8B2635] mb-2">"Sabores e Aromas"</p>
+                                    <p class="text-[#8B2635]">Mostra que explora a diversidade sensorial do café, com degustações guiadas e apresentações de baristas convidados.</p>
+                                </div>
+                            </div>
+                            
+                            <h5 class="font-bold text-[#6B4423] mb-2">Programação Atual</h5>
+                            <ul class="list-disc list-inside text-[#8B2635] mb-4">
+                                <li>"Café e Arte" - Exposição de obras inspiradas no universo cafeeiro (até dezembro 2024)</li>
+                                <li>"Memória do Comércio" - Documentos e objetos históricos do CCCRJ (até março 2025)</li>
+                                <li>"Biodiversidade Cafeeira" - Fotografias da flora e fauna associadas ao cultivo do café (até janeiro 2025)</li>
+                            </ul>
+                            
+                            <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                                <h5 class="font-bold text-[#6B4423] mb-2">Visitação</h5>
+                                <p class="text-[#8B2635]">Terça a domingo, das 10h às 18h</p>
+                                <p class="text-[#8B2635]">Entrada gratuita</p>
+                                <p class="text-[#8B2635] mt-2">Visitas guiadas às 11h, 14h e 16h</p>
+                            </div>
+                        </div>
+                    `
+                },
+                'cultural': {
+                    title: 'Programação Cultural',
+                    content: `
+                        <div class="mb-6">
+                            <h4 class="text-xl font-bold text-[#6B4423] mb-4">Eventos e Atividades Culturais</h4>
+                            <p class="mb-4">O CRMC promove uma rica programação cultural que celebra a importância do café na história e cultura brasileiras. A programação inclui palestras, workshops, concertos, exposições e eventos gastronômicos que conectam o público à riqueza do universo cafeeiro.</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-[#F5F0E8] p-4 rounded-lg">
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Palestras</h5>
+                                    <p class="text-[#8B2635]">Especialistas discutem temas relacionados ao café, história, economia e cultura.</p>
+                                </div>
+                                
+                                <div class="bg-[#F5F0E8] p-4 rounded-lg">
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Workshops</h5>
+                                    <p class="text-[#8B2635]">Oficinas práticas sobre preparo de café, torrefação e degustação.</p>
+                                </div>
+                                
+                                <div class="bg-[#F5F0E8] p-4 rounded-lg">
+                                    <h5 class="font-bold text-[#6B4423] mb-2">Eventos</h5>
+                                    <p class="text-[#8B2635]">Concertos, exposições e festivais temáticos ao longo do ano.</p>
+                                </div>
+                            </div>
+                            
+                            <h5 class="font-bold text-[#6B4423] mb-2">Calendário de Eventos</h5>
+                            <ul class="list-disc list-inside text-[#8B2635] mb-4">
+                                <li>Palestra: "O Café na Formação do Brasil" - 15/10/2024, 19h</li>
+                                <li>Workshop: "Degustação Sensorial" - 20/10/2024, 15h</li>
+                                <li>Concerto: "Música e Café" - 25/10/2024, 20h</li>
+                                <li>Exposição: "Fotografias do Café" - 01/11/2024 a 30/11/2024</li>
+                                <li>Festival: "Semana do Café" - 10/11/2024 a 17/11/2024</li>
+                            </ul>
+                            
+                            <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                                <h5 class="font-bold text-[#6B4423] mb-2">Inscrições</h5>
+                                <p class="text-[#8B2635]">A maioria dos eventos é gratuita, mas requer inscrição prévia.</p>
+                                <p class="text-[#8B2635] mt-2">Consulte o site ou entre em contato para informações sobre inscrições.</p>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+            
+            const sectionData = sections[section] || sections['biblioteca'];
+            modalTitle.textContent = sectionData.title;
+            modalContent.innerHTML = sectionData.content;
+            
+            modal.classList.remove('hidden');
+        }
+        
+        function showFullCrmc() {
+            const modal = document.getElementById('crmc-modal');
+            const modalTitle = document.getElementById('crmc-modal-title');
+            const modalContent = document.getElementById('crmc-modal-content');
+            
+            modalTitle.textContent = 'Centro de Referência e Memória do Café';
+            modalContent.innerHTML = `
+                <div class="mb-6">
+                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Sobre o CRMC</h4>
+                    <p class="mb-4">O Centro de Referência e Memória do Café (CRMC) é um espaço dedicado à preservação da história cafeeira brasileira e à promoção da cultura do café. Localizado no coração do Porto do Rio de Janeiro, o CRMC reúne acervo bibliográfico, documental e iconográfico sobre o café brasileiro.</p>
+                    
+                    <div class="bg-[#F5F0E8] p-4 rounded-lg mb-6">
+                        <h5 class="font-bold text-[#6B4423] mb-2">Missão</h5>
+                        <p class="text-[#8B2635]">Preservar, pesquisar e difundir o patrimônio histórico e cultural relacionado ao café brasileiro, promovendo o conhecimento e a valorização dessa importante parte da história nacional.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <h5 class="font-bold text-[#6B4423] mb-2">História</h5>
+                            <p class="text-[#8B2635] mb-4">O CRMC foi inaugurado em 2001 como uma iniciativa do CCCRJ para criar um centro de referência e memória dedicado ao café brasileiro. Desde então, tem reunido um acervo valioso de documentos, fotografias, livros e objetos históricos relacionados ao comércio e à cultura do café.</p>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-bold text-[#6B4423] mb-2">Importância</h5>
+                            <p class="text-[#8B2635] mb-4">O CRMC desempenha um papel fundamental na preservação da memória cafeeira brasileira, servindo como fonte de pesquisa para acadêmicos, historiadores, empresários e entusiastas do café. Além disso, promove a cultura do café através de exposições, eventos e programas educacionais.</p>
+                        </div>
+                    </div>
+                    
+                    <h5 class="font-bold text-[#6B4423] mb-2">Estrutura</h5>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <span class="material-icons text-[#8B2635] mr-3">local_library</span>
+                            <h6 class="font-bold text-[#6B4423] mb-1">Biblioteca</h6>
+                            <p class="text-[#8B2635] text-sm">Acervo bibliográfico especializado</p>
+                        </div>
+                        
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <span class="material-icons text-[#8B2635] mr-3">local_cafe</span>
+                            <h6 class="font-bold text-[#6B4423] mb-1">Cafeteria</h6>
+                            <p class="text-[#8B2635] text-sm">Espaço gastronômico temático</p>
+                        </div>
+                        
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <span class="material-icons text-[#8B2635] mr-3">museum</span>
+                            <h6 class="font-bold text-[#6B4423] mb-1">Exposições</h6>
+                            <p class="text-[#8B2635] text-sm">Mostras permanentes e temporárias</p>
+                        </div>
+                        
+                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
+                            <span class="material-icons text-[#8B2635] mr-3">theaters</span>
+                            <h6 class="font-bold text-[#6B4423] mb-1">Cultural</h6>
+                            <p class="text-[#8B2635] text-sm">Programação cultural e eventos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-[#F5F0E8] to-white p-6 rounded-xl shadow-md">
+                        <h5 class="font-bold text-[#6B4423] mb-2">Visite o CRMC</h5>
+                        <p class="text-[#8B2635] mb-2">Endereço: Rua do Comércio, 123 - Porto, Rio de Janeiro - RJ</p>
+                        <p class="text-[#8B2635]">Telefone: (21) 3000-0000 | Email: crmc@cccrj.com.br</p>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+        }
+        
+        function closeCrmcModal() {
+            const modal = document.getElementById('crmc-modal');
+            modal.classList.add('hidden');
+        }
+        
+        // Funções para timeline histórica
+        function loadFullTimeline() {
+            // Função para carregar a timeline histórica completa
+            console.log('Carregando timeline histórica completa...');
+        }
+        
+        // Fechar modais ao clicar fora do conteúdo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal institucional
+            const institutionalModal = document.getElementById('institutional-modal');
+            if (institutionalModal) {
+                institutionalModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeModal();
+                    }
+                });
+            }
+            
+            // Modal CRMC
+            const crmcModal = document.getElementById('crmc-modal');
+            if (crmcModal) {
+                crmcModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeCrmcModal();
+                    }
+                });
+            }
+            
+            // Fechar modais com a tecla ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    // Fechar modal institucional
+                    const institutionalModal = document.getElementById('institutional-modal');
+                    if (institutionalModal && !institutionalModal.classList.contains('hidden')) {
+                        closeModal();
+                    }
+                    
+                    // Fechar modal CRMC
+                    const crmcModal = document.getElementById('crmc-modal');
+                    if (crmcModal && !crmcModal.classList.contains('hidden')) {
+                        closeCrmcModal();
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

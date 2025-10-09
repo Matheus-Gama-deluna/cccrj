@@ -5,7 +5,7 @@ class CrmcManager {
         this.currentPage = 1;
         this.itemsPerPage = 6;
         this.hasMoreItems = true;
-        this.apiUrl = 'api/crmc/list.php'; // URL da API em PHP puro
+        this.apiUrl = 'api/json/crmc/list.php'; // Novo endpoint JSON
         this.init();
     }
 

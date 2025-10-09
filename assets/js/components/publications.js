@@ -5,7 +5,7 @@ class PublicationsManager {
         this.currentPage = 1;
         this.itemsPerPage = 6;
         this.hasMorePublications = true;
-        this.apiUrl = 'api/publications/list.php';
+        this.apiUrl = 'api/json/publications/list.php'; // Novo endpoint JSON
         this.init();
     }
 
@@ -29,7 +29,7 @@ class PublicationsManager {
             
             const data = await response.json();
             this.publications = [...this.publications, ...data.data];
-            this.hasMorePublications = data.hasMore;
+            this.hasMorePublications = (this.publications.length < data.total);
             
             this.renderPublications();
             
@@ -68,7 +68,7 @@ class PublicationsManager {
         
         const gradientClass = gradients[publication.type] || 'from-[#8B2635] to-[#992D3D]';
         
-        article.innerHTML = \`
+        article.innerHTML = `
             <div class="h-48 bg-gradient-to-br ${gradientClass} relative flex items-center justify-center">
                 <div class="text-center">
                     <span class="material-icons text-white text-6xl">${publication.type === 'revista' ? 'menu_book' : 'description'}</span>
@@ -83,7 +83,7 @@ class PublicationsManager {
                     <span class="material-icons mr-2">download</span> Baixar ${publication.type === 'revista' ? 'Revista' : 'Boletim'}
                 </button>
             </div>
-        \`;
+        `;
         
         // Adicionar evento de clique para download
         const downloadButton = article.querySelector('.download-publication');
@@ -105,7 +105,7 @@ class PublicationsManager {
     async downloadPublication(filePath) {
         try {
             // Abrir o arquivo em uma nova aba para download
-            window.open(\`api/publications/download.php?file=${encodeURIComponent(filePath)}\`, '_blank');
+            window.open(`api/json/publications/download.php?file=${encodeURIComponent(filePath)}`, '_blank');
         } catch (error) {
             console.error('Erro ao baixar publicação:', error);
             alert('Não foi possível baixar a publicação. Tente novamente mais tarde.');

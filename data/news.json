@@ -1,6 +1,56 @@
 {
     "noticias": [
         {
+            "id": 431784113,
+            "categoria": "Exportação",
+            "data": "2025-10-07",
+            "titulo": "Exportadores têm prejuízo de R$ 5,9 milhões em agosto com não embarque de café",
+            "resumo": "\n\t\t\t\t\tExportadores têm prejuízo de R$ 5,9 milhões em agosto com não embarque de café\n\t\t\t\t\t\t\t...",
+            "conteudo": "",
+            "icone": "article",
+            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/boletim-dtz-ago-2025-20251007\/"
+        },
+        {
+            "id": 2577082324,
+            "categoria": "Produção",
+            "data": "2025-10-03",
+            "titulo": "EUDR e tarifaço em debate no SCTA Coffee Forum & Dinner, na Suíça",
+            "resumo": "\n\t\t\t\t\tEUDR e tarifaço em debate no SCTA Coffee Forum & Dinner, na Suíça\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t...",
+            "conteudo": "",
+            "icone": "agriculture",
+            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/eudr-tarifaco-scta-coffee-forum-20251003\/"
+        },
+        {
+            "id": 3532112693,
+            "categoria": "Evento",
+            "data": "2025-10-01",
+            "titulo": "Brasil destaca indicadores sustentáveis positivos da cafeicultura em evento na FAO",
+            "resumo": "\n\t\t\t\t\tBrasil destaca indicadores sustentáveis positivos da cafeicultura em evento na FAO\n\t\t\t\t\t\t\t...",
+            "conteudo": "",
+            "icone": "event",
+            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/brasil-cafeicultura-sustentavel-cecafe-fao-20251001\/"
+        },
+        {
+            "id": 3655150463,
+            "categoria": "Produção",
+            "data": "2025-10-01",
+            "titulo": "Parceria entre Cecafé e Emater-MG promove sustentabilidade na cafeicultura brasileira",
+            "resumo": "\n\t\t\t\t\tParceria entre Cecafé e Emater-MG promove sustentabilidade na cafeicultura brasileira\n\t\t\t\t...",
+            "conteudo": "",
+            "icone": "agriculture",
+            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/parceria-cecafe-emater-mg-sustentabilidade-cafes-brasil-20251001\/"
+        },
+        {
+            "id": 2577666341,
+            "categoria": "Produção",
+            "data": "2025-09-30",
+            "titulo": "Cecafé e CBN Welltech Benefícios realizam palestra sobre saúde emocional",
+            "resumo": "\n\t\t\t\t\tCecafé e CBN Welltech Benefícios realizam palestra sobre saúde emocional\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t...",
+            "conteudo": "",
+            "icone": "agriculture",
+            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/cecafe-e-cbn-welltech-beneficios-realizam-palestra-sobre-saude-emocional-20250930\/"
+        },
+        {
             "id": 3614177969,
             "categoria": "Produção",
             "data": "2025-09-24",
@@ -49,57 +99,7 @@
             "conteudo": "",
             "icone": "agriculture",
             "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/boletim-dtz-jul-2025-20250902\/"
-        },
-        {
-            "id": 2147588586,
-            "categoria": "Produção",
-            "data": "2025-08-29",
-            "titulo": "Posicionamento do Cecafé a respeito da Lei de Reciprocidade",
-            "resumo": "\n\t\t\t\t\tPosicionamento do Cecafé a respeito da Lei de Reciprocidade\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tPaulo An...",
-            "conteudo": "",
-            "icone": "agriculture",
-            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/nota-lei-reciprocidade-20250829\/"
-        },
-        {
-            "id": 1408633004,
-            "categoria": "Exportação",
-            "data": "2025-08-22",
-            "titulo": "Cecafé e IBI debatem a criação de índice logístico mensal para mitigar entraves nas exportações",
-            "resumo": "\n\t\t\t\t\tCecafé e IBI debatem a criação de índice logístico mensal para mitigar entraves nas ex...",
-            "conteudo": "",
-            "icone": "article",
-            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/cecafe-ibi-indice-logistico-mensal-20250822\/"
-        },
-        {
-            "id": 3056475952,
-            "categoria": "Produção",
-            "data": "2025-08-18",
-            "titulo": "CoffeeCast #30 – Transformando pequenos atores da cadeia do café em empreendedores rurais",
-            "resumo": "\n\t\t\t\t\tCoffeeCast #30 – Transformando pequenos atores da cadeia do café em empreendedores rurai...",
-            "conteudo": "",
-            "icone": "agriculture",
-            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/coffeecast-30-sebrae-joao-paulo-arciprete-20250818\/"
-        },
-        {
-            "id": 2397127628,
-            "categoria": "Exportação",
-            "data": "2025-08-12",
-            "titulo": "Exportação de café do Brasil soma 2,7 milhões de sacas em julho",
-            "resumo": "\n\t\t\t\t\tExportação de café do Brasil soma 2,7 milhões de sacas em julho\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tP...",
-            "conteudo": "",
-            "icone": "article",
-            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/relatorio-exportacao-julho-2025-20250812\/"
-        },
-        {
-            "id": 1692291683,
-            "categoria": "Exportação",
-            "data": "2025-07-30",
-            "titulo": "Exportadores de café seguem enfrentando dificuldades para consolidar embarques nos portos do Brasil",
-            "resumo": "\n\t\t\t\t\tExportadores de café seguem enfrentando dificuldades para consolidar embarques nos portos ...",
-            "conteudo": "",
-            "icone": "article",
-            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/boletim-dtz-jun-2025-20250730\/"
         }
     ],
-    "ultima_atualizacao": "2025-09-29 21:25:01"
+    "ultima_atualizacao": "2025-10-09 20:09:00"
 }
