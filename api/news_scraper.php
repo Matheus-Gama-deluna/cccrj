@@ -370,35 +370,38 @@ try {
     if (isset($_GET['url'])) {
         // Buscar conteúdo completo de uma notícia
         $content = $scraper->fetchFullNews($_GET['url']);
-        echo json_encode(['conteudo' => $content]);
+        $response = ['conteudo' => $content];
     } else if (isset($_GET['force_update'])) {
         // Forçar atualização manual - busca e salva em JSON estático
         $result = $scraper->forceUpdate();
-        echo json_encode($result);
+        $response = $result;
     } else if (isset($_GET['get_static_news'])) {
         // Obter notícias do arquivo JSON estático
         $result = $scraper->getNewsFromStaticFile();
         if ($result) {
-            echo json_encode($result);
+            $response = $result;
         } else {
-            echo json_encode(['noticias' => [], 'ultima_atualizacao' => null]);
+            $response = ['noticias' => [], 'ultima_atualizacao' => null];
         }
     } else {
         // Por padrão, obter notícias do arquivo estático
         $result = $scraper->getNewsFromStaticFile();
         if ($result) {
-            echo json_encode($result);
+            $response = $result;
         } else {
             // Se não houver arquivo, tentar atualizar
             $updateResult = $scraper->forceUpdate();
             if ($updateResult['updated']) {
                 $result = $scraper->getNewsFromStaticFile();
-                echo json_encode($result);
+                $response = $result ?: ['noticias' => [], 'ultima_atualizacao' => null];
             } else {
-                echo json_encode(['noticias' => [], 'ultima_atualizacao' => null, 'error' => $updateResult['error']]);
+                $response = ['noticias' => [], 'ultima_atualizacao' => null, 'error' => $updateResult['error']];
             }
         }
     }
+    
+    // Garantir que a saída seja sempre JSON válido
+    echo json_encode($response);
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(['error' => $e->getMessage()]);

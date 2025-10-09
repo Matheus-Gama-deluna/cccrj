@@ -1,7 +1,6 @@
 // main.js - Script principal do sistema
 
 // Importar componentes
-import './components/quotes.js';
 import './components/news.js';
 import './components/reports.js';
 import './components/calculator.js';
@@ -12,9 +11,9 @@ import './components/about.js';
 import './components/crmc.js';
 import './components/archive.js';
 
-// Função para rolar até a seção de cotações
-function scrollToCotacao() {
-    document.getElementById('cotacao').scrollIntoView({ 
+// Função para rolar até a seção de notícias
+function scrollToNews() {
+    document.getElementById('noticias').scrollIntoView({ 
         behavior: 'smooth',
         block: 'start'
     });
@@ -38,21 +37,8 @@ document.querySelectorAll('.card-hover').forEach(el => {
     el.style.transition = 'all 0.6s ease';
 });
 
-// Inicializar as cotações de café ao carregar a página
+// Inicializar os componentes ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
-    // Carregar o componente de cotações
-    if (typeof CoffeeQuotes !== 'undefined') {
-        new CoffeeQuotes();
-    } else {
-        // Carregar o script dinamicamente caso não tenha sido carregado
-        const script = document.createElement('script');
-        script.src = 'assets/js/components/quotes.js';
-        script.onload = () => {
-            new CoffeeQuotes();
-        };
-        document.head.appendChild(script);
-    }
-    
     // Inicializar outros componentes se os elementos existirem na página
     if (typeof NewsManager !== 'undefined' && document.getElementById('news-container')) {
         new NewsManager();

@@ -181,17 +181,27 @@ async function updateNews() {
     
     try {
         const response = await fetch('api/news_scraper.php?force_update=1', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }
+            method: 'GET'
         });
         
         if (!response.ok) {
             throw new Error(`Erro na requisição: ${response.status}`);
         }
         
-        const result = await response.json();
+        // Check if response is HTML/PHP instead of JSON
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            throw new Error('O servidor não está retornando dados no formato JSON esperado. Verifique se o servidor está configurado para processar arquivos PHP.');
+        }
+        
+        const responseText = await response.text();
+        
+        // Validate JSON before parsing
+        if (responseText.trim().startsWith('<?php') || responseText.trim().startsWith('<')) {
+            throw new Error('O servidor está retornando código PHP em vez de dados JSON. Verifique a configuração do servidor.');
+        }
+        
+        const result = JSON.parse(responseText);
         
         if (result.updated) {
             statusDiv.innerHTML = `
@@ -216,11 +226,18 @@ async function updateNews() {
         }
     } catch (error) {
         console.error('Erro ao atualizar notícias:', error);
+        
+        // Check if this is likely a PHP processing issue
+        let errorMessage = 'Verifique o console para mais detalhes';
+        if (error.message.includes('PHP') || error.message.includes('JSON')) {
+            errorMessage = 'Erro de configuração do servidor: O arquivo PHP não está sendo processado corretamente.';
+        }
+        
         statusDiv.innerHTML = `
             <div class="text-center">
                 <span class="material-icons text-5xl text-red-500">error</span>
                 <p class="mt-2 text-[#6B4423] font-medium">Erro ao atualizar notícias</p>
-                <p class="mt-1 text-gray-600">Verifique o console para mais detalhes</p>
+                <p class="mt-1 text-gray-600">${errorMessage}</p>
             </div>
         `;
         statusDiv.classList.remove('bg-green-100', 'text-green-800');
