@@ -1,0 +1,727 @@
+{
+  "categoria": "publicacoes",
+  "total_imagens": 103,
+  "imagens": [
+    {
+      "nome": "Home_r10_c11.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r10_c11.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r10_c11.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r10_c2.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r10_c2.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r10_c2.jpg",
+      "tamanho": "1.8 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r13_c12.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r13_c12.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r13_c12.jpg",
+      "tamanho": "6.1 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r13_c18.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r13_c18.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r13_c18.jpg",
+      "tamanho": "10.6 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r13_c2.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r13_c2.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r13_c2.jpg",
+      "tamanho": "1.5 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r13_c8.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r13_c8.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r13_c8.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r14_c11.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r14_c11.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r14_c11.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r14_c2.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r14_c2.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r14_c2.jpg",
+      "tamanho": "1.9 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r15_c12.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r15_c12.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r15_c12.jpg",
+      "tamanho": "0.6 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r15_c2.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r15_c2.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r15_c2.jpg",
+      "tamanho": "1.2 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r15_c6.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r15_c6.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r15_c6.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r16_c2.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r16_c2.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r16_c2.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r16_c3.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r16_c3.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r16_c3.jpg",
+      "tamanho": "1.2 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r16_c5.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r16_c5.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r16_c5.jpg",
+      "tamanho": "0.5 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r16_c7.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r16_c7.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r16_c7.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r17_c3.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r17_c3.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r17_c3.jpg",
+      "tamanho": "1.1 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r18_c3.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r18_c3.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r18_c3.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r1_c1.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r1_c1.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r1_c1.jpg",
+      "tamanho": "3.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r2_c1.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r2_c1.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r2_c1.jpg",
+      "tamanho": "0.6 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r2_c10.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r2_c10.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r2_c10.jpg",
+      "tamanho": "29.7 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r2_c4.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r2_c4.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r2_c4.jpg",
+      "tamanho": "3.2 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r3_c4.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r3_c4.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r3_c4.jpg",
+      "tamanho": "0.8 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r4_c10.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r4_c10.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r4_c10.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r4_c13.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r4_c13.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r4_c13.jpg",
+      "tamanho": "0.6 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r4_c15.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r4_c15.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r4_c15.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r4_c16.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r4_c16.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r4_c16.jpg",
+      "tamanho": "0.6 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r4_c17.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r4_c17.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r4_c17.jpg",
+      "tamanho": "13.7 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r5_c16.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r5_c16.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r5_c16.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r6_c13.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r6_c13.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r6_c13.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r7_c1.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r7_c1.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r7_c1.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r7_c2.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r7_c2.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r7_c2.jpg",
+      "tamanho": "1.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r7_c6.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r7_c6.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r7_c6.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r8_c14.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r8_c14.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r8_c14.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r8_c2.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r8_c2.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r8_c2.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r8_c3.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r8_c3.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r8_c3.jpg",
+      "tamanho": "3.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r9_c2.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r9_c2.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r9_c2.jpg",
+      "tamanho": "1.7 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Home_r9_c9.jpg",
+      "caminho_original": "Boletim\\Imagens_Home\\Home_r9_c9.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Home_r9_c9.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "spacer.gif",
+      "caminho_original": "Boletim\\Imagens_Home\\spacer.gif",
+      "caminho_destino": "midia\\imagens\\publicacoes\\spacer.gif",
+      "tamanho": "0.0 KB",
+      "formato": "GIF"
+    },
+    {
+      "nome": "dir.png",
+      "caminho_original": "Boletim\\index_icons\\winxp\\dir.png",
+      "caminho_destino": "midia\\imagens\\publicacoes\\dir.png",
+      "tamanho": "3.1 KB",
+      "formato": "PNG"
+    },
+    {
+      "nome": "pdf.png",
+      "caminho_original": "Boletim\\index_icons\\winxp\\pdf.png",
+      "caminho_destino": "midia\\imagens\\publicacoes\\pdf.png",
+      "tamanho": "3.2 KB",
+      "formato": "PNG"
+    },
+    {
+      "nome": "search.png",
+      "caminho_original": "Boletim\\index_icons\\winxp\\search.png",
+      "caminho_destino": "midia\\imagens\\publicacoes\\search.png",
+      "tamanho": "3.3 KB",
+      "formato": "PNG"
+    },
+    {
+      "nome": "Titulo_Anteriores_Revista.gif",
+      "caminho_original": "Imagens\\Titulo_Anteriores_Revista.gif",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Titulo_Anteriores_Revista.gif",
+      "tamanho": "1.6 KB",
+      "formato": "GIF"
+    },
+    {
+      "nome": "Titulo_Assinatura_Revista.gif",
+      "caminho_original": "Imagens\\Titulo_Assinatura_Revista.gif",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Titulo_Assinatura_Revista.gif",
+      "tamanho": "2.3 KB",
+      "formato": "GIF"
+    },
+    {
+      "nome": "Titulo_Indice_Revista.gif",
+      "caminho_original": "Imagens\\Titulo_Indice_Revista.gif",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Titulo_Indice_Revista.gif",
+      "tamanho": "0.8 KB",
+      "formato": "GIF"
+    },
+    {
+      "nome": "Interno_Revista_r10_c13.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r10_c13.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r10_c13.jpg",
+      "tamanho": "0.5 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r10_c18.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r10_c18.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r10_c18.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r10_c2.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r10_c2.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r10_c2.jpg",
+      "tamanho": "1.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r10_c23.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r10_c23.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r10_c23.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r10_c25.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r10_c25.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r10_c25.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r10_c27.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r10_c27.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r10_c27.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r10_c29.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r10_c29.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r10_c29.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r10_c5.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r10_c5.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r10_c5.jpg",
+      "tamanho": "1.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r10_c8.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r10_c8.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r10_c8.jpg",
+      "tamanho": "1.8 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r11_c13.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r11_c13.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r11_c13.jpg",
+      "tamanho": "1.1 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r11_c16.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r11_c16.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r11_c16.jpg",
+      "tamanho": "1.0 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r11_c20.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r11_c20.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r11_c20.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r12_c16.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r12_c16.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r12_c16.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r13_c16.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r13_c16.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r13_c16.jpg",
+      "tamanho": "1.2 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r13_c21.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r13_c21.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r13_c21.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r14_c16.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r14_c16.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r14_c16.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r1_c1.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r1_c1.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r1_c1.jpg",
+      "tamanho": "4.5 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r2_c1.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r2_c1.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r2_c1.jpg",
+      "tamanho": "0.6 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r2_c3.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r2_c3.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r2_c3.jpg",
+      "tamanho": "3.2 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r2_c7.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r2_c7.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r2_c7.jpg",
+      "tamanho": "20.2 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r3_c10.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r3_c10.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r3_c10.jpg",
+      "tamanho": "2.8 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r3_c7.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r3_c7.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r3_c7.jpg",
+      "tamanho": "0.6 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r3_c9.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r3_c9.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r3_c9.jpg",
+      "tamanho": "0.6 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r4_c10.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r4_c10.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r4_c10.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r4_c12.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r4_c12.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r4_c12.jpg",
+      "tamanho": "0.9 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r4_c14.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r4_c14.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r4_c14.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r4_c15.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r4_c15.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r4_c15.jpg",
+      "tamanho": "0.9 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r4_c19.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r4_c19.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r4_c19.jpg",
+      "tamanho": "5.2 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r5_c3.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r5_c3.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r5_c3.jpg",
+      "tamanho": "0.7 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r6_c12.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r6_c12.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r6_c12.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r6_c15.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r6_c15.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r6_c15.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r7_c9.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r7_c9.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r7_c9.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r8_c19.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r8_c19.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r8_c19.jpg",
+      "tamanho": "0.3 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r8_c29.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r8_c29.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r8_c29.jpg",
+      "tamanho": "0.8 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r8_c30.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r8_c30.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r8_c30.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c1.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c1.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c1.jpg",
+      "tamanho": "0.5 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c11.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c11.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c11.jpg",
+      "tamanho": "0.6 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c13.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c13.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c13.jpg",
+      "tamanho": "1.1 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c17.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c17.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c17.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c18.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c18.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c18.jpg",
+      "tamanho": "0.9 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c2.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c2.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c2.jpg",
+      "tamanho": "0.8 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c22.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c22.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c22.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c23.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c23.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c23.jpg",
+      "tamanho": "0.7 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c24.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c24.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c24.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c25.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c25.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c25.jpg",
+      "tamanho": "0.7 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c26.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c26.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c26.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c27.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c27.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c27.jpg",
+      "tamanho": "0.8 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c28.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c28.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c28.jpg",
+      "tamanho": "0.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c4.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c4.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c4.jpg",
+      "tamanho": "0.6 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c5.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c5.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c5.jpg",
+      "tamanho": "0.7 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c6.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c6.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c6.jpg",
+      "tamanho": "0.6 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "Interno_Revista_r9_c8.jpg",
+      "caminho_original": "Imagens_Int\\Interno_Revista_r9_c8.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\Interno_Revista_r9_c8.jpg",
+      "tamanho": "1.0 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "capa_pq.jpg",
+      "caminho_original": "revista\\861\\Imagens\\capa_pq.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\capa_pq.jpg",
+      "tamanho": "63.5 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "capa_pq.jpg",
+      "caminho_original": "revista\\862\\Imagens\\capa_pq.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\capa_pq.jpg",
+      "tamanho": "65.5 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "capa_pq.jpg",
+      "caminho_original": "revista\\863\\Imagens\\capa_pq.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\capa_pq.jpg",
+      "tamanho": "80.2 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "capa_pq.jpg",
+      "caminho_original": "revista\\864\\Imagens\\capa_pq.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\capa_pq.jpg",
+      "tamanho": "59.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "capa_pq.jpg",
+      "caminho_original": "revista\\865\\Imagens\\capa_pq.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\capa_pq.jpg",
+      "tamanho": "66.4 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "capa_pq.jpg",
+      "caminho_original": "revista\\866\\Imagens\\capa_pq.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\capa_pq.jpg",
+      "tamanho": "72.1 KB",
+      "formato": "JPG"
+    },
+    {
+      "nome": "capa_gd.jpg",
+      "caminho_original": "revista\\867\\Imagens\\capa_gd.jpg",
+      "caminho_destino": "midia\\imagens\\publicacoes\\capa_gd.jpg",
+      "tamanho": "148.7 KB",
+      "formato": "JPG"
+    }
+  ]
+}

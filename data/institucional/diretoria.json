@@ -1,0 +1,26 @@
+{
+  "presidente": "Guilherme Braga Abreu P. Filho",
+  "diretores": [
+    {
+      "cargo": "Diretor Secretário",
+      "nome": "Alexandre Todeschini Pires"
+    },
+    {
+      "cargo": "Diretor Tesoureiro",
+      "nome": "Batista Mancini"
+    },
+    {
+      "cargo": "Diretor de Patrimônio",
+      "nome": "Ruy Barreto Filho"
+    }
+  ],
+  "gerente_geral": "Guilherme Braga Abreu P. Neto",
+  "fonte": "diretorias.htm",
+  "data_extracao": "2023-10-10",
+  "contato": {
+    "endereco": "Rua da Quitanda, 191 - 8º andar - Centro - Rio de Janeiro/RJ",
+    "telefone": "(21) 2516-3399",
+    "fax": "(21) 2253-4873",
+    "email": "riocafe@cccrj.com.br"
+  }
+}

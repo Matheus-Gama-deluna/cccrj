@@ -59,21 +59,64 @@ class HistoryManager {
         const div = document.createElement('div');
         div.className = 'history-event bg-white p-6 rounded-lg shadow mb-4 border-l-4 border-[#8B2635] opacity-0 translate-y-4 transition-all duration-500';
         
-        div.innerHTML = \`
-            <div class="flex items-start">
-                <div class="flex-shrink-0 mr-4">
-                    <div class="w-12 h-12 rounded-full bg-[#8B2635] flex items-center justify-center">
-                        <span class="material-icons text-white">history</span>
-                    </div>
-                </div>
-                <div class="flex-grow">
-                    <div class="text-sm font-semibold text-[#8B2635]">${this.formatDate(event.date)} • ${event.event_type}</div>
-                    <h3 class="text-xl font-bold text-[#6B4423] mt-1 mb-2">${event.title}</h3>
-                    <p class="text-[#8B2635]">${event.description || event.content.substring(0, 200) + '...'}</p>
-                    ${event.image_url ? \`<div class="mt-4"><img src="${event.image_url}" alt="${event.title}" class="rounded-lg max-w-full h-auto"></div>\` : ''}
-                </div>
-            </div>
-        \`;
+        // Criar elementos manualmente
+        const flexContainer = document.createElement('div');
+        flexContainer.className = 'flex items-start';
+        
+        // Ícone à esquerda
+        const iconContainer = document.createElement('div');
+        iconContainer.className = 'flex-shrink-0 mr-4';
+        
+        const iconCircle = document.createElement('div');
+        iconCircle.className = 'w-12 h-12 rounded-full bg-[#8B2635] flex items-center justify-center';
+        
+        const icon = document.createElement('span');
+        icon.className = 'material-icons text-white';
+        icon.textContent = 'history';
+        
+        // Conteúdo à direita
+        const contentContainer = document.createElement('div');
+        contentContainer.className = 'flex-grow';
+        
+        // Data e tipo do evento
+        const dateElement = document.createElement('div');
+        dateElement.className = 'text-sm font-semibold text-[#8B2635]';
+        dateElement.textContent = `${this.formatDate(event.date)} • ${event.event_type}`;
+        
+        // Título do evento
+        const titleElement = document.createElement('h3');
+        titleElement.className = 'text-xl font-bold text-[#6B4423] mt-1 mb-2';
+        titleElement.textContent = event.title || '';
+        
+        // Descrição do evento
+        const descriptionElement = document.createElement('p');
+        descriptionElement.className = 'text-[#8B2635]';
+        descriptionElement.textContent = event.description || 
+            (event.content ? event.content.substring(0, 200) + '...' : '');
+        
+        // Montar a estrutura
+        iconCircle.appendChild(icon);
+        iconContainer.appendChild(iconCircle);
+        
+        contentContainer.appendChild(dateElement);
+        contentContainer.appendChild(titleElement);
+        contentContainer.appendChild(descriptionElement);
+        
+        // Adicionar imagem se existir
+        if (event.image_url) {
+            const imgContainer = document.createElement('div');
+            imgContainer.className = 'mt-4';
+            const img = document.createElement('img');
+            img.src = event.image_url;
+            img.alt = event.title || '';
+            img.className = 'rounded-lg max-w-full h-auto';
+            imgContainer.appendChild(img);
+            contentContainer.appendChild(imgContainer);
+        }
+        
+        flexContainer.appendChild(iconContainer);
+        flexContainer.appendChild(contentContainer);
+        div.appendChild(flexContainer);
         
         // Adicionar animação de entrada
         setTimeout(() => {

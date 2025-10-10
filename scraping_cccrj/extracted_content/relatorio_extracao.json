@@ -1,0 +1,103 @@
+{
+  "data_geracao": "2025-10-10 15:21:53",
+  "diretorio_base": "D:\\Sistemas\\cccrj\\scraping_cccrj\\extracted_content",
+  "estatisticas": {
+    "Informações Institucionais": {
+      "arquivos": 2,
+      "tamanho": "15.6 KB",
+      "tamanho_bytes": 15967
+    },
+    "Centro de Referência e Memória do Café (CRMC)": {
+      "arquivos": 2,
+      "tamanho": "3.8 KB",
+      "tamanho_bytes": 3856
+    },
+    "Publicações": {
+      "arquivos": 3,
+      "tamanho": "616.1 KB",
+      "tamanho_bytes": 630894
+    },
+    "Mídia": {
+      "arquivos": 567,
+      "tamanho": "2.1 MB",
+      "tamanho_bytes": 2234509
+    },
+    "TOTAL": {
+      "arquivos": 574,
+      "tamanho": "2.8 MB"
+    }
+  },
+  "conteudo": {
+    "Informações Institucionais": {
+      "diretoria.json": {
+        "tipo": "arquivo",
+        "tamanho": "676.0 B"
+      },
+      "historia.json": {
+        "tipo": "arquivo",
+        "tamanho": "14.9 KB"
+      }
+    },
+    "Centro de Referência e Memória do Café (CRMC)": {
+      "arquivos.json": {
+        "tipo": "arquivo",
+        "tamanho": "2.7 KB"
+      },
+      "info.json": {
+        "tipo": "arquivo",
+        "tamanho": "1.1 KB"
+      }
+    },
+    "Publicações": {
+      "boletins": {
+        "tipo": "pasta",
+        "itens": 2,
+        "conteudo": {
+          "boletim_atual.pdf": {
+            "tipo": "arquivo",
+            "tamanho": "615.4 KB"
+          },
+          "metadata.json": {
+            "tipo": "arquivo",
+            "tamanho": "230.0 B"
+          }
+        }
+      },
+      "revistas": {
+        "tipo": "pasta",
+        "itens": 1,
+        "conteudo": {
+          "lista_revistas.json": {
+            "tipo": "arquivo",
+            "tamanho": "463.0 B"
+          }
+        }
+      }
+    },
+    "Mídia": {
+      "imagens": {
+        "crmc": {
+          "tipo": "pasta",
+          "itens": 67
+        },
+        "diversos": {
+          "tipo": "pasta",
+          "itens": 399
+        },
+        "eventos": {
+          "tipo": "pasta",
+          "itens": 0
+        },
+        "institucional": {
+          "tipo": "pasta",
+          "itens": 2
+        },
+        "publicacoes": {
+          "tipo": "pasta",
+          "itens": 99
+        }
+      },
+      "documentos": {}
+    }
+  }
+}

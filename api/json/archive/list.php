@@ -1,7 +1,23 @@
 <?php
 // api/json/archive/list.php
 
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET');
+header('Access-Control-Allow-Headers: Content-Type');
+
 require_once __DIR__ . '/../../../utils/JsonCache.php';
+
+// Verificar se o arquivo JSON existe
+$jsonFile = __DIR__ . '/../../../data/archive/items.json';
+if (!file_exists($jsonFile)) {
+    http_response_code(404);
+    echo json_encode([
+        'success' => false,
+        'message' => 'Arquivo de dados não encontrado.'
+    ]);
+    exit();
+}
 
 header('Content-Type: application/json');
 
@@ -27,12 +43,18 @@ try {
     $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 10;
     $offset = isset($_GET['offset']) ? (int)$_GET['offset'] : 0;
     
-    // Filtrar e paginar dados
-    $allItems = $data['data'];
-    $activeItems = array_filter($allItems, function($item) {
-        return $item['is_active'] === true;
-    });
+    // Garantir que $data['data'] seja um array
+    $allItems = is_array($data['data'] ?? null) ? $data['data'] : [];
     
+    // Filtrar itens ativos
+    $activeItems = [];
+    if (!empty($allItems)) {
+        $activeItems = array_filter($allItems, function($item) {
+            return isset($item['is_active']) && $item['is_active'] === true;
+        });
+    }
+    
+    // Paginar itens
     $items = array_slice($activeItems, $offset, $limit);
     
     // Retornar resposta

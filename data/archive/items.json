@@ -1,0 +1,29 @@
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "title": "Documento Histórico 1",
+            "description": "Descrição do documento histórico 1",
+            "file": "/documents/doc1.pdf",
+            "date": "2023-01-15",
+            "is_active": true
+        },
+        {
+            "id": 2,
+            "title": "Documento Histórico 2",
+            "description": "Descrição do documento histórico 2",
+            "file": "/documents/doc2.pdf",
+            "date": "2023-02-20",
+            "is_active": true
+        },
+        {
+            "id": 3,
+            "title": "Documento Histórico 3",
+            "description": "Descrição do documento histórico 3",
+            "file": "/documents/doc3.pdf",
+            "date": "2023-03-10",
+            "is_active": true
+        }
+    ]
+}

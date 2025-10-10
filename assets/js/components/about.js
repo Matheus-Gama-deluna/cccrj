@@ -44,13 +44,29 @@ class AboutManager {
         const div = document.createElement('div');
         div.className = 'about-section bg-white p-6 rounded-lg shadow mb-6 border border-[#F5F0E8] opacity-0 translate-y-4 transition-all duration-500';
         
-        div.innerHTML = \`
-            <h3 class="text-2xl font-bold text-[#6B4423] mb-4">${section.title}</h3>
-            <div class="text-[#8B2635] mb-4">
-                ${section.content}
-            </div>
-            ${section.image_url ? \`<div class="mt-4"><img src="${section.image_url}" alt="${section.title}" class="rounded-lg max-w-full h-auto"></div>\` : ''}
-        \`;
+        // Criar elementos manualmente para evitar problemas com template literais
+        const title = document.createElement('h3');
+        title.className = 'text-2xl font-bold text-[#6B4423] mb-4';
+        title.textContent = section.title || '';
+        
+        const content = document.createElement('div');
+        content.className = 'text-[#8B2635] mb-4';
+        content.innerHTML = section.content || '';
+        
+        div.appendChild(title);
+        div.appendChild(content);
+        
+        // Adicionar imagem se existir
+        if (section.image_url) {
+            const imgContainer = document.createElement('div');
+            imgContainer.className = 'mt-4';
+            const img = document.createElement('img');
+            img.src = section.image_url;
+            img.alt = section.title || '';
+            img.className = 'rounded-lg max-w-full h-auto';
+            imgContainer.appendChild(img);
+            div.appendChild(imgContainer);
+        }
         
         // Adicionar animação de entrada
         setTimeout(() => {

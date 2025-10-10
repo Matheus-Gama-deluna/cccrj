@@ -1,0 +1,29 @@
+{
+  "nome": "Centro de Referência e Memória do Café",
+  "sigla": "CRMC",
+  "descricao": "Espaço dedicado à preservação e difusão da história do café no Brasil",
+  "acervo": {
+    "documentos": "Coleção de documentos históricos sobre o café",
+    "fotografias": "Acervo fotográfico do setor cafeeiro",
+    "publicacoes": "Livros, revistas e periódicos sobre café",
+    "itens_em_destaque": [
+      "Documentos históricos da produção cafeeira",
+      "Fotografias de antigas fazendas de café",
+      "Coleção de máquinas e equipamentos antigos"
+    ]
+  },
+  "visitas": {
+    "horario": "Segunda a sexta, das 9h às 17h",
+    "agendamento": "Necessário agendamento prévio",
+    "contato": "crmc@cccrj.com.br / (21) 2516-3399"
+  },
+  "localizacao": {
+    "endereco": "Rua da Quitanda, 191 - 8º andar - Centro",
+    "cidade": "Rio de Janeiro",
+    "estado": "RJ",
+    "cep": "20091-005"
+  },
+  "fonte": "Conteúdo extraído do site do CCCRJ",
+  "data_extracao": "2023-10-10",
+  "atualizacao_necessaria": "Sim, verificar informações diretamente com o CRMC"
+}

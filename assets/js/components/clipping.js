@@ -69,25 +69,65 @@ class ClippingManager {
         
         const gradientClass = gradients[clipping.category] || 'from-[#8B2635] to-[#992D3D]';
         
-        article.innerHTML = \`
-            <div class="h-48 bg-gradient-to-br ${gradientClass} relative">
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <span class="material-icons text-white text-6xl">article</span>
-                </div>
-                <div class="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-sm font-medium text-[#8B2635]">
-                    ${clipping.category || 'Clipping'}
-                </div>
-            </div>
-            <div class="p-6">
-                <div class="text-sm text-[#6B4423] mb-2">${this.formatDate(clipping.date)} • ${this.calculateReadingTime(clipping.content)}</div>
-                <h3 class="text-xl font-bold text-[#6B4423] mb-3">${clipping.title}</h3>
-                <p class="text-[#8B2635] mb-4">${clipping.summary || clipping.content.substring(0, 150) + '...'}</p>
-                <a href="${clipping.source_url || '#'}" target="_blank" class="read-more-button text-[#8B2635] hover:text-[#992D3D] font-medium flex items-center group">
-                    Leia mais 
-                    <span class="material-icons ml-1 group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                </a>
-            </div>
-        \`;
+        // Criar elementos manualmente
+        const gradientDiv = document.createElement('div');
+        gradientDiv.className = `h-48 bg-gradient-to-br ${gradientClass} relative`;
+        
+        const centerDiv = document.createElement('div');
+        centerDiv.className = 'absolute inset-0 flex items-center justify-center';
+        
+        const iconSpan = document.createElement('span');
+        iconSpan.className = 'material-icons text-white text-6xl';
+        iconSpan.textContent = 'article';
+        
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-sm font-medium text-[#8B2635]';
+        categoryDiv.textContent = clipping.category || 'Clipping';
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'p-6';
+        
+        const dateDiv = document.createElement('div');
+        dateDiv.className = 'text-sm text-[#6B4423] mb-2';
+        dateDiv.textContent = `${this.formatDate(clipping.date)} • ${this.calculateReadingTime(clipping.content)}`;
+        
+        const titleH3 = document.createElement('h3');
+        titleH3.className = 'text-xl font-bold text-[#6B4423] mb-3';
+        titleH3.textContent = clipping.title;
+        
+        // Criar elementos restantes
+        const summaryP = document.createElement('p');
+        summaryP.className = 'text-[#8B2635] mb-4';
+        summaryP.textContent = clipping.summary || 
+            (clipping.content ? clipping.content.substring(0, 150) + '...' : '');
+        
+        const readMoreLink = document.createElement('a');
+        readMoreLink.href = clipping.source_url || '#';
+        readMoreLink.target = '_blank';
+        readMoreLink.className = 'read-more-button text-[#8B2635] hover:text-[#992D3D] font-medium flex items-center group';
+        readMoreLink.textContent = 'Leia mais ';
+        
+        // Criar ícone de seta
+        const arrowIcon = document.createElement('span');
+        arrowIcon.className = 'material-icons text-sm ml-1 transform group-hover:translate-x-1 transition-transform';
+        arrowIcon.textContent = 'arrow_forward';
+        
+        // Adicionar ícone ao link
+        readMoreLink.appendChild(arrowIcon);
+        
+        // Montar a estrutura
+        centerDiv.appendChild(iconSpan);
+        
+        gradientDiv.appendChild(centerDiv);
+        gradientDiv.appendChild(categoryDiv);
+        
+        contentDiv.appendChild(dateDiv);
+        contentDiv.appendChild(titleH3);
+        contentDiv.appendChild(summaryP);
+        contentDiv.appendChild(readMoreLink);
+        
+        article.appendChild(gradientDiv);
+        article.appendChild(contentDiv);
         
         // Adicionar animação de entrada
         setTimeout(() => {
