@@ -1,0 +1,862 @@
+{
+    "diretoria_atual": {
+        "periodo": "2016-2017",
+        "presidente": "Guilherme Braga Abreu P. Filho",
+        "diretores": [
+            {
+                "cargo": "Diretor Secretário",
+                "nome": "Alexandre Todeschini Pires"
+            },
+            {
+                "cargo": "Diretor Tesoureiro",
+                "nome": "Batista Mancini"
+            },
+            {
+                "cargo": "Diretor de Patrimônio",
+                "nome": "Ruy Barreto Filho"
+            },
+            {
+                "cargo": "Gerente-Geral",
+                "nome": "Guilherme Braga Abreu P. Neto"
+            }
+        ]
+    },
+    "diretorias_historicas": [
+        {
+            "periodo": "2016-2017",
+            "presidente": "Guilherme Braga Abreu P. Filho",
+            "diretores": [
+                {
+                    "cargo": "Diretor Secretário",
+                    "nome": "Alexandre Todeschini Pires"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Batista Mancini"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Ruy Barreto Filho"
+                },
+                {
+                    "cargo": "Gerente-Geral",
+                    "nome": "Guilherme Braga Abreu P. Neto"
+                }
+            ]
+        },
+        {
+            "periodo": "2005-2007",
+            "presidente": "Guilherme Braga Abreu P. Filho",
+            "diretores": [
+                {
+                    "cargo": "Diretor Secretário",
+                    "nome": "Batista Mancini"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Cesar Calmon"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Ruy Barreto Filho"
+                },
+                {
+                    "cargo": "Superintendente",
+                    "nome": "Guilherme Braga Abreu P. Neto"
+                }
+            ]
+        },
+        {
+            "periodo": "2005-2007",
+            "presidente": "Guilherme Braga Abreu P. Filho",
+            "diretores": [
+                {
+                    "cargo": "Diretor Secretário",
+                    "nome": "Batista Mancini"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Cesar Calmon"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Ruy Barreto Filho"
+                },
+                {
+                    "cargo": "Superintendente",
+                    "nome": "Guilherme Braga Abreu P. Neto"
+                }
+            ]
+        },
+        {
+            "periodo": "2003-2005",
+            "presidente": "Guilherme Braga Abreu P. Filho",
+            "diretores": [
+                {
+                    "cargo": "Diretor Secretário",
+                    "nome": "Batista Mancini"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Cesar Calmon"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Ruy Barreto Filho"
+                },
+                {
+                    "cargo": "Superintendente",
+                    "nome": "José Avelino Perácio de Freitas"
+                }
+            ]
+        },
+        {
+            "periodo": "2003-2005",
+            "presidente": "Guilherme Braga Abreu P. Filho",
+            "diretores": [
+                {
+                    "cargo": "Diretor Secretário",
+                    "nome": "Batista Mancini"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Cesar Calmon"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Ruy Barreto Filho"
+                },
+                {
+                    "cargo": "Superintendente",
+                    "nome": "José Avelino Perácio de Freitas"
+                }
+            ]
+        },
+        {
+            "periodo": "2001-2002",
+            "presidente": "Guilherme Braga Abreu Pires Filho",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Batista Mancini"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Carlos Eduardo C. M. Portella"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Manoel Aranha Correa do Lago"
+                }
+            ]
+        },
+        {
+            "periodo": "2001-2002",
+            "presidente": "Guilherme Braga Abreu Pires Filho",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Batista Mancini"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Carlos Eduardo C. M. Portella"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Manoel Aranha Correa do Lago"
+                }
+            ]
+        },
+        {
+            "periodo": "1999-2001",
+            "presidente": "Guilherme Braga Abreu Pires Filho",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Batista Mancini"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Carlos Eduardo C. M. Portella"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Luiz Otavio Araripe"
+                }
+            ]
+        },
+        {
+            "periodo": "1999-2001",
+            "presidente": "Guilherme Braga Abreu Pires Filho",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Batista Mancini"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Carlos Eduardo C. M. Portella"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Luiz Otavio Araripe"
+                }
+            ]
+        },
+        {
+            "periodo": "1997-1999",
+            "presidente": "José Avelino Peracio de Freitas",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Batista Mancini"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Guilherme Braga Abreu Pires Filho"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Carlos Eduardo C. M. Portella"
+                }
+            ]
+        },
+        {
+            "periodo": "1997-1999",
+            "presidente": "José Avelino Peracio de Freitas",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Batista Mancini"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Guilherme Braga Abreu Pires Filho"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Carlos Eduardo C. M. Portella"
+                }
+            ]
+        },
+        {
+            "periodo": "1993-1994",
+            "presidente": "Sérgio Giestas Tristão",
+            "diretores": [
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Eduardo Neves Peracio de Freitas"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Manoel Aranha Corrêa do Lago"
+                }
+            ]
+        },
+        {
+            "periodo": "1993-1994",
+            "presidente": "Sérgio Giestas Tristão",
+            "diretores": [
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Eduardo Neves Peracio de Freitas"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Manoel Aranha Corrêa do Lago"
+                }
+            ]
+        },
+        {
+            "periodo": "1991-1992",
+            "presidente": "Orlando Corrêa Neto",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Raphael José de Oliveira B. Neto"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Hermogenes Teixeira Ladeira"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Manoel Pereira da Silva Leite"
+                }
+            ]
+        },
+        {
+            "periodo": "1991-1992",
+            "presidente": "Orlando Corrêa Neto",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Raphael José de Oliveira B. Neto"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Hermogenes Teixeira Ladeira"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Manoel Pereira da Silva Leite"
+                }
+            ]
+        },
+        {
+            "periodo": "1989-1990",
+            "presidente": "Oswaldo Aranha Neto",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Sérgio Giestas Tristão"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Hermogenes Teixeira Ladeira"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Manoel Pereira da Silva Leite"
+                }
+            ]
+        },
+        {
+            "periodo": "1987-1988",
+            "presidente": "Jair Coser",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Sérgio Giestas Tristão"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Demênico Mauro"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Niels Christiano Alex Petersen"
+                }
+            ]
+        },
+        {
+            "periodo": "1985-1986",
+            "presidente": "Carlos Calmon",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Carlos Alberto de Andrade Pinto"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "André Jacque Assa"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Rui do Carmo Costa"
+                }
+            ]
+        },
+        {
+            "periodo": "1983-1984",
+            "presidente": "Ialdy Reis dos Santos",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Carlos Calmon"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Manoel Pereira da Silva Leite"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Rui do Carmo Costa"
+                }
+            ]
+        },
+        {
+            "periodo": "1981-1982",
+            "presidente": "Fenelon Machado Netto",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Oswaldo Aranha Netto"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "José Avelino Peracio Freitas"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Antônio Di Cristófalo"
+                }
+            ]
+        },
+        {
+            "periodo": "1979-1980",
+            "presidente": "João Leão Sattamini Netto",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Fenelon Machado Netto"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Antônio Di Cristófalo"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Atílio Benetti Sobrinho"
+                }
+            ]
+        },
+        {
+            "periodo": "1976-1978",
+            "presidente": "Wilson Peracio",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Ialdy Reis dos Santos"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Antônio Di Cristófalo"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "João Leão Sattamini Netto"
+                }
+            ]
+        },
+        {
+            "periodo": "1974-1975",
+            "presidente": "Henrique S. Duque Estrada Meyer",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Alberto Loures da Costa"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Jauffre Francisco dos Santos"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Atílio Benetti Sobrinho"
+                }
+            ]
+        },
+        {
+            "periodo": "1972-1973",
+            "presidente": "Henrique S. Duque Estrada Meyer",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Atílio Benetti Sobrinho"
+                },
+                {
+                    "cargo": "Diretor de Patrimônio",
+                    "nome": "Benjamin David Sion"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Jauffre Francisco dos Santos"
+                }
+            ]
+        },
+        {
+            "periodo": "1969-1970",
+            "presidente": "Benjamin David Sion",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Luiz Carlos Borges Magalhães"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Rubens Freitas Guimarães"
+                }
+            ]
+        },
+        {
+            "periodo": "1965-1966",
+            "presidente": "Nelson Brant Maciel",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Wilson Peracio"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Hélio Guedes de Brito"
+                }
+            ]
+        },
+        {
+            "periodo": "1963-1964",
+            "presidente": "Paulo Rodrigues Alves",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Joar Duarte"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Fernando de Magalhães Figueira"
+                }
+            ]
+        },
+        {
+            "periodo": "1961-1962",
+            "presidente": "Azarias Martins Villela",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Octavio Thyrso"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Gustavo Simon"
+                }
+            ]
+        },
+        {
+            "periodo": "1961-1962",
+            "presidente": "Azarias Martins Villela",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Octavio Thyrso"
+                },
+                {
+                    "cargo": "Diretor Tesoureiro",
+                    "nome": "Gustavo Simon"
+                }
+            ]
+        },
+        {
+            "periodo": "1959-1960",
+            "presidente": "Floriano Peçanha dos Santos",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Lysandro de Araujo"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Harry Rake Estill"
+                }
+            ]
+        },
+        {
+            "periodo": "1957-1958",
+            "presidente": "Azarias Martins Villela",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Humberto de Magalhães Tavares"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Benjamin David Sion"
+                }
+            ]
+        },
+        {
+            "periodo": "1955-1956",
+            "presidente": "José Larivoir Esteves",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "José Soares Rodrigues"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Harry Rake Estill"
+                }
+            ]
+        },
+        {
+            "periodo": "1953-1954",
+            "presidente": "Marcellino M. dos Santos Filho",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Sylvio de Magalhães Figueira"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Azarias Martins Villela"
+                }
+            ]
+        },
+        {
+            "periodo": "1949-1952",
+            "presidente": "Rui Gomes de Almeida",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Antônio de Abreu Netto"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Azarias Martins Villela"
+                }
+            ]
+        },
+        {
+            "periodo": "1948-1949",
+            "presidente": "Oscar Ferreira Marques",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Antônio Marcellino de A. Neto"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Pedro Vivacqua"
+                }
+            ]
+        },
+        {
+            "periodo": "1945-1947",
+            "presidente": "Paulo Rodrigues Alves",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Pedro Vivacqua"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Oscar Marques"
+                }
+            ]
+        },
+        {
+            "periodo": "1937-1944",
+            "presidente": "Júlio de Souza Avellar",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Sylvio de Chermont"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Júlio Vieira da Motta"
+                }
+            ]
+        },
+        {
+            "periodo": "1935-1936",
+            "presidente": "Vicente Meggiolaro",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Henrique Barbosa Lacerda Ferraz"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Júlio Vieira da Motta"
+                }
+            ]
+        },
+        {
+            "periodo": "1933-1934",
+            "presidente": "Galeno Gomes",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Júlio de Souza Avellar"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Felix Fonseca"
+                }
+            ]
+        },
+        {
+            "periodo": "1932-1933",
+            "presidente": "Armindo Cerqueira de S. Machado",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Pedro Orlando"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Manoel Thome do Nascimento"
+                }
+            ]
+        },
+        {
+            "periodo": "1931-1932",
+            "presidente": "José Mendes de Oliveira Castro",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Armindo Cerqueira de S. Machado"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Manoel Thome do Nascimento"
+                }
+            ]
+        },
+        {
+            "periodo": "1931-1932",
+            "presidente": "José Mendes de Oliveira Castro",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Armindo Cerqueira de S. Machado"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Manoel Thome do Nascimento"
+                }
+            ]
+        },
+        {
+            "periodo": "1928-1930",
+            "presidente": "Octaviano Pinto Lopes Ribeiro",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Honório de Araújo Maia"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Júlio Vieira da Motta"
+                }
+            ]
+        },
+        {
+            "periodo": "1927-1928",
+            "presidente": "Galeno Gomes",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Christiano Heyn Haman"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Júlio Pedro de Fraga Lourenço"
+                }
+            ]
+        },
+        {
+            "periodo": "1920-1926",
+            "presidente": "Galeno Gomes",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "João Pedro de Fraga Lourenço"
+                }
+            ]
+        },
+        {
+            "periodo": "1918-1919",
+            "presidente": "Bernardo de Oliveira Barbosa",
+            "diretores": [
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "César Borges Palhares"
+                }
+            ]
+        },
+        {
+            "periodo": "1916-1917",
+            "presidente": "J. G. Pereira Lima",
+            "diretores": [
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Honório de Araújo Maia"
+                }
+            ]
+        },
+        {
+            "periodo": "1913-1915",
+            "presidente": "José Luiz Ferreira Fontes",
+            "diretores": [
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "José Cândido Ferreira Moreira"
+                }
+            ]
+        },
+        {
+            "periodo": "1908-1909",
+            "presidente": "Antônio de Paula Rodigues Alves",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Alberto Augusto G. de Azevedo"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Carlos Leite Pinto"
+                }
+            ]
+        },
+        {
+            "periodo": "1906-1907",
+            "presidente": "Antônio da Silva Maia",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Honório de Araújo Maia"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Luiz Francisco Moreira"
+                }
+            ]
+        },
+        {
+            "periodo": "1905-1906",
+            "presidente": "José João Torres",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Arthur Ferreira M. Guimarães"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Adolpho Shimith"
+                }
+            ]
+        },
+        {
+            "periodo": "1905-1906",
+            "presidente": "José João Torres",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Arthur Ferreira M. Guimarães"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Adolpho Shimith"
+                }
+            ]
+        },
+        {
+            "periodo": "1901-1904",
+            "presidente": "Conde de Avelar",
+            "diretores": [
+                {
+                    "cargo": "Secretário",
+                    "nome": "Gustavo de Araújo Maia"
+                },
+                {
+                    "cargo": "Tesoureiro",
+                    "nome": "Antônio da Silva Maia"
+                }
+            ]
+        }
+    ],
+    "atualizacao": "2025-10-13 19:14:04",
+    "total_diretorias": 54
+}

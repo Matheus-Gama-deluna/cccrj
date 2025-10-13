@@ -10,20 +10,39 @@ Ao longo desses 100 anos, o Centro tem tido uma atuação constante na política
 
 ### Abertura
 
-Em nome pessoal, da Diretoria e dos associados do Centro do Comércio de Café do Rio de Janeiro, expressamos nossa alegria e satisfação por comemorarmos juntos esta etapa marcante de nossa existência.
+Quero, em meu nome pessoal, da Diretoria e dos associados do Centro do Comércio de Café do Rio de Janeiro, expressar a nossa alegria e satisfação pela presença de todos nesta solenidade e pela oportunidade que nos proporcionam de comemorarmos juntos esta etapa marcante da existência desta entidade, que nos enche de orgulho, como certamente a todos os membros da comunidade do café.
 
 ### Os 100 Anos de História
 
-Completamos e celebramos 100 anos de café. Neste ciclo, seguramente o mais esplendoroso período da história do café no Brasil, o Centro do Comércio viveu intensamente todos os seus acontecimentos e participou ativamente da construção de nossa cafeicultura.
+Completamos e celebramos 100 anos de café. Neste ciclo, seguramente o mais esplendoroso período da história do café no Brasil, o Centro do Comércio viveu intensamente todos os seus acontecimentos e participou de forma ativa do processo de construção de nossa cafeicultura.
 
-Desde 1901, congregando produtores, exportadores, corretores, armazenadores, transportadores, torrefadores e bancos, o Centro manteve-se à frente de seu tempo, antecipando o conceito moderno de agronegócio.
+Desde o seu surgimento, em 1901, congregando produtores, exportadores, corretores, armazenadores, transportadores, torrefadores, bancos, o Centro do Comércio do Café manteve-se à frente de seu tempo. Naquele momento, antecipou-se ao que, quase nove décadas depois, se transformaria no moderno conceito de agronegócio, no qual todos os elos da cadeia produtiva trabalham dentro de um esforço comum visando, na melhor participação de cada segmento, ao aumento do negócio como um todo.
 
 ### Marcos Históricos
 
-- 1901: Fundação do Centro do Comércio de Café do Rio de Janeiro
-- 1903: Inauguração da sede na Rua da Quitanda, com presença do Presidente Rodrigues Alves
-- Décadas seguintes: Atuação ativa na estruturação da cadeia produtiva do café
-- Anos recentes: Recuperação dos embarques de café pelo porto do Rio de Janeiro
+Os anais do Centro mostram, por exemplo, que as primeiras preocupações e ações foram as de estruturar uma organização básica ao funcionamento dos diversos serviços que compunham a atividade cafeeira, que ganhava a cada dia maior expressão econômica. Valendo-se da vantagem de reunir em um só foro todos os participantes, definiram-se normas e condutas para os serviços de Armazéns Gerais, de transportes, de estivadores. E, em 1903, com a presença do Presidente da República, Rodrigues Alves, inaugurou-se o lendário prédio da Rua da Quitanda, onde se montou um salão de pregões de café, no qual vendedores e compradores anunciavam as suas ofertas e concluíam negócios, e tinham acesso às diversas informações e estatísticas de mercado.
+
+### Realizações Recentes
+
+Hoje, decorridos 100 anos, orgulhamo-nos de manter vivos os ideais que pavimentaram a nossa história. Estão adiantados os estudos para instalar na sede da entidade um Centro de Memória e Referência do Café, não só para preservar o seu imenso acervo técnico e cultural, mas, sobretudo visando à difusão de seus conhecimentos.
+
+No plano local, sentimo-nos gratificados pelos resultados que estão sendo alcançados na recuperação dos embarques de café pelo porto do Rio de Janeiro. Refletindo todo o esforço e os investimentos realizados pelo Centro do Comércio de Café do Rio de Janeiro na estruturação de Terminais especializados, e a irrestrita cooperação de todas as autoridades e empresários envolvidos no processo, neste ano, as exportações atingirão cerca de 3,5 milhões de sacas, a mais alta dos últimos 35 anos. Este volume de embarques representa algo em torno de 18% das exportações brasileiras.
+
+### Desafios Atuais
+
+O transcurso de nosso centenário coincide com dois eventos importantes no campo da produção de café no Estado, aos quais o Centro tem emprestado todo o seu apoio e entusiasmo. Destaco a revitalização da Associação dos Cafeicultores do Rio de Janeiro, entidade que representa os interesses dos cafeicultores fluminenses. E, as ações empreendidas dentro do Programa Rio Café, conduzidas pelo Secretário de Agricultura, Cristino Aúreo da Silva, que buscam criar condições, através do incremento do crédito agrícola, de aumento dos investimentos na cafeicultura, capazes de gerar novos postos de trabalho e trazer prosperidade e bem estar para o campo.
+
+### Considerações Finais
+
+Ao longo de toda a sua existência, o café enfrentou e superou desafios de toda ordem. Hoje, novamente, defronta-se com uma situação adversa. O desequilíbrio que se observa entre a produção e o consumo mundiais tem ocasionado quedas consideráveis dos preços de mercado, afetando a renda do produtor e comprometendo o futuro da atividade.
+
+Nos últimos 100 anos, o café foi o grande financiador do processo de industrialização do Brasil. A enorme dependência que o País apresentava dos ingressos cambiais proporcionados pelo café tinha o efeito perverso de, por vezes, gerar políticas cafeeiras que não priorizavam as demandas do produto, pela necessidade de subordiná-las aos objetivos de uma política econômica global.
+
+Atualmente, quando o café representa em torno de 2% a 3% da receita cambial, embora continue gerando faturamentos superiores a US$ 1,5 bilhão anuais, este quadro não mais persiste. O café pode ter hoje a política que melhor consulte aos seus interesses e necessidades.
+
+Nestes 100 anos, em nenhum momento, foi assegurado à cafeicultura, pelas suas representações setoriais, a capacidade de influir de maneira tão ampla nos destinos do café quanto atualmente. O CDPC, foro maior das decisões cafeeiras, institucionalizou a participação do setor privado, e o Ministério da Agricultura, que abriga em seu organograma os assuntos do café, tem proporcionado todas as condições para o exercício dessa atribuição.
+
+Cabe ao setor privado, agora, pelas suas entidades de classe, com desprendimento e competência, enfrentar o desafio de apresentar os caminhos para superar o cenário desfavorável com o qual convivemos e, assim, garantir a continuidade e a integridade de nossa cafeicultura, não só no seu aspecto econômico, mas, sobretudo, preservando o imenso acervo social que encerra.
 
 ### Homenageados do Centenário
 
@@ -37,14 +56,6 @@ Desde 1901, congregando produtores, exportadores, corretores, armazenadores, tra
 8. **Nestlé** - Maior cliente do café brasileiro, criadora do café solúvel
 9. **Neumann Kaffee Gruppe** - Maior trading house mundial de café
 10. **UCC Ueshima Coffee Co.** - Empresa japonesa com forte vínculo ao café brasileiro
-
-### Desafios Atuais
-
-O setor enfrenta atualmente desafios como o desequilíbrio entre produção e consumo mundiais, que tem impactado os preços e a renda dos produtores. No entanto, o café brasileiro mantém sua importância, com faturamento superior a US$ 1,5 bilhão anuais.
-
-### Considerações Finais
-
-O Centenário do Centro do Comércio de Café do Rio de Janeiro representa não apenas uma celebração do passado, mas também um compromisso com o futuro da cafeicultura brasileira, mantendo viva a tradição de excelência e inovação que sempre caracterizou o setor.
 
 ## Diretorias ao Longo dos Anos
 

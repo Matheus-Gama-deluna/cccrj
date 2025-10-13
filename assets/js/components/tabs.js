@@ -16,6 +16,13 @@ class TabManager {
         
         if (this.tabButtons.length === 0 || this.tabContents.length === 0) return;
         
+        // Garante que todas as abas estejam ocultas inicialmente
+        this.tabContents.forEach(content => {
+            content.style.display = 'none';
+            content.classList.remove('active');
+            content.removeAttribute('hidden');
+        });
+        
         this.setupEventListeners();
         this.initialized = true;
         
@@ -58,9 +65,11 @@ class TabManager {
             btn.setAttribute('aria-selected', 'false');
         });
         
+        // Oculta todos os conteúdos de abas e remove qualquer atributo hidden
         this.tabContents.forEach(content => {
-            content.classList.add('hidden');
+            content.style.display = 'none';
             content.classList.remove('active');
+            content.removeAttribute('hidden');
         });
         
         // Ativa a aba selecionada
@@ -68,15 +77,17 @@ class TabManager {
         const activeContent = document.getElementById(`tab-${tabId}`);
         
         if (activeButton && activeContent) {
+            // Atualiza o botão ativo
             activeButton.classList.add('active', 'bg-[#8B2635]', 'text-white');
             activeButton.classList.remove('text-[#6B4423]', 'hover:bg-[#F5F0E8]');
             activeButton.setAttribute('aria-selected', 'true');
             
-            activeContent.classList.remove('hidden');
+            // Exibe o conteúdo da aba ativa
+            activeContent.style.display = 'block';
             activeContent.classList.add('active');
             
             // Rolar suavemente para a seção de abas apenas se shouldScroll for true
-            if (shouldScroll && !this.isElementInViewport(this.tabsContainer)) {
+            if (shouldScroll && this.tabsContainer && !this.isElementInViewport(this.tabsContainer)) {
                 // Obtém a altura do cabeçalho fixo
                 const header = document.querySelector('header');
                 const headerHeight = header ? header.offsetHeight : 0;
