@@ -1,6 +1,26 @@
 {
     "noticias": [
         {
+            "id": 1077504652,
+            "categoria": "Produção",
+            "data": "2025-10-10",
+            "titulo": "Cecafé debate cooperação da UE com América Latina no escopo do EUDR",
+            "resumo": "\n\t\t\t\t\tCecafé debate cooperação da UE com América Latina no escopo do EUDR\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t...",
+            "conteudo": "",
+            "icone": "agriculture",
+            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/cecafe-cooperacao-ue-latam-eudr-20251010\/"
+        },
+        {
+            "id": 3156219829,
+            "categoria": "Exportação",
+            "data": "2025-10-09",
+            "titulo": "Exportação de café do Brasil soma 3,75 milhões de sacas em setembro",
+            "resumo": "\n\t\t\t\t\tExportação de café do Brasil soma 3,75 milhões de sacas em setembro\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t...",
+            "conteudo": "",
+            "icone": "article",
+            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/exportacao-cafe-brasil-setembro-2025-20251009\/"
+        },
+        {
             "id": 431784113,
             "categoria": "Exportação",
             "data": "2025-10-07",
@@ -79,27 +99,7 @@
             "conteudo": "",
             "icone": "article",
             "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/relatorio-cecafe-agosto-2025-20250909\/"
-        },
-        {
-            "id": 1557319988,
-            "categoria": "Produção",
-            "data": "2025-09-08",
-            "titulo": "Cecafé apoia iniciativa para ampliar investimento em infraestrutura portuária",
-            "resumo": "\n\t\t\t\t\tCecafé apoia iniciativa para ampliar investimento em infraestrutura portuária\n\t\t\t\t\t\t\t\t\t\t\t...",
-            "conteudo": "",
-            "icone": "agriculture",
-            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/cecafe-apoio-porto-livre-brasil-20250908\/"
-        },
-        {
-            "id": 869391592,
-            "categoria": "Produção",
-            "data": "2025-09-02",
-            "titulo": "Brasil deixa de receber R$ 1,1 bi com a permanência de 1.542 contêineres de café parados nos portos em julho",
-            "resumo": "\n\t\t\t\t\tBrasil deixa de receber R$ 1,1 bi com a permanência de 1.542 contêineres de café parados...",
-            "conteudo": "",
-            "icone": "agriculture",
-            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/boletim-dtz-jul-2025-20250902\/"
         }
     ],
-    "ultima_atualizacao": "2025-10-09 20:09:00"
+    "ultima_atualizacao": "2025-10-13 03:54:12"
 }

@@ -26,40 +26,8 @@ document.querySelectorAll('.card-hover').forEach(el => {
     el.style.transition = 'all 0.6s ease';
 });
 
-// Função para gerenciar abas
-function setupTabNavigation() {
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
-    // Adiciona evento de clique para cada botão de aba
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const tabId = button.getAttribute('data-tab');
-            
-            // Remove a classe 'active-tab' de todos os botões
-            tabButtons.forEach(btn => btn.classList.remove('active-tab', 'bg-[#8B2635]', 'text-white'));
-            // Adiciona a classe 'active-tab' ao botão clicado
-            button.classList.add('active-tab', 'bg-[#8B2635]', 'text-white');
-            
-            // Esconde todos os conteúdos das abas
-            tabContents.forEach(content => {
-                content.classList.add('hidden');
-            });
-            
-            // Mostra o conteúdo da aba selecionada
-            const selectedContent = document.getElementById(`tab-${tabId}`);
-            if (selectedContent) {
-                selectedContent.classList.remove('hidden');
-                // Adiciona animação de fade-in
-                selectedContent.style.opacity = '0';
-                selectedContent.style.transition = 'opacity 0.3s ease-in-out';
-                setTimeout(() => {
-                    selectedContent.style.opacity = '1';
-                }, 10);
-            }
-        });
-    });
-}
+// O gerenciamento de abas foi movido para tabs.js
+// Utilize window.tabManager para acessar as funções de abas
 
 // Função para gerenciar busca e filtragem do acervo
 function setupArchiveFilters() {
@@ -146,10 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         new ArchiveManager();
     }
     
-    // Inicializar sistema de abas se os elementos existirem
-    if (document.querySelectorAll('.tab-button').length > 0) {
-        setupTabNavigation();
-    }
+    // O gerenciamento de abas agora é feito pelo TabManager em tabs.js
     
     // Inicializar filtros do acervo se os elementos existirem
     if (document.getElementById('search-acervo') && 
