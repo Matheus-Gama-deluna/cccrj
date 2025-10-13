@@ -45,11 +45,12 @@ class TabManager {
         e.preventDefault();
         const tabId = button.getAttribute('data-tab');
         if (tabId) {
-            this.activateTab(tabId);
+            // Ao clicar em uma aba, ativa a rolagem suave
+            this.activateTab(tabId, true);
         }
     }
     
-    activateTab(tabId) {
+    activateTab(tabId, shouldScroll = false) {
         // Desativa todas as abas
         this.tabButtons.forEach(btn => {
             btn.classList.remove('active', 'bg-[#8B2635]', 'text-white');
@@ -74,9 +75,21 @@ class TabManager {
             activeContent.classList.remove('hidden');
             activeContent.classList.add('active');
             
-            // Rolar suavemente para a seção de abas se não estiver visível
-            if (!this.isElementInViewport(this.tabsContainer)) {
-                this.tabsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Rolar suavemente para a seção de abas apenas se shouldScroll for true
+            if (shouldScroll && !this.isElementInViewport(this.tabsContainer)) {
+                // Obtém a altura do cabeçalho fixo
+                const header = document.querySelector('header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                
+                // Calcula a posição para rolar, considerando o cabeçalho
+                const elementPosition = this.tabsContainer.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerHeight - 20; // 20px de margem
+                
+                // Rola suavemente para a posição calculada
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
             }
             
             // Atualizar a URL sem recarregar a página
@@ -93,12 +106,13 @@ class TabManager {
         const tabParam = urlParams.get('tab');
         
         if (tabParam) {
-            this.activateTab(tabParam);
+            // Ao carregar a página, não rola para a aba
+            this.activateTab(tabParam, false);
         } else {
-            // Ativar a primeira aba por padrão
+            // Ativar a primeira aba por padrão sem rolagem
             const firstTab = this.tabButtons[0]?.getAttribute('data-tab');
             if (firstTab) {
-                this.activateTab(firstTab);
+                this.activateTab(firstTab, false);
             }
         }
     }
