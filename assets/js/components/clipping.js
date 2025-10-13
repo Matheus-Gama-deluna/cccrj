@@ -1,59 +1,63 @@
 // Componente ClippingManager em assets/js/components/clipping.js
-class ClippingManager {
-    constructor() {
-        this.clippings = [];
-        this.currentPage = 1;
-        this.itemsPerPage = 6;
-        this.hasMoreClippings = true;
-        this.apiUrl = 'api/json/clipping/list.php'; // Novo endpoint JSON
-        this.init();
-    }
+// Verifica se ClippingManager já foi declarado para evitar redeclaração
+if (typeof ClippingManager !== 'undefined') {
+    console.warn('ClippingManager já foi declarado, pulando redeclaração');
+} else {
+    class ClippingManager {
+        constructor() {
+            this.clippings = [];
+            this.currentPage = 1;
+            this.itemsPerPage = 6;
+            this.hasMoreClippings = true;
+            this.apiUrl = 'api/json/clipping/list.php'; // Novo endpoint JSON
+            this.init();
+        }
 
-    async init() {
-        await this.loadClippings();
-        this.bindEvents();
-    }
+        async init() {
+            await this.loadClippings();
+            this.bindEvents();
+        }
 
-    async loadClippings() {
-        try {
-            const params = new URLSearchParams({
-                page: this.currentPage,
-                limit: this.itemsPerPage
-            });
-            
-            const response = await fetch(`${this.apiUrl}?${params}`);
-            
-            if (!response.ok) {
-                throw new Error(`Erro na requisição: ${response.status}`);
+        async loadClippings() {
+            try {
+                const params = new URLSearchParams({
+                    page: this.currentPage,
+                    limit: this.itemsPerPage
+                });
+
+                const response = await fetch(`${this.apiUrl}?${params}`);
+
+                if (!response.ok) {
+                    throw new Error(`Erro na requisição: ${response.status}`);
+                }
+
+                const data = await response.json();
+                this.clippings = [...this.clippings, ...data.data];
+                this.hasMoreClippings = data.hasMore;
+
+                this.renderClippings();
+
+            } catch (error) {
+                console.error('Erro ao carregar clipping:', error);
+                this.showError(true, 'Não foi possível carregar o clipping. Tente novamente mais tarde.');
             }
-            
-            const data = await response.json();
-            this.clippings = [...this.clippings, ...data.data];
-            this.hasMoreClippings = data.hasMore;
-            
-            this.renderClippings();
-            
-        } catch (error) {
-            console.error('Erro ao carregar clipping:', error);
-            this.showError(true, 'Não foi possível carregar o clipping. Tente novamente mais tarde.');
         }
-    }
 
-    renderClippings() {
-        const clippingContainer = document.getElementById('clipping-container');
-        if (!clippingContainer) return;
+        renderClippings() {
+            const clippingContainer = document.getElementById('clipping-container');
+            if (!clippingContainer) return;
 
-        this.clippings.forEach(clipping => {
-            const clippingCard = this.createClippingCard(clipping);
-            clippingContainer.appendChild(clippingCard);
-        });
+            this.clippings.forEach(clipping => {
+                const clippingCard = this.createClippingCard(clipping);
+                clippingContainer.appendChild(clippingCard);
+            });
 
-        // Atualizar botão de carregar mais
-        const loadMoreButton = document.getElementById('carregar-mais-clipping');
-        if (loadMoreButton) {
-            loadMoreButton.classList.toggle('hidden', !this.hasMoreClippings);
+            // Atualizar botão de carregar mais
+            const loadMoreButton = document.getElementById('carregar-mais-clipping');
+            if (loadMoreButton) {
+                loadMoreButton.classList.toggle('hidden', !this.hasMoreClippings);
+            }
         }
-    }
 
     createClippingCard(clipping) {
         const article = document.createElement('article');
@@ -184,6 +188,7 @@ class ClippingManager {
             error.classList.toggle('hidden', !show);
         }
     }
+}
 }
 
 // Inicializar quando o DOM estiver pronto

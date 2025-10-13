@@ -1,4 +1,7 @@
 // Lógica para os relatórios em PDF
+// Variável global para controlar inicialização dos relatórios
+let reportsInitialized = false;
+
 class ReportsManager {
     constructor() {
         this.reportsContainer = document.getElementById('reports-container');
@@ -9,9 +12,16 @@ class ReportsManager {
     }
 
     init() {
+        // Previne múltiplas inicializações
+        if (reportsInitialized || !this.reportsContainer) {
+            return;
+        }
+
+        reportsInitialized = true;
+
         // Carregar relatórios iniciais
         this.loadReports();
-        
+
         // Adicionar funcionalidade de filtro por categoria se o elemento existir
         this.addCategoryFilter();
     }
@@ -20,20 +30,38 @@ class ReportsManager {
         try {
             // Mostrar indicador de carregamento
             this.showLoading();
-            
+
             // Chamar API para obter relatórios do FTP
             let apiUrl = this.apiUrl;
-            if (this.currentCategory !== 'all') {
+            if (this.currentCategory && this.currentCategory !== 'all') {
                 apiUrl += `?category=${this.currentCategory}`;
             }
-            
-            const response = await fetch(apiUrl);
+
+            const response = await fetch(apiUrl, {
+                headers: {
+                    'Cache-Control': 'no-cache',
+                    'Pragma': 'no-cache'
+                }
+            });
+
+            // Verifica se a resposta é JSON
+            const contentType = response.headers.get('content-type') || '';
+            const isJson = contentType.includes('application/json');
+
+            if (!isJson) {
+                // Se não for JSON, pega o texto para ver o que foi retornado
+                const textResponse = await response.text();
+                throw new Error('O servidor retornou uma resposta inválida. Por favor, verifique os logs do servidor.');
+            }
+
+            const data = await response.json();
             
             if (!response.ok) {
-                throw new Error(`Erro na requisição: ${response.status}`);
+                throw new Error(data.message || `Erro ao carregar relatórios (${response.status})`);
             }
             
-            const reports = await response.json();
+            // Verifica se a resposta tem a estrutura esperada
+            const reports = data.data || [];
             
             // Limpar container
             if (this.reportsContainer) {
@@ -42,17 +70,55 @@ class ReportsManager {
                 // Adicionar relatórios ao container
                 if (reports.length > 0) {
                     reports.forEach(report => {
-                        const card = this.createReportCard(report);
-                        this.reportsContainer.appendChild(card);
+                        try {
+                            // Garante que o relatório tenha as propriedades necessárias
+                            const normalizedReport = {
+                                name: report.name || 'Relatório sem nome',
+                                path: report.path || '',
+                                size: report.size || 0,
+                                modified: report.modified || new Date().toISOString(),
+                                url: report.url || `/api/reports/download?file=${encodeURIComponent(report.name || '')}`,
+                                // Extrai categoria do caminho ou usa padrão
+                                category: this.extractCategoryFromPath(report.path) || 'outro'
+                            };
+                            
+                            const card = this.createReportCard(normalizedReport);
+                            this.reportsContainer.appendChild(card);
+                        } catch (cardError) {
+                            // Silently handle card creation errors to prevent console spam
+                        }
                     });
+                    
+                    if (this.reportsContainer.children.length === 0) {
+                        this.showEmptyState();
+                    }
                 } else {
                     this.showEmptyState();
                 }
             }
         } catch (error) {
-            console.error('Erro ao carregar relatórios:', error);
-            this.showError('Não foi possível carregar os relatórios. Tente novamente mais tarde.');
+            this.showError(error.message || 'Não foi possível carregar os relatórios. Tente novamente mais tarde.');
+        } finally {
+            // Esconder indicador de carregamento
+            this.hideLoading();
         }
+    }
+    
+    /**
+     * Extrai a categoria do caminho do arquivo
+     * @param {string} path Caminho do arquivo
+     * @returns {string} Categoria do arquivo
+     */
+    extractCategoryFromPath(path) {
+        if (!path) return 'outro';
+        
+        const pathLower = path.toLowerCase();
+        
+        if (pathLower.includes('relatorios') || pathLower.includes('reports')) return 'relatorio';
+        if (pathLower.includes('publicacoes') || pathLower.includes('publications')) return 'publicacao';
+        if (pathLower.includes('acervo') || pathLower.includes('archive')) return 'acervo';
+        
+        return 'outro';
     }
 
     createReportCard(report) {
@@ -168,6 +234,11 @@ class ReportsManager {
                 </div>
             `;
         }
+    }
+
+    hideLoading() {
+        // Este método é chamado no finally para garantir que o loading seja removido
+        // A remoção do conteúdo é feita individualmente por cada método
     }
 
     showEmptyState() {

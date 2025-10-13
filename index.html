@@ -20,7 +20,7 @@
     <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="assets/css/styles.css"></noscript>
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS - CDN version for development (consider production build for better performance) -->
     <script src="https://cdn.tailwindcss.com" defer></script>
     <style>
         * { font-family: 'Inter', sans-serif; }
@@ -78,9 +78,10 @@
     <header class="fixed top-0 w-full z-50 glass-effect">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a class="text-2xl font-bold text-[#8B2635] flex items-center" href="#" aria-label="Página Inicial">
-                <span class="material-icons text-3xl mr-2 floating text-[#6B4423]">coffee</span>
+                <img src="assets/images/logo.png" alt="Logo CCCRJ" class="logo-img rounded">
                 CCCRJ
             </a>
+            <!-- Menu Desktop -->
             <nav class="hidden md:flex space-x-6">
                 <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#sobre">Sobre</a>
                 <a class="text-[#6B4423] hover:text-[#8B2635] transition-colors duration-300 font-medium" href="#noticias">Notícias</a>
@@ -90,55 +91,68 @@
                     <span class="material-icons align-middle">admin_panel_settings</span> Admin
                 </a>
             </nav>
-            <button class="md:hidden text-[#6B4423]" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
-                <span class="material-icons" aria-hidden="true">menu</span>
+            
+            <!-- Botão do Menu Mobile -->
+            <button class="md:hidden text-[#6B4423] p-2 rounded-md hover:bg-gray-100 transition-colors" 
+                    aria-label="Menu" 
+                    aria-expanded="false" 
+                    aria-controls="mobile-menu"
+                    id="mobile-menu-button">
+                <span class="material-icons text-3xl" aria-hidden="true">menu</span>
             </button>
+            
+            <!-- Menu Mobile -->
+            <div id="mobile-menu" class="mobile-menu-container fixed inset-0 z-40 hidden">
+                <div class="mobile-menu-overlay absolute inset-0 bg-black bg-opacity-50" aria-hidden="true"></div>
+                <nav class="mobile-menu-content absolute top-0 right-0 w-4/5 max-w-sm h-full bg-white shadow-xl transform transition-transform duration-300 ease-in-out translate-x-full">
+                    <div class="p-4 flex justify-end">
+                        <button class="mobile-menu-close p-2 rounded-full hover:bg-gray-100">
+                            <span class="material-icons text-2xl">close</span>
+                        </button>
+                    </div>
+                    <div class="px-6 py-4 space-y-4">
+                        <a class="block py-3 px-4 text-lg font-medium text-[#6B4423] hover:bg-[#F5F0E8] rounded-lg transition-colors" href="#sobre">Sobre</a>
+                        <a class="block py-3 px-4 text-lg font-medium text-[#6B4423] hover:bg-[#F5F0E8] rounded-lg transition-colors" href="#noticias">Notícias</a>
+                        <a class="block py-3 px-4 text-lg font-medium text-[#6B4423] hover:bg-[#F5F0E8] rounded-lg transition-colors" href="#relatorios">Relatórios</a>
+                        <a class="block py-3 px-4 text-lg font-medium text-[#6B4423] hover:bg-[#F5F0E8] rounded-lg transition-colors" href="#contato">Contato</a>
+                        <a class="block py-3 px-4 text-lg font-medium text-[#6B4423] hover:bg-[#F5F0E8] rounded-lg transition-colors flex items-center" href="login.html">
+                            <span class="material-icons mr-2">admin_panel_settings</span>
+                            Admin
+                        </a>
+                    </div>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section com animações -->
-    <section class="gradient-bg text-white py-32 mt-16 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <div class="floating absolute top-20 left-10 text-6xl">☕</div>
-            <div class="floating absolute top-40 right-20 text-4xl" style="animation-delay: 1s;">🌱</div>
-            <div class="floating absolute bottom-20 left-1/3 text-5xl" style="animation-delay: 2s;">📈</div>
+    <!-- Hero Section com imagem de fundo -->
+    <section class="gradient-bg text-white relative overflow-hidden" style="background: linear-gradient(135deg, rgba(139, 38, 53, 0.8) 0%, rgba(153, 45, 61, 0.85) 100%), url('assets/images/hero.png') no-repeat center center; background-size: cover;">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center pt-16">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in">
+                    Centro de Comércio de Café do Rio de Janeiro
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                    Sua fonte confiável para cotações, notícias e informações sobre o mercado de café no RJ
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#sobre" class="bg-white text-[#8B2635] hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                        Conheça mais
+                    </a>
+                </div>
+            </div>
         </div>
         
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6 animate-fade-in">
-               Saiba tudo sobre o café no Rio de Janeiro
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90">
-                Sua fonte confiável para cotações em tempo real, análises de mercado e notícias do setor cafeeiro no Rio de Janeiro.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="scrollToNews()" class="bg-white text-[#8B2635] font-semibold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                    Ver Notícias
-                </button>
-                <!-- <button class="border-2 border-white text-white font-semibold py-4 px-8 rounded-full hover:bg-white hover:text-[#8B2635] transition-all duration-300">
-                    Assinar Alertas
-                </button> -->
-            </div>
+        
+        
+        <div class="absolute bottom-10 left-0 right-0 flex justify-center">
+            <a href="#sobre" class="animate-bounce text-white">
+                <span class="material-icons text-4xl">expand_more</span>
+            </a>
         </div>
+        
+        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#8B2635] to-transparent"></div>
     </section>
-
-    <!-- Status Bar em tempo real
-    <div class="bg-white shadow-lg py-4 sticky top-20 z-40">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-wrap justify-center gap-8 text-center">
-                <div class="flex items-center space-x-2">
-                    <span class="w-3 h-3 bg-[#D4A574] rounded-full animate-pulse"></span>
-                    <span class="text-sm font-medium text-[#6B4423]">Mercado Aberto</span>
-                </div>
-                <div class="text-sm text-[#6B4423]">
-                    <span class="font-semibold">Última atualização:</span> <span id="last-update">Agora</span>
-                </div>
-                <div class="text-sm text-[#6B4423]">
-                    <span class="font-semibold">Dólar:</span> R$ 5,24 <span class="text-[#D4A574]">+0.8%</span>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
     <!-- Sobre Nós -->
     <section class="py-20 bg-white" id="sobre">
@@ -151,9 +165,7 @@
                     <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-instituicao" data-tab="instituicao">Instituição</button>
                     <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-historia" data-tab="historia">História</button>
                     <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-estatutos" data-tab="estatutos">Estatutos</button>
-                    <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-diretoria" data-tab="diretoria">Diretoria</button>
-                    <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-crmc" data-tab="crmc">CRMC</button>
-                    <button class="tab-button" role="tab" aria-selected="false" aria-controls="tab-acervo" data-tab="acervo">Acervo Digital</button>
+                    <button class="tab-button active" role="tab" aria-selected="true" aria-controls="tab-diretoria" data-tab="diretoria">Diretoria</button>
                 </div>
                 
                 <!-- Conteúdo das abas -->
@@ -169,9 +181,8 @@
                         <div class="mb-12">
                             <h3 class="text-2xl font-bold text-[#6B4423] mb-6 border-b border-[#F5F0E8] pb-2">Nossa História</h3>
                             <div class="bg-white p-6 rounded-lg shadow-sm border border-[#F5F0E8]">
-                                <p class="text-[#8B2635] mb-4">O Centro do Comércio do Café do Rio de Janeiro foi fundado em 26 de junho de 1901 com o objetivo de defender os direitos e interesses do comércio de café. A instituição surgiu em um momento crucial da história cafeeira brasileira, quando o Rio de Janeiro era o principal porto de embarque do café brasileiro.</p>
-                                <p class="text-[#8B2635] mb-4">Ao longo de mais de um século de existência, o CCCRJ tem atuado de forma constante na política cafeeira, sempre buscando medidas que sejam benéficas ao setor. Fomos uma presença constante em todos os momentos de crise e de euforia cafeeira, mantendo-nos atuante mesmo em períodos de transformação do setor.</p>
-                                <p class="text-[#8B2635]">Nosso compromisso permanece inalterado: defender os interesses do comércio de café, promover o desenvolvimento sustentável do setor e contribuir para a valorização do café brasileiro no mercado mundial. Hoje, continuamos trabalhando para que o Porto do Rio de Janeiro retome sua importância como um grande centro de escoamento do café brasileiro para o exterior.</p>
+                                <p class="text-[#8B2635] mb-4">A defesa dos direitos e interesses do comércio do café foi sempre a preocupação do Centro do Comércio do Café do Rio de Janeiro, instituição criada a 19 de dezembro de 1901, e instalada em 1903, em cerimônia que contou, inclusive, com a presença do Presidente da República da época, Rodrigues Alves.</p>
+                                <p class="text-[#8B2635] mb-4">Ao longo desses 100 anos, o Centro tem tido uma atuação constante na política cafeeira, aplaudindo as medidas que considera corretas: sugerindo uma série de ações e mantendo-se alerta para evitar decisões que não sejam benéficas ao setor. O Centro do Comércio do Café do Rio de Janeiro foi presença constante em todos os momentos de crise ou de euforia cafeeira. E continua atuante nesta época em que o café tenta conquistar os seus mercados e o Porto do Rio de Janeiro volta a ser um importante porto de escoamento do café brasileiro para os mercados no exterior.</p>
                             </div>
                         </div>
                         
@@ -262,7 +273,7 @@
                     </div>
                     
                     <!-- Aba Diretoria -->
-                    <div id="tab-diretoria" class="tab-content" role="tabpanel" aria-labelledby="tab-diretoria" hidden>
+                    <div id="tab-diretoria" class="tab-content active" role="tabpanel" aria-labelledby="tab-diretoria" style="display: block;">
                         <div class="bg-white p-6 rounded-lg shadow border border-[#F5F0E8]">
                             <h3 class="text-2xl font-bold text-[#6B4423] mb-6 text-center">Diretoria Atual</h3>
                             <h4 class="text-xl font-bold text-[#6B4423] mb-6 text-center">Mandato 2023-2025</h4>
@@ -321,201 +332,17 @@
                                         <p class="font-medium text-[#6B4423]">Conselheiro 1</p>
                                         <p class="text-sm text-[#8B2635]">Área de atuação</p>
                                     </div>
+                                    
                                     <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
                                         <p class="font-medium text-[#6B4423]">Conselheiro 2</p>
                                         <p class="text-sm text-[#8B2635]">Área de atuação</p>
                                     </div>
+                                    
                                     <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
                                         <p class="font-medium text-[#6B4423]">Conselheiro 3</p>
                                         <p class="text-sm text-[#8B2635]">Área de atuação</p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Aba CRMC -->
-                    <div id="tab-crmc" class="tab-content" role="tabpanel" aria-labelledby="tab-crmc" hidden>
-                        <div class="bg-white p-6 rounded-lg shadow border border-[#F5F0E8]">
-                            <div class="text-center mb-8">
-                                <h3 class="text-2xl font-bold text-[#6B4423] mb-2">CRMC - Centro de Referência e Memória do Café</h3>
-                                <p class="text-[#8B2635]">Preservando a história e promovendo a cultura cafeeira brasileira</p>
-                            </div>
-                            
-                            <!-- Galeria de imagens do CRMC -->
-                            <div class="mb-12">
-                                <h4 class="text-xl font-bold text-[#6B4423] mb-6 text-center">Galeria de Imagens</h4>
-                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg">
-                                        <img src="assets/images/crmc-fachada.jpg" alt="Fachada do CRMC" class="w-full h-64 object-cover">
-                                        <div class="p-4 bg-white">
-                                            <h5 class="font-bold text-[#6B4423]">Fachada do CRMC</h5>
-                                            <p class="text-[#8B2635] text-sm">Vista externa do Centro de Referência e Memória do Café</p>
-                                        </div>
-                                    </div>
-                                    <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg">
-                                        <img src="assets/images/crmc-biblioteca.jpg" alt="Biblioteca do CRMC" class="w-full h-64 object-cover">
-                                        <div class="p-4 bg-white">
-                                            <h5 class="font-bold text-[#6B4423]">Biblioteca do CRMC</h5>
-                                            <p class="text-[#8B2635] text-sm">Acervo bibliográfico especializado em café</p>
-                                        </div>
-                                    </div>
-                                    <div class="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden shadow-lg">
-                                        <img src="assets/images/crmc-exposicao.jpg" alt="Espaço de exposição do CRMC" class="w-full h-64 object-cover">
-                                        <div class="p-4 bg-white">
-                                            <h5 class="font-bold text-[#6B4423]">Espaço de Exposição</h5>
-                                            <p class="text-[#8B2635] text-sm">Exposições temporárias e permanentes</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Programação Cultural -->
-                            <div class="mb-12">
-                                <h4 class="text-xl font-bold text-[#6B4423] mb-6 text-center">Programação Cultural</h4>
-                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    <div class="bg-white p-6 rounded-xl shadow-md border border-[#F5F0E8]">
-                                        <div class="flex items-center mb-4">
-                                            <span class="material-icons text-[#8B2635] mr-3">event</span>
-                                            <h5 class="font-bold text-[#6B4423]">Palestra: O Café no Brasil</h5>
-                                        </div>
-                                        <p class="text-[#8B2635] text-sm mb-2">Data: 15 de Outubro, 2024</p>
-                                        <p class="text-[#8B2635] mb-4">Conheça a influência do café na formação do Brasil</p>
-                                        <button class="w-full bg-[#8B2635] text-white font-medium py-2 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300">
-                                            Inscreva-se
-                                        </button>
-                                    </div>
-                                    <div class="bg-white p-6 rounded-xl shadow-md border border-[#F5F0E8]">
-                                        <div class="flex items-center mb-4">
-                                            <span class="material-icons text-[#8B2635] mr-3">local_cafe</span>
-                                            <h5 class="font-bold text-[#6B4423]">Degustação de Cafés Especiais</h5>
-                                        </div>
-                                        <p class="text-[#8B2635] text-sm mb-2">Data: 22 de Outubro, 2024</p>
-                                        <p class="text-[#8B2635] mb-4">Experimente cafés especiais de diferentes regiões</p>
-                                        <button class="w-full bg-[#8B2635] text-white font-medium py-2 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300">
-                                            Inscreva-se
-                                        </button>
-                                    </div>
-                                    <div class="bg-white p-6 rounded-xl shadow-md border border-[#F5F0E8]">
-                                        <div class="flex items-center mb-4">
-                                            <span class="material-icons text-[#8B2635] mr-3">theater_comedy</span>
-                                            <h5 class="font-bold text-[#6B4423]">Workshop de Barismo</h5>
-                                        </div>
-                                        <p class="text-[#8B2635] text-sm mb-2">Data: 29 de Outubro, 2024</p>
-                                        <p class="text-[#8B2635] mb-4">Aprenda técnicas avançadas de preparo de café com especialistas</p>
-                                        <button class="w-full bg-[#8B2635] text-white font-medium py-2 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300">
-                                            Inscreva-se
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Container para conteúdo do CRMC carregado dinamicamente -->
-                            <div id="crmc-container" class="mt-8 space-y-6">
-                                <!-- Conteúdo do CRMC será carregado aqui dinamicamente -->
-                            </div>
-                            
-                            <div class="text-center mt-8">
-                                <button id="carregar-mais-crmc" class="bg-[#8B2635] text-white font-semibold py-2 px-6 rounded-lg hover:bg-[#992D3D] transition-colors duration-300">
-                                    Carregar Mais Conteúdo
-                                </button>
-                            </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Aba Acervo Digital -->
-                    <div id="tab-acervo" class="tab-content" role="tabpanel" aria-labelledby="tab-acervo" hidden>
-                        <div class="bg-white p-6 rounded-lg shadow border border-[#F5F0E8]">
-                            <div class="text-center mb-8">
-                                <h3 class="text-2xl font-bold text-[#6B4423] mb-2">Acervo Digital</h3>
-                                <p class="text-[#8B2635]">Documentos históricos e materiais institucionais</p>
-                            </div>
-                            
-                            <!-- Interface de busca e filtragem -->
-                            <div class="mb-8">
-                                <div class="bg-white p-6 rounded-xl shadow-md border border-[#F5F0E8]">
-                                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                                        <div class="md:col-span-2">
-                                            <label class="block text-[#6B4423] font-medium mb-2">Buscar no acervo</label>
-                                            <div class="relative">
-                                                <input type="text" id="search-acervo" placeholder="Pesquise documentos, fotos, publicações..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B2635] focus:border-[#8B2635]">
-                                                <span class="material-icons absolute right-3 top-3 text-[#8B2635]">search</span>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <label class="block text-[#6B4423] font-medium mb-2">Filtrar por tipo</label>
-                                            <select id="filter-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B2635] focus:border-[#8B2635]">
-                                                <option value="">Todos os tipos</option>
-                                                <option value="Documento">Documentos</option>
-                                                <option value="Foto">Fotos</option>
-                                                <option value="Publicação">Publicações</option>
-                                                <option value="Revista">Revistas</option>
-                                                <option value="Boletim">Boletins</option>
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <label class="block text-[#6B4423] font-medium mb-2">Filtrar por ano</label>
-                                            <select id="filter-year" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B2635] focus:border-[#8B2635]">
-                                                <option value="">Todos os anos</option>
-                                                <option value="2024">2024</option>
-                                                <option value="2023">2023</option>
-                                                <option value="2022">2022</option>
-                                                <option value="2021">2021</option>
-                                                <option value="2020">2020</option>
-                                                <option value="1900-2000">Século XX</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="mt-4 flex justify-end">
-                                        <button id="apply-filters" class="bg-[#8B2635] text-white font-semibold py-2 px-6 rounded-lg hover:bg-[#992D3D] transition-colors duration-300">
-                                            Aplicar Filtros
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Container para itens do acervo carregados dinamicamente -->
-                            <div id="archive-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                                <!-- Itens do acervo serão carregados aqui dinamicamente -->
-                            </div>
-                            
-                            <div class="text-center mt-8">
-                                <button id="carregar-mais-archive" class="bg-[#8B2635] text-white font-semibold py-2 px-6 rounded-lg hover:bg-[#992D3D] transition-colors duration-300">
-                                    Carregar Mais Itens
-                                </button>
-                            </div>
-                            
-                            <!-- Estatísticas do acervo -->
-                            <div class="mt-12 grid grid-cols-1 md:grid-cols-4 gap-6">
-                                <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md text-center">
-                                    <div class="text-3xl font-bold text-[#8B2635] mb-2">1,248</div>
-                                    <h4 class="font-bold text-[#6B4423]">Documentos</h4>
-                                </div>
-                                <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md text-center">
-                                    <div class="text-3xl font-bold text-[#8B2635] mb-2">892</div>
-                                    <h4 class="font-bold text-[#6B4423]">Fotos</h4>
-                                </div>
-                                <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md text-center">
-                                    <div class="text-3xl font-bold text-[#8B2635] mb-2">156</div>
-                                    <h4 class="font-bold text-[#6B4423]">Publicações</h4>
-                                </div>
-                                <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-6 rounded-xl shadow-md text-center">
-                                    <div class="text-3xl font-bold text-[#8B2635] mb-2">78</div>
-                                    <h4 class="font-bold text-[#6B4423]">Vídeos</h4>
-                                </div>
-                            </div>
-                            
-                            <!-- Instruções para acesso -->
-                            <div class="mt-12 bg-[#F5F0E8] p-6 rounded-xl">
-                                <h4 class="text-xl font-bold text-[#6B4423] mb-4">Como acessar o acervo</h4>
-                                <p class="text-[#8B2635] mb-4">O acervo digital está disponível para consulta presencial na sede do CRMC. Para agendar uma visita ou solicitar informações adicionais, entre em contato conosco.</p>
-                                <button class="bg-[#8B2635] text-white font-semibold py-2 px-6 rounded-lg hover:bg-[#992D3D] transition-colors duration-300">
-                                    Entrar em Contato
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -1066,75 +893,11 @@
             modal.classList.remove('hidden');
         }
         
-        function showFullCrmc() {
-            const modal = document.getElementById('crmc-modal');
-            const modalTitle = document.getElementById('crmc-modal-title');
-            const modalContent = document.getElementById('crmc-modal-content');
-            
-            modalTitle.textContent = 'Centro de Referência e Memória do Café';
-            modalContent.innerHTML = `
-                <div class="mb-6">
-                    <h4 class="text-xl font-bold text-[#6B4423] mb-4">Sobre o CRMC</h4>
-                    <p class="mb-4">O Centro de Referência e Memória do Café (CRMC) é um espaço dedicado à preservação da história cafeeira brasileira e à promoção da cultura do café. Localizado no coração do Porto do Rio de Janeiro, o CRMC reúne acervo bibliográfico, documental e iconográfico sobre o café brasileiro.</p>
-                    
-                    <div class="bg-[#F5F0E8] p-4 rounded-lg mb-6">
-                        <h5 class="font-bold text-[#6B4423] mb-2">Missão</h5>
-                        <p class="text-[#8B2635]">Preservar, pesquisar e difundir o patrimônio histórico e cultural relacionado ao café brasileiro, promovendo o conhecimento e a valorização dessa importante parte da história nacional.</p>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <h5 class="font-bold text-[#6B4423] mb-2">História</h5>
-                            <p class="text-[#8B2635] mb-4">O CRMC foi inaugurado em 2001 como uma iniciativa do CCCRJ para criar um centro de referência e memória dedicado ao café brasileiro. Desde então, tem reunido um acervo valioso de documentos, fotografias, livros e objetos históricos relacionados ao comércio e à cultura do café.</p>
-                        </div>
-                        
-                        <div>
-                            <h5 class="font-bold text-[#6B4423] mb-2">Importância</h5>
-                            <p class="text-[#8B2635] mb-4">O CRMC desempenha um papel fundamental na preservação da memória cafeeira brasileira, servindo como fonte de pesquisa para acadêmicos, historiadores, empresários e entusiastas do café. Além disso, promove a cultura do café através de exposições, eventos e programas educacionais.</p>
-                        </div>
-                    </div>
-                    
-                    <h5 class="font-bold text-[#6B4423] mb-2">Estrutura</h5>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
-                            <span class="material-icons text-[#8B2635] mr-3">local_library</span>
-                            <h6 class="font-bold text-[#6B4423] mb-1">Biblioteca</h6>
-                            <p class="text-[#8B2635] text-sm">Acervo bibliográfico especializado</p>
-                        </div>
-                        
-                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
-                            <span class="material-icons text-[#8B2635] mr-3">local_cafe</span>
-                            <h6 class="font-bold text-[#6B4423] mb-1">Cafeteria</h6>
-                            <p class="text-[#8B2635] text-sm">Espaço gastronômico temático</p>
-                        </div>
-                        
-                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
-                            <span class="material-icons text-[#8B2635] mr-3">museum</span>
-                            <h6 class="font-bold text-[#6B4423] mb-1">Exposições</h6>
-                            <p class="text-[#8B2635] text-sm">Mostras permanentes e temporárias</p>
-                        </div>
-                        
-                        <div class="bg-white border border-[#F5F0E8] rounded-lg p-4">
-                            <span class="material-icons text-[#8B2635] mr-3">theaters</span>
-                            <h6 class="font-bold text-[#6B4423] mb-1">Cultural</h6>
-                            <p class="text-[#8B2635] text-sm">Programação cultural e eventos</p>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-gradient-to-r from-[#F5F0E8] to-white p-6 rounded-xl shadow-md">
-                        <h5 class="font-bold text-[#6B4423] mb-2">Visite o CRMC</h5>
-                        <p class="text-[#8B2635] mb-2">Endereço: Rua do Comércio, 123 - Porto, Rio de Janeiro - RJ</p>
-                        <p class="text-[#8B2635]">Telefone: (21) 3000-0000 | Email: crmc@cccrj.com.br</p>
-                    </div>
-                </div>
-            `;
-            
-            modal.classList.remove('hidden');
-        }
-        
-        function closeCrmcModal() {
-            const modal = document.getElementById('crmc-modal');
-            modal.classList.add('hidden');
+        function closeModal() {
+            const modal = document.getElementById('institutional-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+            }
         }
         
         // Função para carregar e exibir a timeline
@@ -1186,16 +949,6 @@
                 });
             }
             
-            // Modal CRMC
-            const crmcModal = document.getElementById('crmc-modal');
-            if (crmcModal) {
-                crmcModal.addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        closeCrmcModal();
-                    }
-                });
-            }
-            
             // Fechar modais com a tecla ESC
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
@@ -1203,13 +956,6 @@
                     const modal = document.getElementById('institutional-modal');
                     if (modal && !modal.classList.contains('hidden')) {
                         closeModal();
-                        e.preventDefault();
-                    }
-                    
-                    // Fechar modal CRMC
-                    const crmc = document.getElementById('crmc-modal');
-                    if (crmc && !crmc.classList.contains('hidden')) {
-                        closeCrmcModal();
                         e.preventDefault();
                     }
                 }
@@ -1220,43 +966,78 @@
     <!-- Script para controle das abas -->
     <script src="assets/js/components/tabs.js"></script>
     
-    <!-- Inicialização direta das abas -->
+    <!-- Script para o menu móvel -->
     <script>
-        // Verifica se as abas foram inicializadas corretamente
-        function checkTabsInitialized() {
-            console.log('Verificando inicialização das abas...');
+        // Controle do menu móvel
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('button[aria-label="Menu"]');
+            const navMenu = document.querySelector('nav');
             
-            // Tenta inicializar as abas novamente se necessário
-            if (typeof initTabs === 'function') {
-                console.log('Inicializando abas...');
-                initTabs();
+            if (menuButton && navMenu) {
+                menuButton.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    navMenu.classList.toggle('hidden');
+                    navMenu.classList.toggle('flex');
+                    navMenu.classList.toggle('flex-col');
+                    navMenu.classList.toggle('absolute');
+                    navMenu.classList.toggle('top-16');
+                    navMenu.classList.toggle('left-0');
+                    navMenu.classList.toggle('right-0');
+                    navMenu.classList.toggle('bg-white');
+                    navMenu.classList.toggle('shadow-lg');
+                    navMenu.classList.toggle('p-4');
+                    navMenu.classList.toggle('space-y-4');
+                    navMenu.classList.remove('space-x-6');
+                });
                 
-                // Força a exibição da primeira aba se nenhuma estiver ativa
-                setTimeout(() => {
-                    const activeTab = document.querySelector('.tab-content.active');
-                    if (!activeTab) {
-                        console.log('Nenhuma aba ativa encontrada, forçando exibição da primeira aba...');
-                        const firstTabButton = document.querySelector('.tab-button');
-                        if (firstTabButton) {
-                            const firstTabId = firstTabButton.getAttribute('data-tab');
-                            if (firstTabId) {
-                                console.log('Mostrando primeira aba:', firstTabId);
-                                showTab(firstTabId);
-                            }
-                        }
-                    }
-                }, 100);
-            } else {
-                console.error('Função initTabs não encontrada!');
+                // Fechar o menu ao clicar em um link
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        menuButton.setAttribute('aria-expanded', 'false');
+                        navMenu.classList.add('hidden');
+                        navMenu.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-white', 'shadow-lg', 'p-4', 'space-y-4');
+                    });
+                });
             }
-        }
-        
-        // Aguarda o carregamento completo da página
-        if (document.readyState === 'complete') {
-            checkTabsInitialized();
-        } else {
-            window.addEventListener('load', checkTabsInitialized);
-        }
+        });
     </script>
+    
+    <!-- Script para rolagem suave -->
+    <script>
+        // Função de rolagem suave para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Calcula a posição do elemento alvo
+                    const headerOffset = 100; // Ajuste conforme a altura do seu cabeçalho fixo
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    // Rola suavemente até o elemento
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Atualiza a URL sem recarregar a página (opcional)
+                    if (history.pushState) {
+                        history.pushState(null, null, targetId);
+                    } else {
+                        window.location.hash = targetId;
+                    }
+                }
+            });
+        });
+    </script>
+    
+    <!-- Script do Menu Móvel -->
+    <script src="assets/js/mobile-menu.js"></script>
 </body>
 </html>

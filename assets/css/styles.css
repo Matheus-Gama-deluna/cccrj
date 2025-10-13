@@ -2,6 +2,112 @@
 
 /* Cores personalizadas */
 
+/* Estilos para a logo */
+.logo-img {
+    height: 3rem; /* Tamanho padrão para desktop */
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para o menu móvel */
+.mobile-menu-container {
+    overflow: hidden;
+}
+
+.mobile-menu-container.show {
+    display: block;
+}
+
+.mobile-menu-overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.mobile-menu-container.show .mobile-menu-overlay {
+    opacity: 1;
+}
+
+.mobile-menu-content {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.mobile-menu-container.show .mobile-menu-content {
+    transform: translateX(0);
+}
+
+/* Estilos para o botão de fechar */
+.mobile-menu-close {
+    transition: all 0.2s ease;
+}
+
+.mobile-menu-close:focus {
+    outline: 2px solid #8B2635;
+    outline-offset: 2px;
+}
+
+/* Garante que o menu fique visível em telas maiores */
+@media (min-width: 768px) {
+    .mobile-menu-container {
+        display: none !important;
+    }
+}
+
+/* Estilos para o menu em telas pequenas */
+@media (max-width: 767px) {
+    .mobile-menu-container {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 50;
+    }
+    
+    .mobile-menu-content {
+        width: 85%;
+        max-width: 24rem;
+        height: 100%;
+        background: white;
+        box-shadow: -4px 0 6px -1px rgba(0, 0, 0, 0.1);
+        transform: translateX(100%);
+    }
+    
+    .mobile-menu-container.show .mobile-menu-content {
+        transform: translateX(0);
+    }
+    
+    /* Estilo para os itens do menu móvel */
+    .mobile-menu-content a {
+        transition: all 0.2s ease;
+    }
+    
+    .mobile-menu-content a:focus {
+        outline: 2px solid #8B2635;
+        outline-offset: 2px;
+    }
+    
+    /* Previne rolagem do conteúdo principal quando o menu estiver aberto */
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+/* Responsividade para logo */
+@media (max-width: 768px) {
+    .logo-img {
+        height: 2.5rem; /* Menor em dispositivos móveis */
+        max-width: 100px;
+    }
+}
+
 /* Estilos para o sistema de abas */
 .tab-buttons {
     display: flex;
@@ -128,7 +234,24 @@
 
 /* Efeitos visuais */
 .gradient-bg {
-  background: linear-gradient(135deg, #8B2635 0%, #992D3D 50%, #A63545 100%);
+  background: linear-gradient(135deg, rgba(139, 38, 53, 0.8) 0%, rgba(153, 45, 61, 0.85) 100%);
+  background-image: url('../images/hero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: 8rem 0 6rem;
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+  .gradient-bg {
+    padding: 6rem 0 4rem;
+  }
 }
 
 .card-hover {
@@ -176,6 +299,10 @@
 
 /* Responsividade */
 @media (max-width: 768px) {
+  .gradient-bg {
+    background-attachment: scroll; /* Desabilita parallax em mobile para melhor performance */
+  }
+  
   .gradient-bg h1 {
     font-size: 2.5rem;
   }
