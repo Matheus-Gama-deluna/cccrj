@@ -3,10 +3,23 @@
  * API para listar relatórios disponíveis no servidor FTP
  */
 
-// Habilitar exibição de erros para depuração
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// Verifica se está em ambiente de desenvolvimento local
+$isLocal = (isset($_SERVER['HTTP_HOST']) && 
+           (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false || 
+            strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false));
+
+// Configurações de exibição de erros
+if ($isLocal) {
+    // Em desenvolvimento local, mostra todos os erros
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+} else {
+    // Em produção, desativa a exibição de erros
+    ini_set('display_errors', 0);
+    ini_set('display_startup_errors', 0);
+    error_reporting(0);
+}
 
 // Configurações de cabeçalho HTTP
 header('Content-Type: application/json; charset=utf-8');
@@ -28,16 +41,35 @@ function sendJsonResponse($data, $statusCode = 200) {
     exit();
 }
 
-// Função para registrar erros
-function logError($message, $context = []) {
-    $logDir = __DIR__ . '/../../../logs';
-    $logFile = $logDir . '/api_errors.log';
-    
-    // Garante que o diretório de logs existe
-    if (!file_exists($logDir)) {
-        @mkdir($logDir, 0755, true);
+// Função para obter o diretório de logs seguro
+function getLogDir() {
+    // Tenta o diretório temporário primeiro, que é garantido em open_basedir
+    $tempDir = sys_get_temp_dir();
+    if (is_writable($tempDir)) {
+        return $tempDir;
     }
     
+    // Se não conseguir, tenta o diretório de uploads
+    $uploadDir = ini_get('upload_tmp_dir') ?: sys_get_temp_dir();
+    if (is_writable($uploadDir)) {
+        return $uploadDir;
+    }
+    
+    // Se tudo mais falhar, tenta o diretório atual
+    return __DIR__;
+}
+
+// Função para registrar erros
+function logError($message, $context = []) {
+    // Desativa a exibição de erros para evitar problemas com headers
+    $displayErrors = ini_get('display_errors');
+    ini_set('display_errors', 0);
+    
+    // Obtém o diretório de logs seguro
+    $logDir = getLogDir();
+    $logFile = $logDir . '/cccrj_api_errors.log';
+    
+    // Prepara a mensagem de log
     $logMessage = date('[Y-m-d H:i:s] ') . $message . "\n";
     if (!empty($context)) {
         $logMessage .= 'Context: ' . json_encode($context, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . "\n";
@@ -45,14 +77,27 @@ function logError($message, $context = []) {
     
     // Adiciona a stack trace se disponível
     $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
-    $logMessage .= 'Called from: ' . $backtrace[0]['file'] . ' on line ' . $backtrace[0]['line'] . "\n";
+    $logMessage .= 'Called from: ' . ($backtrace[0]['file'] ?? 'unknown') . ' on line ' . ($backtrace[0]['line'] ?? '0') . "\n";
     
-    error_log($logMessage, 3, $logFile);
+    // Tenta gravar no arquivo de log de forma segura
+    @file_put_contents($logFile, $logMessage, FILE_APPEND);
+    
+    // Restaura a configuração de exibição de erros
+    ini_set('display_errors', $displayErrors);
     
     // Log no console para ambiente de desenvolvimento
-    if (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'localhost') !== false) {
+    if (isset($_SERVER['HTTP_HOST']) && 
+        (strpos($_SERVER['HTTP_HOST'], 'localhost') !== false || 
+         strpos($_SERVER['HTTP_HOST'], '127.0.0.1') !== false)) {
         error_log($logMessage);
     }
+}
+
+// Desativa a exibição de erros em produção
+if (!(isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'localhost') !== false)) {
+    ini_set('display_errors', 0);
+    ini_set('display_startup_errors', 0);
+    error_reporting(0);
 }
 
 // Verifica se a extensão FTP está habilitada
@@ -66,25 +111,17 @@ if (!extension_loaded('ftp')) {
         'loaded_extensions' => get_loaded_extensions()
     ];
     
-    // Tenta criar o diretório de logs se não existir
-    $logDir = __DIR__ . '/../../../logs';
-    if (!file_exists($logDir)) {
-        @mkdir($logDir, 0755, true);
-    }
+    // Usa a função logError para registrar o erro
+    logError($errorMsg, $errorData);
     
-    file_put_contents(
-        $logDir . '/php_errors.log', 
-        date('[Y-m-d H:i:s] ') . $errorMsg . "\n" . print_r($errorData, true) . "\n\n",
-        FILE_APPEND
-    );
-    
+    // Retorna a resposta de erro como JSON
     header('Content-Type: application/json');
     http_response_code(500);
     echo json_encode([
         'success' => false,
         'message' => 'Erro de configuração do servidor.',
-        'error' => $errorMsg,
-        'details' => $errorData
+        'error' => 'A extensão FTP não está habilitada no servidor.',
+        'details' => $isLocal ? $errorData : null
     ], JSON_PRETTY_PRINT);
     exit();
 }
@@ -132,13 +169,9 @@ if (!empty($missingConstants)) {
     ], 500);
 }
 
-// Verifica se o diretório de logs é gravável
-$logDir = __DIR__ . '/../../../logs';
-if (!is_writable($logDir) && !@mkdir($logDir, 0755, true)) {
-    $errorMsg = 'Não foi possível criar ou gravar no diretório de logs: ' . $logDir;
-    error_log($errorMsg);
-    // Continua mesmo com erro de log, pois o serviço pode funcionar sem log
-}
+// Usa a função getLogDir() para obter um diretório de logs gravável
+$logDir = getLogDir();
+$logFile = $logDir . '/cccrj_api_errors.log';
 
 // Inclui a classe FtpService
 $ftpServiceFile = __DIR__ . '/../ftp_service.php';
