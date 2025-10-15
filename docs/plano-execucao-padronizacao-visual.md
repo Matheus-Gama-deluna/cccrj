@@ -55,26 +55,28 @@ Criar uma identidade visual consistente e profissional que transmita a tradiçã
 
 ---
 
-## 🛠️ Stack Tecnológica Otimizada
+## 🛠️ Stack Tecnológica Otimizada (Mantendo Tecnologias Existentes)
 
-### Tecnologias Principais
-- **HTML5 Semântico**: Estrutura clara e acessível
-- **CSS3 Avançado**: Custom properties, Grid, Flexbox
-- **Tailwind CSS**: Framework utilitário para desenvolvimento rápido
-- **JavaScript ES6+**: Funcionalidades interativas modernas
+### Tecnologias Principais (Já Utilizadas no Projeto)
+- **HTML5 Semântico**: Estrutura clara e acessível (já implementado)
+- **CSS3 Avançado**: Custom properties, Grid, Flexbox (já utilizado)
+- **Tailwind CSS**: Framework utilitário via CDN (já integrado)
+- **JavaScript ES6+**: Funcionalidades interativas modernas (já implementado)
+- **Fonte Inter**: Família tipográfica principal (já carregada via Google Fonts)
+- **Material Icons**: Sistema de ícones (já integrado)
 
-### Ferramentas de Desenvolvimento
-- **Figma**: Sistema de design e prototipagem
-- **Storybook**: Documentação e testes de componentes
-- **Lighthouse**: Auditoria de performance e acessibilidade
-- **axe-core**: Testes automatizados de acessibilidade
-- **PostCSS**: Processamento e otimização de CSS
+### Tecnologias Complementares (Sem Adicionar Dependências)
+- **CSS Custom Properties**: Para variáveis de design system
+- **CSS Grid & Flexbox**: Para layouts responsivos avançados
+- **JavaScript Moderno**: Funcionalidades vanilla sem frameworks adicionais
+- **APIs Nativas**: Intersection Observer, Web Components (quando necessário)
 
-### Ferramentas de Produção
-- **Vite**: Build tool para desenvolvimento rápido
-- **CSSnano**: Minificação e otimização de CSS
-- **PurgeCSS**: Remoção de CSS não utilizado
-- **Critical**: Extração de CSS crítico
+### ❌ Tecnologias NÃO Utilizadas (Mantidas Fora do Escopo)
+- **React/Vue/Angular**: Não necessário para este projeto
+- **Sass/Less**: CSS vanilla é suficiente
+- **Webpack/Vite**: Build tools não necessários (arquivos estáticos)
+- **TypeScript**: JavaScript vanilla atende às necessidades
+- **Bibliotecas de UI externas**: Desenvolver componentes customizados
 
 ---
 
@@ -617,6 +619,18 @@ Criar uma identidade visual consistente e profissional que transmita a tradiçã
 - **Desenvolvedor Frontend**: Implementação técnica e otimização
 - **Analista QA**: Testes de qualidade e validação de critérios
 - **Accessibility Expert**: Validação de conformidade WCAG
+
+### Ferramentas de Desenvolvimento (Online/Gratuitas)
+- **Figma**: Sistema de design e prototipagem (uso opcional)
+- **Lighthouse**: Auditoria de performance e acessibilidade (Chrome DevTools)
+- **axe-core**: Testes automatizados de acessibilidade (extensão do navegador)
+- **Color Contrast Analyzer**: Verificação de contraste de cores (ferramenta online)
+
+### Abordagem de Desenvolvimento
+- **CSS Custom Properties**: Para o design system (já suportado nativamente)
+- **JavaScript Modular**: Organização em componentes (já implementado)
+- **HTML Semântico**: Estrutura acessível (já utilizado)
+- **CSS Grid & Flexbox**: Layouts responsivos avançados (já disponível)
 
 ### Ferramentas de Comunicação
 - **Slack/Discord**: Canal dedicado para dúvidas rápidas

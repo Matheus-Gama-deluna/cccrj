@@ -170,100 +170,204 @@
                 
                 <!-- Conteúdo das abas -->
                 <div class="tab-content-container">
-                    <!-- Aba Instituição -->
+                    <!-- Aba Instituição Melhorada com padrão visual da Diretoria -->
                     <div id="tab-instituicao" class="tab-content" role="tabpanel" aria-labelledby="tab-instituicao">
-                        <div class="text-center mb-12">
-                            <h2 class="text-3xl font-bold text-[#6B4423] mb-4">Sobre o CCCRJ</h2>
-                            <p class="text-xl text-[#8B2635] max-w-3xl mx-auto">Conheça a história e atuação do Centro de Comércio do Café do Rio de Janeiro</p>
-                        </div>
-                        
-                        <!-- Seção Nossa História -->
-                        <div class="mb-12">
-                            <h3 class="text-2xl font-bold text-[#6B4423] mb-6 border-b border-[#F5F0E8] pb-2">Nossa História</h3>
-                            <div class="bg-white p-6 rounded-lg shadow-sm border border-[#F5F0E8]">
-                                <p class="text-[#8B2635] mb-4">A defesa dos direitos e interesses do comércio do café foi sempre a preocupação do Centro do Comércio do Café do Rio de Janeiro, instituição criada a 19 de dezembro de 1901, e instalada em 1903, em cerimônia que contou, inclusive, com a presença do Presidente da República da época, Rodrigues Alves.</p>
-                                <p class="text-[#8B2635] mb-4">Ao longo desses 100 anos, o Centro tem tido uma atuação constante na política cafeeira, aplaudindo as medidas que considera corretas: sugerindo uma série de ações e mantendo-se alerta para evitar decisões que não sejam benéficas ao setor. O Centro do Comércio do Café do Rio de Janeiro foi presença constante em todos os momentos de crise ou de euforia cafeeira. E continua atuante nesta época em que o café tenta conquistar os seus mercados e o Porto do Rio de Janeiro volta a ser um importante porto de escoamento do café brasileiro para os mercados no exterior.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Seção Missão -->
-                        <div class="mb-12">
-                            <h3 class="text-2xl font-bold text-[#6B4423] mb-6 border-b border-[#F5F0E8] pb-2">Missão Institucional</h3>
-                            <div class="bg-gradient-to-r from-[#F5F0E8] to-white p-8 rounded-lg shadow-sm">
-                                <p class="text-xl text-center text-[#8B2635] font-medium">Promover o desenvolvimento sustentável do setor cafeeiro, defender os interesses do comércio de café e contribuir para a valorização do café brasileiro no mercado mundial.</p>
-                            </div>
-                        </div>
-                        
-                        
-                    </div>
-                    
-                    <!-- Aba Os 100 Anos de História -->
-                    <div id="tab-historia" class="tab-content" role="tabpanel" aria-labelledby="tab-historia">
-                        <div class="container mx-auto px-4">
+                        <div class="max-w-6xl mx-auto">
+                            <!-- Header da seção -->
                             <div class="text-center mb-12">
-                                <h3 class="text-3xl md:text-4xl font-bold text-[#6B4423] mb-3">Nossa História</h3>
-                                <p class="text-lg md:text-xl text-[#8B2635] max-w-3xl mx-auto">Conheça a trajetória do Centro do Comércio de Café do Rio de Janeiro</p>
+                                <h2 class="text-3xl md:text-4xl font-bold text-[#6B4423] mb-4">Sobre o CCCRJ</h2>
+                                <p class="text-lg md:text-xl text-[#8B2635] max-w-3xl mx-auto">Conheça a história e atuação do Centro de Comércio do Café do Rio de Janeiro</p>
+                                <div class="w-24 h-1 bg-[#8B2635] mx-auto mt-4"></div>
                             </div>
                             
-                            <div class="w-full">
-                                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-                                    <div class="prose max-w-4xl mx-auto text-[#5a3a1e] space-y-8">
-                                        <!-- Discurso do Centenário -->
-                                        <div class="bg-[#FFF9F5] p-6 rounded-lg border-l-4 border-[#8B2635]">
-                                            <h4 class="text-xl md:text-2xl font-bold text-[#6B2635] mb-4 pb-2 border-b border-[#F5F0E8] flex items-center">
-                                                <i class="material-icons mr-2">celebration</i>
-                                                Discurso do Centenário
-                                            </h4>
-                                            
-                                            <!-- Abertura -->
-                                            <div class="mb-6">
-                                                <h5 class="text-lg font-semibold text-[#8B2635] mb-2">Abertura</h5>
-                                                <p class="text-justify leading-relaxed">Em nome pessoal, da Diretoria e dos associados do Centro do Comércio de Café do Rio de Janeiro, expressamos nossa alegria e satisfação por comemorarmos juntos esta etapa marcante de nossa existência.</p>
+                            <!-- Grid de conteúdo principal -->
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                                <!-- Nossa História -->
+                                <div class="bg-white p-8 rounded-xl shadow-lg border border-[#F5F0E8] hover:shadow-xl transition-shadow duration-300">
+                                    <div class="flex items-center mb-6">
+                                        <span class="material-icons text-3xl text-[#8B2635] mr-3">history</span>
+                                        <h3 class="text-2xl font-bold text-[#6B4423]">Nossa História</h3>
+                                    </div>
+                                    <div class="space-y-4 text-[#8B2635] leading-relaxed">
+                                        <p>A defesa dos direitos e interesses do comércio do café foi sempre a preocupação do Centro do Comércio do Café do Rio de Janeiro, instituição criada a 19 de dezembro de 1901, e instalada em 1903, em cerimônia que contou, inclusive, com a presença do Presidente da República da época, Rodrigues Alves.</p>
+                                        <p>Ao longo desses 100 anos, o Centro tem tido uma atuação constante na política cafeeira, aplaudindo as medidas que considera corretas: sugerindo uma série de ações e mantendo-se alerta para evitar decisões que não sejam benéficas ao setor.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Missão Institucional -->
+                                <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-8 rounded-xl shadow-lg border border-[#F5F0E8] hover:shadow-xl transition-shadow duration-300">
+                                    <div class="flex items-center mb-6">
+                                        <span class="material-icons text-3xl text-[#8B2635] mr-3">flag</span>
+                                        <h3 class="text-2xl font-bold text-[#6B4423]">Missão Institucional</h3>
+                                    </div>
+                                    <div class="text-center">
+                                        <p class="text-xl text-[#8B2635] font-medium leading-relaxed">Promover o desenvolvimento sustentável do setor cafeeiro, defender os interesses do comércio de café e contribuir para a valorização do café brasileiro no mercado mundial.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Estatísticas e Destaques -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                                <div class="bg-white p-6 rounded-lg shadow-md border border-[#F5F0E8] text-center hover:shadow-lg transition-shadow duration-300">
+                                    <div class="text-3xl font-bold text-[#8B2635] mb-2">1901</div>
+                                    <p class="text-[#6B4423] font-medium">Ano de Fundação</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-lg shadow-md border border-[#F5F0E8] text-center hover:shadow-lg transition-shadow duration-300">
+                                    <div class="text-3xl font-bold text-[#8B2635] mb-2">100+</div>
+                                    <p class="text-[#6B4423] font-medium">Anos de História</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-lg shadow-md border border-[#F5F0E8] text-center hover:shadow-lg transition-shadow duration-300">
+                                    <div class="text-3xl font-bold text-[#8B2635] mb-2">+1000</div>
+                                    <p class="text-[#6B4423] font-medium">Associados</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Valores e Princípios -->
+                            <div class="bg-gradient-to-r from-[#8B2635] to-[#992D3D] text-white p-8 rounded-xl shadow-lg mb-12">
+                                <h3 class="text-2xl font-bold mb-6 text-center">Valores e Princípios</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                    <div class="text-center">
+                                        <span class="material-icons text-3xl mb-3">people</span>
+                                        <h4 class="font-bold mb-2">União</h4>
+                                        <p class="text-sm opacity-90">Congregar profissionais do setor cafeeiro</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <span class="material-icons text-3xl mb-3">shield</span>
+                                        <h4 class="font-bold mb-2">Defesa</h4>
+                                        <p class="text-sm opacity-90">Proteger interesses dos associados</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <span class="material-icons text-3xl mb-3">trending_up</span>
+                                        <h4 class="font-bold mb-2">Desenvolvimento</h4>
+                                        <p class="text-sm opacity-90">Fomentar crescimento do mercado</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <span class="material-icons text-3xl mb-3">school</span>
+                                        <h4 class="font-bold mb-2">Preservação</h4>
+                                        <p class="text-sm opacity-90">Manter viva a história do café</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Aba Os 100 Anos de História Melhorada -->
+                    <div id="tab-historia" class="tab-content" role="tabpanel" aria-labelledby="tab-historia">
+                        <div class="max-w-6xl mx-auto">
+                            <!-- Header da seção -->
+                            <div class="text-center mb-12">
+                                <h2 class="text-3xl md:text-4xl font-bold text-[#6B4423] mb-4">Nossa História</h2>
+                                <p class="text-lg md:text-xl text-[#8B2635] max-w-3xl mx-auto">Conheça a trajetória centenária do Centro do Comércio de Café do Rio de Janeiro</p>
+                                <div class="w-24 h-1 bg-[#8B2635] mx-auto mt-4"></div>
+                            </div>
+                            
+                            <!-- Timeline Histórica -->
+                            <div class="mb-12">
+                                <h3 class="text-2xl font-bold text-[#6B4423] mb-8 text-center">Linha do Tempo</h3>
+                                <div class="relative">
+                                    <!-- Linha central -->
+                                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-[#8B2635] h-full hidden md:block"></div>
+                                    
+                                    <!-- Eventos da timeline -->
+                                    <div class="space-y-12">
+                                        <div class="flex flex-col md:flex-row items-center md:justify-between">
+                                            <div class="md:w-5/12 md:pr-8 text-right">
+                                                <div class="bg-white p-6 rounded-xl shadow-lg border border-[#F5F0E8] hover:shadow-xl transition-shadow duration-300">
+                                                    <h4 class="text-xl font-bold text-[#8B2635] mb-3">1901 - Fundação</h4>
+                                                    <p class="text-[#6B4423]">Criação do Centro do Comércio de Café do Rio de Janeiro em 19 de dezembro, com o objetivo de defender os interesses do comércio cafeeiro.</p>
+                                                </div>
                                             </div>
-                                            
-                                            <!-- Os 100 Anos de História -->
-                                            <div class="mb-6">
-                                                <h5 class="text-lg font-semibold text-[#8B2635] mb-2">Os 100 Anos de História</h5>
-                                                <p class="text-justify leading-relaxed">Completamos e celebramos 100 anos de café. Neste ciclo, seguramente o mais esplendoroso período da história do café no Brasil, o Centro do Comércio viveu intensamente todos os seus acontecimentos e participou ativamente da construção de nossa cafeicultura.</p>
-                                                <p class="text-justify leading-relaxed mt-4">Desde 1901, congregando produtores, exportadores, corretores, armazenadores, transportadores, torrefadores e bancos, o Centro manteve-se à frente de seu tempo, antecipando o conceito moderno de agronegócio.</p>
+                                            <div class="md:w-2/12 flex justify-center">
+                                                <div class="w-4 h-4 bg-[#8B2635] rounded-full border-4 border-white shadow-lg"></div>
                                             </div>
-                                            
-                                            <!-- Marcos Históricos -->
-                                            <div class="mb-6">
-                                                <h5 class="text-lg font-semibold text-[#8B2635] mb-2">Marcos Históricos</h5>
-                                                <ul class="list-disc pl-5 space-y-2">
-                                                    <li><span class="font-medium">1901:</span> Fundação do Centro do Comércio de Café do Rio de Janeiro</li>
-                                                    <li><span class="font-medium">1903:</span> Inauguração da sede na Rua da Quitanda, com presença do Presidente Rodrigues Alves</li>
-                                                    <li><span class="font-medium">Décadas seguintes:</span> Atuação ativa na estruturação da cadeia produtiva do café</li>
-                                                    <li><span class="font-medium">Anos recentes:</span> Recuperação dos embarques de café pelo porto do Rio de Janeiro</li>
-                                                </ul>
+                                            <div class="md:w-5/12 md:pl-8 hidden md:block"></div>
+                                        </div>
+                                        
+                                        <div class="flex flex-col md:flex-row items-center md:justify-between">
+                                            <div class="md:w-5/12 hidden md:block"></div>
+                                            <div class="md:w-2/12 flex justify-center">
+                                                <div class="w-4 h-4 bg-[#8B2635] rounded-full border-4 border-white shadow-lg"></div>
                                             </div>
-                                            
-                                            <!-- Desafios Atuais -->
-                                            <div class="mb-6">
-                                                <h5 class="text-lg font-semibold text-[#8B2635] mb-2">Desafios Atuais</h5>
-                                                <p class="text-justify leading-relaxed">O setor enfrenta atualmente desafios como o desequilíbrio entre produção e consumo mundiais, que tem impactado os preços e a renda dos produtores. No entanto, o café brasileiro mantém sua importância, com faturamento superior a US$ 1,5 bilhão anuais.</p>
-                                            </div>
-                                            
-                                            <!-- Considerações Finais -->
-                                            <div>
-                                                <h5 class="text-lg font-semibold text-[#8B2635] mb-2">Considerações Finais</h5>
-                                                <p class="text-justify leading-relaxed">O Centenário do Centro do Comércio de Café do Rio de Janeiro representa não apenas uma celebração do passado, mas também um compromisso com o futuro da cafeicultura brasileira, mantendo viva a tradição de excelência e inovação que sempre caracterizou o setor.</p>
+                                            <div class="md:w-5/12 md:pl-8">
+                                                <div class="bg-white p-6 rounded-xl shadow-lg border border-[#F5F0E8] hover:shadow-xl transition-shadow duration-300">
+                                                    <h4 class="text-xl font-bold text-[#8B2635] mb-3">1903 - Inauguração</h4>
+                                                    <p class="text-[#6B4423]">Instalação oficial da sede na Rua da Quitanda, com presença do Presidente Rodrigues Alves, marcando o início das atividades institucionais.</p>
+                                                </div>
                                             </div>
                                         </div>
                                         
-                                        <!-- Citação de Destaque -->
-                                        <div class="bg-[#FFF9F5] p-6 rounded-lg border-l-4 border-[#8B2635]">
-                                            <h4 class="text-xl md:text-2xl font-bold text-[#6B2635] mb-4 pb-2 border-b border-[#F5F0E8] flex items-center">
-                                                <i class="material-icons mr-2">format_quote</i>
-                                                Palavras do Presidente
-                                            </h4>
-                                            <blockquote class="italic text-lg text-center font-medium text-[#5a3a1e]">
-                                                <p class="mb-4">"Em minhas últimas palavras, quero agradecer as demonstrações de apreço recebidas pelo Centro do Comércio de Café do Rio de Janeiro.</p>
-                                                <p class="mb-4">Penso que tais cumprimentos devam ser dados ao comércio exportador brasileiro.</p>
-                                                <p class="mb-4">Ao longo dos quase 300 anos de café no Brasil, forjou no mercado mundial</p>
-                                                <p class="mb-4">uma tradição de competência e de credibilidade,</p>
-                                                <p>conquistando o respeito de nossos clientes e parceiros comerciais."</p>
+                                        <div class="flex flex-col md:flex-row items-center md:justify-between">
+                                            <div class="md:w-5/12 md:pr-8 text-right">
+                                                <div class="bg-white p-6 rounded-xl shadow-lg border border-[#F5F0E8] hover:shadow-xl transition-shadow duration-300">
+                                                    <h4 class="text-xl font-bold text-[#8B2635] mb-3">2001 - Centenário</h4>
+                                                    <p class="text-[#6B4423]">Comemoração dos 100 anos com eventos especiais e inauguração do Centro de Referência e Memória do Café (CRMC).</p>
+                                                </div>
+                                            </div>
+                                            <div class="md:w-2/12 flex justify-center">
+                                                <div class="w-4 h-4 bg-[#8B2635] rounded-full border-4 border-white shadow-lg"></div>
+                                            </div>
+                                            <div class="md:w-5/12 md:pl-8 hidden md:block"></div>
+                                        </div>
+                                        
+                                        <div class="flex flex-col md:flex-row items-center md:justify-between">
+                                            <div class="md:w-5/12 hidden md:block"></div>
+                                            <div class="md:w-2/12 flex justify-center">
+                                                <div class="w-4 h-4 bg-[#8B2635] rounded-full border-4 border-white shadow-lg"></div>
+                                            </div>
+                                            <div class="md:w-5/12 md:pl-8">
+                                                <div class="bg-white p-6 rounded-xl shadow-lg border border-[#F5F0E8] hover:shadow-xl transition-shadow duration-300">
+                                                    <h4 class="text-xl font-bold text-[#8B2635] mb-3">2024 - Modernização</h4>
+                                                    <p class="text-[#6B4423]">Expansão digital com novo portal online e fortalecimento das atividades institucionais para o futuro.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Discurso do Centenário com novo layout -->
+                            <div class="bg-gradient-to-br from-[#F5F0E8] to-white p-8 rounded-xl shadow-lg border border-[#F5F0E8] mb-12">
+                                <div class="flex items-center mb-6">
+                                    <span class="material-icons text-3xl text-[#8B2635] mr-3">celebration</span>
+                                    <h3 class="text-2xl font-bold text-[#6B4423]">Discurso do Centenário</h3>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                    <div class="space-y-6">
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-[#8B2635] mb-3">Abertura</h4>
+                                            <p class="text-[#6B4423] leading-relaxed">Em nome pessoal, da Diretoria e dos associados do Centro do Comércio de Café do Rio de Janeiro, expressamos nossa alegria e satisfação por comemorarmos juntos esta etapa marcante de nossa existência.</p>
+                                        </div>
+                                        
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-[#8B2635] mb-3">Os 100 Anos de História</h4>
+                                            <p class="text-[#6B4423] leading-relaxed">Completamos e celebramos 100 anos de café. Neste ciclo, seguramente o mais esplendoroso período da história do café no Brasil, o Centro do Comércio viveu intensamente todos os seus acontecimentos.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="space-y-6">
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-[#8B2635] mb-3">Marcos Históricos</h4>
+                                            <ul class="space-y-3 text-[#6B4423]">
+                                                <li class="flex items-start">
+                                                    <span class="w-2 h-2 bg-[#8B2635] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                                    <span><strong>1901:</strong> Fundação do Centro do Comércio de Café do Rio de Janeiro</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <span class="w-2 h-2 bg-[#8B2635] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                                    <span><strong>1903:</strong> Inauguração da sede na Rua da Quitanda</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <span class="w-2 h-2 bg-[#8B2635] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                                    <span><strong>2001:</strong> Criação do Centro de Referência e Memória do Café</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="bg-white p-4 rounded-lg border-l-4 border-[#8B2635]">
+                                            <h4 class="text-lg font-semibold text-[#8B2635] mb-3">Citação do Presidente</h4>
+                                            <blockquote class="italic text-[#6B4423] text-center">
+                                                <p>"Em minhas últimas palavras, quero agradecer as demonstrações de apreço recebidas pelo Centro do Comércio de Café do Rio de Janeiro."</p>
                                             </blockquote>
                                         </div>
                                     </div>
@@ -272,80 +376,168 @@
                         </div>
                     </div>
                     
-                    <!-- Aba Estatutos -->
+                    <!-- Aba Estatutos Melhorada -->
                     <div id="tab-estatutos" class="tab-content" role="tabpanel" aria-labelledby="tab-estatutos">
-                        <div class="bg-white p-6 rounded-lg shadow border border-[#F5F0E8]">
-                            <h3 class="text-2xl font-bold text-[#6B4423] mb-6 text-center">Estatutos Institucionais</h3>
-                            
-                            <!-- Navegação por capítulos -->
-                            <div class="mb-8 flex flex-wrap gap-2 justify-center">
-                                <button onclick="showEstatutoSection('resumo')" class="estatuto-nav-btn bg-[#8B2635] text-white px-4 py-2 rounded-md hover:bg-[#6B1E2A] transition-colors">Resumo</button>
-                                <button onclick="showEstatutoSection('capitulo1')" class="estatuto-nav-btn bg-white text-[#8B2635] border border-[#8B2635] px-4 py-2 rounded-md hover:bg-[#F5F0E8] transition-colors">Capítulo I</button>
-                                <button onclick="showEstatutoSection('capitulo2')" class="estatuto-nav-btn bg-white text-[#8B2635] border border-[#8B2635] px-4 py-2 rounded-md hover:bg-[#F5F0E8] transition-colors">Capítulo II</button>
-                                <button onclick="showEstatutoSection('capitulo3')" class="estatuto-nav-btn bg-white text-[#8B2635] border border-[#8B2635] px-4 py-2 rounded-md hover:bg-[#F5F0E8] transition-colors">Capítulo III</button>
-                                <button onclick="showEstatutoSection('capitulo4')" class="estatuto-nav-btn bg-white text-[#8B2635] border border-[#8B2635] px-4 py-2 rounded-md hover:bg-[#F5F0E8] transition-colors">Capítulo IV</button>
-                                <button onclick="showEstatutoSection('capitulo5')" class="estatuto-nav-btn bg-white text-[#8B2635] border border-[#8B2635] px-4 py-2 rounded-md hover:bg-[#F5F0E8] transition-colors">Capítulo V</button>
-                                <button onclick="showEstatutoSection('capitulo6')" class="estatuto-nav-btn bg-white text-[#8B2635] border border-[#8B2635] px-4 py-2 rounded-md hover:bg-[#F5F0E8] transition-colors">Capítulo VI</button>
-                                <button onclick="showEstatutoSection('capitulo7')" class="estatuto-nav-btn bg-white text-[#8B2635] border border-[#8B2635] px-4 py-2 rounded-md hover:bg-[#F5F0E8] transition-colors">Capítulo VII</button>
-                                <button onclick="showEstatutoSection('capitulo8')" class="estatuto-nav-btn bg-white text-[#8B2635] border border-[#8B2635] px-4 py-2 rounded-md hover:bg-[#F5F0E8] transition-colors">Capítulo VIII</button>
-                                <button onclick="showEstatutoSection('capitulo9')" class="estatuto-nav-btn bg-white text-[#8B2635] border border-[#8B2635] px-4 py-2 rounded-md hover:bg-[#F5F0E8] transition-colors">Capítulo IX</button>
-                                <button onclick="showEstatutoSection('capitulo10')" class="estatuto-nav-btn bg-white text-[#8B2635] border border-[#8B2635] px-4 py-2 rounded-md hover:bg-[#F5F0E8] transition-colors">Capítulo X</button>
+                        <div class="max-w-6xl mx-auto">
+                            <!-- Header da seção -->
+                            <div class="text-center mb-12">
+                                <h2 class="text-3xl md:text-4xl font-bold text-[#6B4423] mb-4">Estatutos Institucionais</h2>
+                                <p class="text-lg md:text-xl text-[#8B2635] max-w-3xl mx-auto">Conheça as diretrizes fundamentais que regem nossa instituição centenária</p>
+                                <div class="w-24 h-1 bg-[#8B2635] mx-auto mt-4"></div>
+                            </div>
+
+                            <!-- Navegação por capítulos melhorada -->
+                            <div class="mb-8">
+                                <h3 class="text-2xl font-bold text-[#6B4423] mb-6 text-center">Navegação por Capítulos</h3>
+                                <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+                                    <button onclick="showEstatutoSection('resumo')" class="estatuto-nav-btn bg-[#8B2635] text-white px-3 py-3 rounded-lg hover:bg-[#6B1E2A] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                        <span class="block text-sm font-medium">Resumo</span>
+                                    </button>
+                                    <button onclick="showEstatutoSection('capitulo1')" class="estatuto-nav-btn bg-white text-[#8B2635] border-2 border-[#8B2635] px-3 py-3 rounded-lg hover:bg-[#F5F0E8] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                        <span class="block text-sm font-medium">Cap. I</span>
+                                    </button>
+                                    <button onclick="showEstatutoSection('capitulo2')" class="estatuto-nav-btn bg-white text-[#8B2635] border-2 border-[#8B2635] px-3 py-3 rounded-lg hover:bg-[#F5F0E8] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                        <span class="block text-sm font-medium">Cap. II</span>
+                                    </button>
+                                    <button onclick="showEstatutoSection('capitulo3')" class="estatuto-nav-btn bg-white text-[#8B2635] border-2 border-[#8B2635] px-3 py-3 rounded-lg hover:bg-[#F5F0E8] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                        <span class="block text-sm font-medium">Cap. III</span>
+                                    </button>
+                                    <button onclick="showEstatutoSection('capitulo4')" class="estatuto-nav-btn bg-white text-[#8B2635] border-2 border-[#8B2635] px-3 py-3 rounded-lg hover:bg-[#F5F0E8] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                        <span class="block text-sm font-medium">Cap. IV</span>
+                                    </button>
+                                </div>
+                                <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mt-3">
+                                    <button onclick="showEstatutoSection('capitulo5')" class="estatuto-nav-btn bg-white text-[#8B2635] border-2 border-[#8B2635] px-3 py-3 rounded-lg hover:bg-[#F5F0E8] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                        <span class="block text-sm font-medium">Cap. V</span>
+                                    </button>
+                                    <button onclick="showEstatutoSection('capitulo6')" class="estatuto-nav-btn bg-white text-[#8B2635] border-2 border-[#8B2635] px-3 py-3 rounded-lg hover:bg-[#F5F0E8] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                        <span class="block text-sm font-medium">Cap. VI</span>
+                                    </button>
+                                    <button onclick="showEstatutoSection('capitulo7')" class="estatuto-nav-btn bg-white text-[#8B2635] border-2 border-[#8B2635] px-3 py-3 rounded-lg hover:bg-[#F5F0E8] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                        <span class="block text-sm font-medium">Cap. VII</span>
+                                    </button>
+                                    <button onclick="showEstatutoSection('capitulo8')" class="estatuto-nav-btn bg-white text-[#8B2635] border-2 border-[#8B2635] px-3 py-3 rounded-lg hover:bg-[#F5F0E8] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                        <span class="block text-sm font-medium">Cap. VIII</span>
+                                    </button>
+                                    <button onclick="showEstatutoSection('capitulo9')" class="estatuto-nav-btn bg-white text-[#8B2635] border-2 border-[#8B2635] px-3 py-3 rounded-lg hover:bg-[#F5F0E8] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                        <span class="block text-sm font-medium">Cap. IX</span>
+                                    </button>
+                                </div>
+                                <div class="flex justify-center mt-3">
+                                    <button onclick="showEstatutoSection('capitulo10')" class="estatuto-nav-btn bg-white text-[#8B2635] border-2 border-[#8B2635] px-3 py-3 rounded-lg hover:bg-[#F5F0E8] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                                        <span class="block text-sm font-medium">Cap. X</span>
+                                    </button>
+                                </div>
                             </div>
 
                             <!-- Conteúdo do Estatuto -->
-                            <div id="estatuto-content">
+                            <div id="estatuto-content" class="bg-white rounded-xl shadow-lg border border-[#F5F0E8] p-8 mb-8">
                                 <!-- Conteúdo será carregado dinamicamente via JavaScript -->
                             </div>
-                            
-                            <!-- Resumo do Estatuto (conteúdo inicial) -->
-                            <div id="resumo-estatuto">
-                                <h4 class="text-xl font-bold text-[#6B2635] mb-4">Resumo do Estatuto Social</h4>
-                                <p class="text-[#8B2635] mb-6">O Estatuto do Centro do Comércio de Café do Rio de Janeiro, aprovado em 31/10/2017, estabelece as diretrizes fundamentais de nossa instituição centenária.</p>
-                                
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                                    <div class="bg-[#F5F0E8] p-4 rounded-lg">
-                                        <h5 class="font-bold text-[#6B2635] mb-2">Dados Institucionais</h5>
-                                        <ul class="list-disc list-inside text-[#8B2635] space-y-1">
-                                            <li>Denominação: Centro do Comércio de Café do Rio de Janeiro (CCC RJ)</li>
-                                            <li>Data de Fundação: 19 de dezembro de 1901</li>
-                                            <li>Sede: Rua da Quitanda nº 191 - 8° e 10° andares - Centro - RJ</li>
-                                            <li>CNPJ: 33.561.327/0001-50</li>
-                                        </ul>
+
+                            <!-- Resumo do Estatuto melhorado -->
+                            <div id="resumo-estatuto" class="bg-gradient-to-br from-[#F5F0E8] to-white rounded-xl shadow-lg border border-[#F5F0E8] p-8">
+                                <div class="flex items-center mb-6">
+                                    <span class="material-icons text-3xl text-[#8B2635] mr-3">description</span>
+                                    <h3 class="text-2xl font-bold text-[#6B4423]">Resumo do Estatuto Social</h3>
+                                </div>
+
+                                <p class="text-[#8B2635] mb-8 leading-relaxed">O Estatuto do Centro do Comércio de Café do Rio de Janeiro, aprovado em 31/10/2017, estabelece as diretrizes fundamentais de nossa instituição centenária, definindo sua organização, objetivos e funcionamento.</p>
+
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                                    <!-- Dados Institucionais -->
+                                    <div class="bg-white p-6 rounded-lg border border-[#F5F0E8] shadow-md">
+                                        <div class="flex items-center mb-4">
+                                            <span class="material-icons text-2xl text-[#8B2635] mr-3">business</span>
+                                            <h4 class="text-lg font-bold text-[#6B4423]">Dados Institucionais</h4>
+                                        </div>
+                                        <div class="space-y-3 text-[#8B2635]">
+                                            <div class="flex justify-between items-center py-2 border-b border-[#F5F0E8]">
+                                                <span class="font-medium">Denominação:</span>
+                                                <span>Centro do Comércio de Café do Rio de Janeiro (CCC RJ)</span>
+                                            </div>
+                                            <div class="flex justify-between items-center py-2 border-b border-[#F5F0E8]">
+                                                <span class="font-medium">Fundação:</span>
+                                                <span>19 de dezembro de 1901</span>
+                                            </div>
+                                            <div class="flex justify-between items-center py-2 border-b border-[#F5F0E8]">
+                                                <span class="font-medium">Sede:</span>
+                                                <span>Rua da Quitanda nº 191</span>
+                                            </div>
+                                            <div class="flex justify-between items-center py-2">
+                                                <span class="font-medium">CNPJ:</span>
+                                                <span>33.561.327/0001-50</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    
-                                    <div class="bg-[#F5F0E8] p-4 rounded-lg">
-                                        <h5 class="font-bold text-[#6B2635] mb-2">Principais Objetivos</h5>
-                                        <ul class="list-disc list-inside text-[#8B2635] space-y-1">
-                                            <li>Promover a união dos profissionais do setor cafeeiro</li>
-                                            <li>Defender os interesses dos associados</li>
-                                            <li>Fomentar o desenvolvimento do mercado de café</li>
-                                            <li>Preservar a memória e história do café</li>
-                                            <li>Promover a conciliação de conflitos</li>
-                                        </ul>
+
+                                    <!-- Principais Objetivos -->
+                                    <div class="bg-white p-6 rounded-lg border border-[#F5F0E8] shadow-md">
+                                        <div class="flex items-center mb-4">
+                                            <span class="material-icons text-2xl text-[#8B2635] mr-3">flag</span>
+                                            <h4 class="text-lg font-bold text-[#6B4423]">Principais Objetivos</h4>
+                                        </div>
+                                        <div class="space-y-3">
+                                            <div class="flex items-start">
+                                                <span class="w-2 h-2 bg-[#8B2635] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                                <span class="text-[#8B2635]">Promover a união dos profissionais do setor cafeeiro</span>
+                                            </div>
+                                            <div class="flex items-start">
+                                                <span class="w-2 h-2 bg-[#8B2635] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                                <span class="text-[#8B2635]">Defender os interesses dos associados</span>
+                                            </div>
+                                            <div class="flex items-start">
+                                                <span class="w-2 h-2 bg-[#8B2635] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                                <span class="text-[#8B2635]">Fomentar o desenvolvimento do mercado de café</span>
+                                            </div>
+                                            <div class="flex items-start">
+                                                <span class="w-2 h-2 bg-[#8B2635] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                                <span class="text-[#8B2635]">Preservar a memória e história do café</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                
-                                <div class="bg-white p-4 rounded-lg border-l-4 border-[#8B2635] mb-6">
-                                    <h5 class="font-bold text-[#6B2635] mb-2">Estrutura Organizacional</h5>
-                                    <p class="text-[#8B2635] mb-2">O CCC RJ é administrado por:</p>
-                                    <ul class="list-disc list-inside text-[#8B2635] space-y-1">
-                                        <li><strong>Assembleia Geral</strong>: Órgão máximo de deliberação</li>
-                                        <li><strong>Conselho Administrativo</strong>: Define as diretrizes institucionais</li>
-                                        <li><strong>Diretoria</strong>: Executa as atividades administrativas</li>
-                                        <li><strong>Conselho Fiscal</strong>: Fiscaliza a gestão financeira</li>
-                                    </ul>
+
+                                <!-- Estrutura Organizacional -->
+                                <div class="bg-white p-8 rounded-lg border border-[#F5F0E8] shadow-md mb-8">
+                                    <div class="flex items-center mb-6">
+                                        <span class="material-icons text-3xl text-[#8B2635] mr-3">account_tree</span>
+                                        <h4 class="text-xl font-bold text-[#6B4423]">Estrutura Organizacional</h4>
+                                    </div>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div class="text-center p-4 bg-[#F5F0E8] rounded-lg">
+                                            <span class="material-icons text-2xl text-[#8B2635] mb-2">groups</span>
+                                            <h5 class="font-bold text-[#6B4423] mb-2">Assembleia Geral</h5>
+                                            <p class="text-sm text-[#8B2635]">Órgão máximo de deliberação composto por todos os associados</p>
+                                        </div>
+                                        <div class="text-center p-4 bg-[#F5F0E8] rounded-lg">
+                                            <span class="material-icons text-2xl text-[#8B2635] mb-2">admin_panel_settings</span>
+                                            <h5 class="font-bold text-[#6B4423] mb-2">Conselho Administrativo</h5>
+                                            <p class="text-sm text-[#8B2635]">Define as diretrizes institucionais e políticas estratégicas</p>
+                                        </div>
+                                        <div class="text-center p-4 bg-[#F5F0E8] rounded-lg">
+                                            <span class="material-icons text-2xl text-[#8B2635] mb-2">business_center</span>
+                                            <h5 class="font-bold text-[#6B4423] mb-2">Diretoria</h5>
+                                            <p class="text-sm text-[#8B2635]">Executa as atividades administrativas e operacionais</p>
+                                        </div>
+                                        <div class="text-center p-4 bg-[#F5F0E8] rounded-lg">
+                                            <span class="material-icons text-2xl text-[#8B2635] mb-2">security</span>
+                                            <h5 class="font-bold text-[#6B4423] mb-2">Conselho Fiscal</h5>
+                                            <p class="text-sm text-[#8B2635]">Fiscaliza a gestão financeira e patrimonial</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                
-                                <div class="text-center mt-8">
-                                    <button onclick="showEstatutoSection('capitulo1')" class="bg-[#8B2635] text-white px-6 py-2 rounded-md hover:bg-[#6B1E2A] transition-colors">
+
+                                <!-- Botão para ver estatuto completo -->
+                                <div class="text-center">
+                                    <button onclick="showEstatutoSection('capitulo1')" class="bg-gradient-to-r from-[#8B2635] to-[#992D3D] hover:from-[#6B1E2A] hover:to-[#7A252C] text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center mx-auto">
+                                        <span class="material-icons mr-2">menu_book</span>
                                         Ver Estatuto Completo
                                     </button>
                                 </div>
                             </div>
-                                
-                            </div>
                         </div>
-                        <!-- Aba Diretoria -->
+                    </div>
                     <div id="tab-diretoria" class="tab-content" role="tabpanel" aria-labelledby="tab-diretoria">
                         <div class="max-w-4xl mx-auto">
                             <!-- Diretoria Atual -->
