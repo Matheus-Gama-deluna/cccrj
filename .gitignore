@@ -1,2 +1,5 @@
 scraping_cccrj/
 uploads/
+/pdf/
+/temp/.env
+/backup_delete
