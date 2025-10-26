@@ -398,18 +398,110 @@
   box-shadow: 0 25px 50px -12px rgba(139, 38, 53, 0.25);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .gradient-bg {
-    background-attachment: scroll; /* Desabilita parallax em mobile para melhor performance */
-  }
-  
-  .gradient-bg h1 {
-    font-size: 2.5rem;
-  }
-  
-  .card-hover:hover {
-    transform: none;
-    box-shadow: 0 10px 20px -8px rgba(139, 38, 53, 0.25);
-  }
+/* Animações para a seção de boletins melhorada */
+.reports-fade-in {
+    animation: reportsFadeIn 0.6s ease-out;
+}
+
+.reports-slide-up {
+    animation: reportsSlideUp 0.5s ease-out;
+}
+
+.reports-scale-in {
+    animation: reportsScaleIn 0.4s ease-out;
+}
+
+.reports-pulse-glow {
+    animation: reportsPulseGlow 2s infinite;
+}
+
+@keyframes reportsFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes reportsSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes reportsScaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes reportsPulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(139, 38, 53, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(139, 38, 53, 0);
+    }
+}
+
+/* Estilos para badges de boletins */
+.reports-badge-new {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+}
+
+.reports-badge-analysis {
+    background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+}
+
+.reports-badge-highlight {
+    background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+}
+
+.reports-badge-default {
+    background: linear-gradient(135deg, #6B7280 0%, #4B5563 100%);
+}
+
+/* Hover effects aprimorados para cards */
+.reports-card-enhanced {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.reports-card-enhanced:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow:
+        0 25px 50px -12px rgba(139, 38, 53, 0.25),
+        0 0 0 1px rgba(139, 38, 53, 0.1);
+}
+
+/* Loading states aprimorados */
+.reports-loading-shimmer {
+    background: linear-gradient(90deg,
+        rgba(245, 240, 232, 0.2) 0%,
+        rgba(245, 240, 232, 0.8) 50%,
+        rgba(245, 240, 232, 0.2) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
 }
