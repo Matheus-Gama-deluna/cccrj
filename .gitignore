@@ -1,5 +1,102 @@
 scraping_cccrj/
 uploads/
-/pdf/
-/temp/.env
-/backup_delete
+pdf/
+temp/
+backup_delete/
+boletins_cccrj/
+
+# Arquivos de teste
+test_*.php
+teste_*.php
+testar_*.php
+fix_*.js
+
+# Arquivos de debug
+debug_*.php
+
+# Arquivos de verificação
+verificar_*.php
+verificar_*.html
+
+# Scripts de migração temporários
+regenerar_*.php
+mostrar_*.php
+
+# Scripts de análise
+analise_*.php
+
+# Documentação temporária
+delete.md
+
+# Logs e caches
+*.log
+.cache/
+logs/
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.bak
+*.old
+
+# Arquivos de desenvolvimento
+.env.local
+.env.development
+*.swp
+*.swo
+*~
+
+# Backups
+*.backup
+backups/
+
+# Pastas vazias que podem ser recriadas
+temp/
+backup_delete/
+boletins_cccrj/
+scraping_cccrj/
+
+# Arquivos de teste específicos identificados
+test_api.php
+test_extracao_datas.php
+test_ordenacao.php
+test_padrao_dd_mm_yy.php
+test_regex.php
+testar_api.php
+testar_extracao_datas.php
+testar_sistema_incremental.php
+teste_apis.html
+teste_extracao_detalhada.php
+teste_incremental.php
+teste_incremental_detalhado.php
+fix_js.js
+analise_problemas.php
+debug_extracao_24-10-25.php
+debug_scan.php
+verificar_apis.php
+verificar_datas_incorretas.php
+verificar_duplicatas.php
+verificar_extracao_2025.php
+verificar_json.php
+verificar_ordenacao_2025.php
+regenerar_metadados.php
+regenerar_metadados_unico.php
+mostrar_metadados.php
+analise_arquivos_teste.php
+verificacao_final_unico.php
+
+# Padrões genéricos para capturar arquivos similares
+# Scripts de teste
+test[a-z0-9_]*.php
+teste[a-z0-9_]*.php
+testar[a-z0-9_]*.php
+debug[a-z0-9_]*.php
+verificar[a-z0-9_]*.php
+regenerar[a-z0-9_]*.php
+mostrar[a-z0-9_]*.php
+analise[a-z0-9_]*.php
+
+# Arquivos temporários por data
+*-24-10-25.php
+*-25-10-25.php
+*_[0-9]{2}-[0-9]{2}-[0-9]{2}.php

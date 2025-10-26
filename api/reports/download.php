@@ -26,9 +26,19 @@ try {
     $fileService = new LocalFileService();
     $fileName = basename($_GET['file']);
     $type = $_GET['type'] ?? 'reports';
+    $path = isset($_GET['path']) ? trim($_GET['path']) : null;
 
     // Obter o caminho do arquivo
-    $filePath = $fileService->downloadFile($fileName, $type);
+    if ($path && $type === 'boletins') {
+        $candidate = $fileService->resolveBoletimPath($path, $fileName);
+        if ($candidate) {
+            $filePath = $candidate;
+        }
+    }
+
+    if (empty($filePath)) {
+        $filePath = $fileService->downloadFile($fileName, $type);
+    }
 
     // Verificar se o arquivo existe
     if (!file_exists($filePath)) {

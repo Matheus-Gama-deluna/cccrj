@@ -1,6 +1,26 @@
 {
     "noticias": [
         {
+            "id": 2738684251,
+            "categoria": "Produção",
+            "data": "2025-10-24",
+            "titulo": "Setor cafeeiro debate soluções tecnológicas para rastreabilidade e sustentabilidade",
+            "resumo": "\n\t\t\t\t\tSetor cafeeiro debate soluções tecnológicas para rastreabilidade e sustentabilidade\n\t\t\t\t...",
+            "conteudo": "",
+            "icone": "agriculture",
+            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/debate-tecnologia-rastreabilidade-sustentabilidade-20251024\/"
+        },
+        {
+            "id": 3420862693,
+            "categoria": "Produção",
+            "data": "2025-10-22",
+            "titulo": "Brasil possui dois planos para isentar café do tarifaço imposto pelos EUA",
+            "resumo": "\n\t\t\t\t\tBrasil possui dois planos para isentar café do tarifaço imposto pelos EUA\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t...",
+            "conteudo": "",
+            "icone": "agriculture",
+            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/brasil-planos-cafe-tarifaco-eua-20251022\/"
+        },
+        {
             "id": 1077504652,
             "categoria": "Produção",
             "data": "2025-10-10",
@@ -79,27 +99,7 @@
             "conteudo": "",
             "icone": "agriculture",
             "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/cecafe-china-gfex-cofco-20250924\/"
-        },
-        {
-            "id": 2061367244,
-            "categoria": "Produção",
-            "data": "2025-09-23",
-            "titulo": "Em Brasília (DF), Cecafé defende ações para melhoria do sistema portuário do Brasil",
-            "resumo": "\n\t\t\t\t\tEm Brasília (DF), Cecafé defende ações para melhoria do sistema portuário do Brasil\n\t\t...",
-            "conteudo": "",
-            "icone": "agriculture",
-            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/brasilia-cecafe-melhoria-sistema-portuario-brasil-20250923\/"
-        },
-        {
-            "id": 3034251396,
-            "categoria": "Exportação",
-            "data": "2025-09-09",
-            "titulo": "Brasil exporta 3,1 mi de sacas de café em agosto, queda de 17,5% ante ago\/24",
-            "resumo": "\n\t\t\t\t\tBrasil exporta 3,1 mi de sacas de café em agosto, queda de 17,5% ante ago\/24\n\t\t\t\t\t\t\t\t\t\t\t\t\t...",
-            "conteudo": "",
-            "icone": "article",
-            "link": "https:\/\/www.cecafe.com.br\/publicacoes\/noticias\/relatorio-cecafe-agosto-2025-20250909\/"
         }
     ],
-    "ultima_atualizacao": "2025-10-13 03:54:12"
+    "ultima_atualizacao": "2025-10-24 20:10:35"
 }

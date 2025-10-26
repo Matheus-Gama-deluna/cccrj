@@ -1,196 +1,540 @@
-// Lógica para os boletins em PDF
-// Variável global para controlar inicialização dos boletins
+// Lógica da seção de boletins com múltiplas visualizações
 let reportsInitialized = false;
 
 class ReportsManager {
     constructor() {
         this.reportsContainer = document.getElementById('reports-container');
-        this.apiUrl = 'api/reports/list.php?type=boletins'; // URL da API PHP
-        this.downloadUrl = 'api/reports/download.php?file='; // URL para download
-        this.currentCategory = 'all'; // Adicionando filtro por categoria
+        this.archiveControls = document.getElementById('reports-archive-controls');
+        this.feedbackElement = document.getElementById('reports-feedback');
+        this.loadMoreContainer = document.getElementById('reports-load-more-container');
+        this.updateInfoElement = document.getElementById('reports-update-info');
+
+        this.viewButtons = {
+            latest: document.getElementById('reports-latest-btn'),
+            list: document.getElementById('reports-list-btn'),
+            archive: document.getElementById('reports-archive-btn')
+        };
+
+        this.apiUrl = 'api/reports/list.php?type=boletins';
+        this.archiveApiUrl = 'api/boletins/';
+        this.downloadEndpoint = 'api/reports/download.php';
+
+        this.currentView = 'latest';
+        this.isLoading = false;
+
+        this.latestLimit = 10;
+        this.latestReports = [];
+        this.latestMeta = null;
+
+        this.listPerPage = 12;
+        this.listReports = [];
+        this.listMeta = { page: 1, total_pages: 1, total: 0 };
+
+        this.archiveYears = [];
+        this.archiveMonths = {};
+        this.archiveReports = [];
+        this.activeYear = null;
+        this.activeMonthDir = null;
+
         this.init();
     }
 
     init() {
-        // Previne múltiplas inicializações
         if (reportsInitialized || !this.reportsContainer) {
             return;
         }
 
         reportsInitialized = true;
-
-        // Carregar relatórios iniciais
-        this.loadReports();
-
-        // Adicionar funcionalidade de filtro por categoria se o elemento existir
-        this.addCategoryFilter();
+        this.bindControls();
+        this.switchView('latest');
     }
 
-    async loadReports() {
-        try {
-            // Mostrar indicador de carregamento
-            this.showLoading();
+    bindControls() {
+        Object.entries(this.viewButtons).forEach(([view, button]) => {
+            if (!button) return;
+            button.addEventListener('click', () => this.switchView(view));
+        });
+    }
 
-            // Chamar API para obter boletins
-            let apiUrl = 'api/reports/list.php?type=boletins';
-            if (this.currentCategory && this.currentCategory !== 'all') {
-                apiUrl += `&category=${this.currentCategory}`;
+    async switchView(view) {
+        if (this.isLoading && this.currentView === view) {
+            return;
+        }
+
+        this.currentView = view;
+        this.highlightActiveButton(view);
+        this.clearFeedback();
+        this.clearLoadMore();
+
+        if (view === 'archive') {
+            this.toggleArchiveControls(true);
+            await this.handleArchiveFlow();
+            return;
+        }
+
+        this.toggleArchiveControls(false);
+
+        if (view === 'latest') {
+            if (this.latestReports.length === 0) {
+                await this.loadLatestReports();
+            } else {
+                this.renderCardGrid(this.latestReports, {
+                    title: 'Últimos boletins publicados',
+                    subtitle: 'Seleção automática dos 10 arquivos mais recentes'
+                });
+                this.renderOlderButton();
+                this.updateUpdateInfo(this.latestMeta, { prefix: 'Atualizado em' });
             }
+            return;
+        }
 
-            const response = await fetch(apiUrl, {
+        if (view === 'list') {
+            if (this.listReports.length === 0) {
+                await this.loadListReports({ append: false });
+            } else {
+                this.renderListView(this.listReports, { append: false });
+                this.renderListLoadMore();
+                this.updateUpdateInfo(this.listMeta, {
+                    prefix: 'Dados atualizados em',
+                    suffix: `• Página ${this.listMeta.page} de ${this.listMeta.total_pages}`
+                });
+            }
+        }
+    }
+
+    highlightActiveButton(activeView) {
+        Object.entries(this.viewButtons).forEach(([view, button]) => {
+            if (!button) return;
+            const isActive = view === activeView;
+            button.classList.toggle('active-view', isActive);
+            button.classList.toggle('bg-[#8B2635]', isActive);
+            button.classList.toggle('text-white', isActive);
+            button.classList.toggle('bg-white', !isActive);
+            button.classList.toggle('border', !isActive);
+            button.classList.toggle('border-[#8B2635]', !isActive);
+        });
+    }
+
+    async loadLatestReports() {
+        try {
+            this.setLoading(true);
+            const response = await fetch(`${this.apiUrl}&per_page=${this.latestLimit}&page=1`, {
                 headers: {
                     'Cache-Control': 'no-cache',
                     'Pragma': 'no-cache'
                 }
             });
 
-            // Verifica se a resposta é JSON
-            const contentType = response.headers.get('content-type') || '';
-            const isJson = contentType.includes('application/json');
-
-            if (!isJson) {
-                // Se não for JSON, pega o texto para ver o que foi retornado
-                const textResponse = await response.text();
-                throw new Error('O servidor retornou uma resposta inválida. Por favor, verifique os logs do servidor.');
-            }
-
             const data = await response.json();
 
-            if (!response.ok) {
-                throw new Error(data.message || `Erro ao carregar boletins (${response.status})`);
+            if (!data.success) {
+                throw new Error(data.message || 'Não foi possível carregar os boletins mais recentes.');
             }
 
-            // Verifica se a resposta tem a estrutura esperada
-            const reports = data.data || [];
+            this.latestReports = this.prepareReports(data.data);
+            this.latestMeta = data.meta || null;
 
-            // Limpar container completamente (remover cards estáticos também)
-            if (this.reportsContainer) {
-                this.reportsContainer.innerHTML = '';
+            this.renderCardGrid(this.latestReports, {
+                title: 'Últimos boletins publicados',
+                subtitle: 'Seleção automática dos 10 arquivos mais recentes'
+            });
+            this.renderOlderButton();
+            this.updateUpdateInfo(this.latestMeta, { prefix: 'Atualizado em' });
 
-                // Adicionar relatórios ao container
-                if (reports.length > 0) {
-                    reports.forEach(report => {
-                        try {
-                            // Garante que o relatório tenha as propriedades necessárias
-                            const normalizedReport = {
-                                name: report.name || 'Boletim sem nome',
-                                path: report.path || '',
-                                size: report.size || 0,
-                                modified: report.modified || new Date().toISOString(),
-                                url: report.url || `/api/reports/download?file=${encodeURIComponent(report.name || '')}`,
-                                // Extrai categoria do caminho ou usa padrão
-                                category: this.extractCategoryFromPath(report.path) || 'outro'
-                            };
-
-                            const card = this.createReportCard(normalizedReport);
-                            this.reportsContainer.appendChild(card);
-                        } catch (cardError) {
-                            // Silently handle card creation errors to prevent console spam
-                        }
-                    });
-
-                    if (this.reportsContainer.children.length === 0) {
-                        this.showEmptyState();
-                    }
-                } else {
-                    this.showEmptyState();
-                }
-            }
         } catch (error) {
-            this.showError(error.message || 'Não foi possível carregar os boletins. Tente novamente mais tarde.');
+            this.showError(error.message || 'Erro ao carregar os boletins mais recentes.');
         } finally {
-            // Esconder indicador de carregamento
-            this.hideLoading();
+            this.setLoading(false);
         }
     }
 
-    /**
-     * Extrai a categoria do caminho do arquivo
-     * @param {string} path Caminho do arquivo
-     * @returns {string} Categoria do arquivo
-     */
-    extractCategoryFromPath(path) {
-        if (!path) return 'outro';
+    async loadListReports({ append = false } = {}) {
+        try {
+            this.setLoading(!append);
 
-        const pathLower = path.toLowerCase();
+            const nextPage = append ? this.listMeta.page + 1 : 1;
+            const response = await fetch(`${this.apiUrl}&per_page=${this.listPerPage}&page=${nextPage}`, {
+                headers: {
+                    'Cache-Control': 'no-cache',
+                    'Pragma': 'no-cache'
+                }
+            });
 
-        if (pathLower.includes('boletins') || pathLower.includes('boletim') || pathLower.includes('bulletin')) return 'relatorio';
-        if (pathLower.includes('publicacoes') || pathLower.includes('publications')) return 'publicacao';
-        if (pathLower.includes('acervo') || pathLower.includes('archive')) return 'acervo';
+            const data = await response.json();
 
-        return 'outro';
+            if (!data.success) {
+                throw new Error(data.message || 'Erro ao carregar boletins.');
+            }
+
+            const reports = data.data || [];
+
+            const combinedReports = append
+                ? [...this.listReports, ...reports]
+                : reports;
+
+            this.listReports = this.prepareReports(combinedReports);
+
+            this.listMeta = {
+                page: data.meta?.page || nextPage,
+                total_pages: data.meta?.total_pages || nextPage,
+                total: data.meta?.total || this.listReports.length,
+                timestamp: data.meta?.timestamp || new Date().toISOString()
+            };
+
+            this.renderListView(this.listReports, { append });
+            this.renderListLoadMore();
+            this.updateUpdateInfo(this.listMeta, {
+                prefix: 'Dados atualizados em',
+                suffix: `• Página ${this.listMeta.page} de ${this.listMeta.total_pages}`
+            });
+
+        } catch (error) {
+            this.showError(error.message || 'Erro ao carregar boletins.');
+        } finally {
+            this.setLoading(false);
+        }
+    }
+
+    async handleArchiveFlow() {
+        if (this.archiveYears.length === 0) {
+            try {
+                this.setLoading(true);
+                const response = await fetch(`${this.archiveApiUrl}list_by_year.php?type=boletins`);
+                const data = await response.json();
+
+                if (!data.success) {
+                    throw new Error(data.message || 'Não foi possível carregar a lista de anos.');
+                }
+
+                this.archiveYears = data.data || [];
+            } catch (error) {
+                this.showError(error.message || 'Erro ao carregar o arquivo de boletins.');
+                return;
+            } finally {
+                this.setLoading(false);
+            }
+        }
+
+        this.renderArchiveControls();
+
+        if (this.activeYear && this.activeMonthDir) {
+            await this.loadArchiveReports(this.activeYear, this.activeMonthDir);
+        } else {
+            this.reportsContainer.innerHTML = '';
+            this.setFeedback('Selecione um ano para consultar os boletins arquivados.');
+            this.updateUpdateInfo();
+        }
+    }
+
+    async ensureArchiveMonths(year) {
+        if (this.archiveMonths[year]) {
+            return;
+        }
+
+        this.setFeedback('Carregando meses disponíveis...');
+        const response = await fetch(`${this.archiveApiUrl}list_by_month.php?type=boletins&year=${year}`);
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message || 'Erro ao carregar meses disponíveis.');
+        }
+
+        this.archiveMonths[year] = data.data || [];
+    }
+
+    async loadArchiveReports(year, monthDir) {
+        try {
+            this.setLoading(true);
+            const response = await fetch(`${this.archiveApiUrl}list_by_date.php?type=boletins&year=${year}&month=${monthDir}`);
+            const data = await response.json();
+
+            if (!data.success) {
+                throw new Error(data.message || 'Erro ao carregar boletins do período selecionado.');
+            }
+
+            this.archiveReports = this.prepareReports(data.data);
+            this.renderCardGrid(this.archiveReports, {
+                title: `Boletins de ${monthDir.replace('_', ' ')} de ${year}`,
+                subtitle: `${data.total || 0} arquivos disponíveis`
+            });
+
+            this.updateUpdateInfo(null, {
+                prefix: `Arquivo: ${monthDir.replace('_', ' ')} / ${year}`
+            });
+            this.clearFeedback();
+        } catch (error) {
+            this.showError(error.message || 'Erro ao carregar os boletins arquivados.');
+        } finally {
+            this.setLoading(false);
+        }
+    }
+
+    renderCardGrid(reports, { title = '', subtitle = '' } = {}) {
+        this.applyContainerLayout('grid');
+
+        if (!reports || reports.length === 0) {
+            this.showEmptyState();
+            return;
+        }
+
+        this.reportsContainer.innerHTML = '';
+
+        if (title || subtitle) {
+            const header = document.createElement('div');
+            header.className = 'col-span-full mb-4 text-left';
+            header.innerHTML = `
+                ${title ? `<h3 class="text-2xl font-semibold text-[#6B4423]">${title}</h3>` : ''}
+                ${subtitle ? `<p class="text-[#8B2635] mt-1">${subtitle}</p>` : ''}
+            `;
+            this.reportsContainer.appendChild(header);
+        }
+
+        reports.forEach((report) => {
+            const card = this.createReportCard(report);
+            this.reportsContainer.appendChild(card);
+        });
+    }
+
+    renderListView(reports, { append = false } = {}) {
+        this.applyContainerLayout('list');
+
+        if (!append) {
+            this.reportsContainer.innerHTML = `
+                <div id="reports-list-wrapper" class="bg-white/80 rounded-2xl shadow-lg border border-[#F5F0E8] overflow-hidden">
+                    <div class="bg-[#8B2635] text-white px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                        <div>
+                            <h3 class="text-xl font-semibold">Todos os boletins</h3>
+                            <p class="text-sm text-white/80">${this.listMeta.total} arquivos cadastrados</p>
+                        </div>
+                        <div class="text-sm text-white/80">Página ${this.listMeta.page} de ${this.listMeta.total_pages}</div>
+                    </div>
+                    <div class="divide-y divide-[#F5F0E8]" id="reports-list-items"></div>
+                </div>
+            `;
+        }
+
+        const listWrapper = document.getElementById('reports-list-items');
+        if (!listWrapper) return;
+
+        const startIndex = append ? (this.listMeta.page - 1) * this.listPerPage : 0;
+        const newItems = reports.slice(startIndex);
+
+        const fragment = document.createDocumentFragment();
+
+        newItems.forEach((report) => {
+            const row = document.createElement('div');
+            row.className = 'flex flex-col md:flex-row md:items-center md:justify-between px-6 py-4 hover:bg-[#FFF9F5] transition-colors duration-300';
+            row.innerHTML = `
+                <div class="flex items-start gap-4">
+                    <span class="material-icons text-[#8B2635] mt-1">picture_as_pdf</span>
+                    <div>
+                        <h4 class="text-[#6B4423] font-semibold">${report.title}</h4>
+                        <p class="text-sm text-[#8B2635]">${report.formattedDate} • ${report.formattedSize}</p>
+                    </div>
+                </div>
+                <div class="mt-4 md:mt-0 flex gap-2">
+                    <button class="preview-btn bg-white text-[#8B2635] border border-[#8B2635] rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-[#F5F0E8] transition-colors duration-300">
+                        <span class="material-icons text-sm">visibility</span>
+                        Ver
+                    </button>
+                    <button class="download-report bg-[#8B2635] text-white rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-[#992D3D] transition-colors duração-300">
+                        <span class="material-icons text-sm">download</span>
+                        Baixar
+                    </button>
+                </div>
+            `;
+
+            const previewBtn = row.querySelector('.preview-btn');
+            const downloadBtn = row.querySelector('.download-report');
+
+            if (previewBtn) {
+                previewBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    if (typeof pdfPreview?.show === 'function') {
+                        pdfPreview.show(report.name, report.title, 'boletins');
+                    }
+                });
+            }
+
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    this.downloadReport(report.name);
+                });
+            }
+
+            fragment.appendChild(row);
+        });
+
+        listWrapper.appendChild(fragment);
+    }
+
+    renderOlderButton() {
+        if (!this.loadMoreContainer) return;
+
+        this.loadMoreContainer.innerHTML = `
+            <button id="reports-see-older" class="inline-flex items-center gap-2 bg-white text-[#8B2635] border border-[#8B2635] px-6 py-3 rounded-lg hover:bg-[#F5F0E8] transition-colors duração-300">
+                <span class="material-icons text-sm">history</span>
+                Ver boletins mais antigos
+            </button>
+        `;
+
+        const button = document.getElementById('reports-see-older');
+        if (button) {
+            button.addEventListener('click', () => this.switchView('list'));
+        }
+    }
+
+    renderListLoadMore() {
+        if (!this.loadMoreContainer) return;
+
+        const hasMore = this.listMeta.page < this.listMeta.total_pages;
+        if (!hasMore) {
+            this.loadMoreContainer.innerHTML = '';
+            return;
+        }
+
+        this.loadMoreContainer.innerHTML = `
+            <button id="reports-load-more" class="inline-flex items-center gap-2 bg-[#8B2635] text-white px-6 py-3 rounded-lg hover:bg-[#992D3D] transition-colors duração-300">
+                <span class="material-icons text-sm">unfold_more</span>
+                Carregar mais boletins
+            </button>
+        `;
+
+        const button = document.getElementById('reports-load-more');
+        if (button) {
+            button.addEventListener('click', () => this.loadListReports({ append: true }));
+        }
+    }
+
+    renderArchiveControls() {
+        if (!this.archiveControls) return;
+
+        const yearOptions = this.archiveYears.map((year) => `
+            <option value="${year}" ${this.activeYear === year ? 'selected' : ''}>${year}</option>
+        `).join('');
+
+        const months = this.activeYear ? (this.archiveMonths[this.activeYear] || []) : [];
+        const monthOptions = months.map((month) => `
+            <option value="${month.month_dir}" ${this.activeMonthDir === month.month_dir ? 'selected' : ''}>${month.month_name}</option>
+        `).join('');
+
+        this.archiveControls.innerHTML = `
+            <label class="sr-only" for="reports-year-select">Ano</label>
+            <select id="reports-year-select" class="border border-[#8B2635] text-[#6B4423] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#8B2635]">
+                <option value="">Selecione um ano...</option>
+                ${yearOptions}
+            </select>
+            <label class="sr-only" for="reports-month-select">Mês</label>
+            <select id="reports-month-select" class="border border-[#8B2635] text-[#6B4423] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#8B2635]" ${months.length ? '' : 'disabled'}>
+                <option value="">${months.length ? 'Selecione um mês...' : 'Selecione um ano primeiro'}</option>
+                ${monthOptions}
+            </select>
+            <button id="reports-clear-archive" class="bg-gray-100 text-[#8B2635] px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duração-300 ${this.activeYear || this.activeMonthDir ? '' : 'hidden'}">
+                Limpar seleção
+            </button>
+        `;
+
+        const yearSelect = document.getElementById('reports-year-select');
+        const monthSelect = document.getElementById('reports-month-select');
+        const clearButton = document.getElementById('reports-clear-archive');
+
+        if (yearSelect) {
+            yearSelect.addEventListener('change', async (event) => {
+                const year = event.target.value || null;
+                this.activeYear = year;
+                this.activeMonthDir = null;
+                this.archiveReports = [];
+
+                if (year) {
+                    await this.ensureArchiveMonths(year);
+                    this.renderArchiveControls();
+                    if (this.archiveMonths[year].length === 0) {
+                        this.reportsContainer.innerHTML = '';
+                        this.setFeedback(`Ainda não há boletins cadastrados para ${year}.`);
+                    } else {
+                        this.reportsContainer.innerHTML = '';
+                        this.setFeedback('Selecione um mês para visualizar os boletins.');
+                    }
+                } else {
+                    this.renderArchiveControls();
+                    this.reportsContainer.innerHTML = '';
+                    this.setFeedback('Selecione um ano para explorar os boletins arquivados.');
+                    this.updateUpdateInfo();
+                }
+            });
+        }
+
+        if (monthSelect) {
+            monthSelect.addEventListener('change', async (event) => {
+                const month = event.target.value || null;
+                this.activeMonthDir = month;
+                if (this.activeYear && month) {
+                    await this.loadArchiveReports(this.activeYear, month);
+                } else {
+                    this.reportsContainer.innerHTML = '';
+                    this.setFeedback('Selecione um mês para visualizar os boletins.');
+                }
+            });
+        }
+
+        if (clearButton) {
+            clearButton.addEventListener('click', () => {
+                this.activeYear = null;
+                this.activeMonthDir = null;
+                this.archiveReports = [];
+                this.renderArchiveControls();
+                this.reportsContainer.innerHTML = '';
+                this.setFeedback('Selecione um ano para explorar os boletins arquivados.');
+                this.updateUpdateInfo();
+            });
+        }
     }
 
     createReportCard(report) {
-        // Criar elemento para o card do boletim
-        const article = document.createElement('div');
-        article.className = 'bg-gradient-to-br from-white to-[#F5F0E8] rounded-2xl shadow-lg card-hover border border-[#F5F0E8]';
+        const article = document.createElement('article');
+        article.className = 'bg-gradient-to-br from-white to-[#F5F0E8] rounded-2xl shadow-lg card-hover border border-[#F5F0E8] overflow-hidden flex flex-col';
 
-        // Determinar tipo e gradientes com base nas informações do boletim
-        let type = report.type || 'boletim'; // 'boletim', 'publicacao', 'acervo', etc.
-        let title = report.title || this.formatFileName(report.name);
-        let description = report.description || 'Documento em formato PDF';
-        let icon = 'picture_as_pdf';
-        let date = report.date || this.extractDateFromFilename(report.name) || new Date().toISOString().split('T')[0];
-
-        // Gradientes para diferentes tipos de documentos
-        const gradients = {
-            'relatorio': 'from-[#8B2635] to-[#992D3D]',
-            'boletim': 'from-[#8B2635] to-[#992D3D]',
-            'publicacao': 'from-[#4A6B8A] to-[#8B2635]',
-            'acervo': 'from-[#D4A574] to-[#A63545]',
-            'outro': 'from-[#6B4423] to-[#8B2635]'
-        };
-
-        const gradient = gradients[type] || gradients['outro'];
-
-        // Definir ícone com base no tipo
         article.innerHTML = `
-            <div class="h-48 bg-gradient-to-br ${gradient} relative flex items-center justify-center">
-                <div class="text-center">
-                    <span class="material-icons text-white text-6xl">${icon}</span>
-                    <div class="mt-2 text-white text-sm capitalize">${type === 'boletim' ? 'Boletim' : type}</div>
+            <div class="h-44 bg-gradient-to-br from-[#8B2635] to-[#992D3D] flex items-center justify-center">
+                <div class="text-center text-white">
+                    <span class="material-icons text-6xl block">picture_as_pdf</span>
+                    <span class="uppercase tracking-wide text-sm">Boletim</span>
                 </div>
             </div>
-            <div class="p-6">
-                <div class="text-sm text-[#6B4423] mb-2">${this.formatDate(date)}</div>
-                <h3 class="text-xl font-bold text-[#6B4423] mb-3">${title}</h3>
-                <p class="text-[#8B2635] mb-4">${description}</p>
-                <div class="flex gap-2">
-                    <button onclick="pdfPreview.show('${report.name}', '${title}', 'boletins')"
-                            class="flex-1 bg-white text-[#8B2635] py-2 px-4 rounded-lg border border-[#8B2635] hover:bg-[#F5F0E8] transition-colors duration-300 font-medium flex items-center justify-center preview-btn"
-                            data-file="${report.name}">
-                        <span class="material-icons mr-2 text-sm">visibility</span>
+            <div class="p-6 flex flex-col flex-1">
+                <div class="text-sm text-[#6B4423] mb-2">${report.formattedDate}</div>
+                <h3 class="text-xl font-bold text-[#6B4423] mb-3">${report.title}</h3>
+                <p class="text-[#8B2635] text-sm mb-4">Arquivo em PDF • ${report.formattedSize}</p>
+                <div class="mt-auto flex gap-2">
+                    <button class="preview-btn flex-1 bg-white text-[#8B2635] border border-[#8B2635] rounded-lg py-2 px-4 flex items-center justify-center gap-2 hover:bg-[#F5F0E8] transition-colors duração-300">
+                        <span class="material-icons text-sm">visibility</span>
                         Ver PDF
                     </button>
-                    <button class="flex-1 bg-[#8B2635] text-white py-2 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300 font-medium flex items-center justify-center download-report"
-                            data-file="${report.name}">
-                        <span class="material-icons mr-2 text-sm">download</span>
+                    <button class="download-report flex-1 bg-[#8B2635] text-white rounded-lg py-2 px-4 flex items-center justify-center gap-2 hover:bg-[#992D3D] transition-colors duração-300">
+                        <span class="material-icons text-sm">download</span>
                         Baixar
                     </button>
                 </div>
             </div>
         `;
 
-        // Adicionar evento de clique para download
-        const downloadButton = article.querySelector('.download-report');
-        if (downloadButton) {
-            downloadButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.downloadReport(report.name);
+        const previewBtn = article.querySelector('.preview-btn');
+        const downloadBtn = article.querySelector('.download-report');
+
+        if (previewBtn) {
+            previewBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+                if (typeof pdfPreview?.show === 'function') {
+                    pdfPreview.show(report.name, report.title, 'boletins');
+                }
             });
         }
 
-        // Adicionar evento de clique para preview
-        const previewButton = article.querySelector('.preview-btn');
-        if (previewButton) {
-            previewButton.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (pdfPreview && typeof pdfPreview.show === 'function') {
-                    pdfPreview.show(report.name, title, 'boletins');
-                } else {
-                    console.error('ReportsManager: pdfPreview not available');
-                }
+        if (downloadBtn) {
+            downloadBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+                this.downloadReport(report.name);
             });
         }
 
@@ -198,128 +542,201 @@ class ReportsManager {
     }
 
     downloadReport(fileName) {
-        try {
-            // Abrir o arquivo em uma nova aba para download
-            window.open('api/reports/download.php?file=' + encodeURIComponent(fileName) + '&type=boletins', '_blank');
-        } catch (error) {
-            console.error('Erro ao baixar boletim:', error);
-            alert('Não foi possível baixar o boletim. Tente novamente mais tarde.');
+        window.open(`${this.downloadEndpoint}?file=${encodeURIComponent(fileName)}&type=boletins`, '_blank');
+    }
+
+    applyContainerLayout(layout) {
+        if (!this.reportsContainer) return;
+
+        if (layout === 'grid') {
+            this.reportsContainer.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
+        } else {
+            this.reportsContainer.className = 'space-y-0';
         }
     }
 
-    formatDate(dateString) {
-        const options = { day: 'numeric', month: 'long', year: 'numeric' };
-        const date = new Date(dateString);
-        return isNaN(date.getTime()) ? 'Data não disponível' : date.toLocaleDateString('pt-BR', options);
+    setLoading(state) {
+        this.isLoading = state;
+        if (state) {
+            this.showLoading();
+        }
     }
 
-    formatFileName(fileName) {
-        // Remover extensão .pdf e substituir hífens/underscores por espaços
-        return fileName.replace('.pdf', '')
-                      .replace(/[-_]/g, ' ')
-                      .replace(/\b\w/g, l => l.toUpperCase());
+    clearLoadMore() {
+        if (this.loadMoreContainer) {
+            this.loadMoreContainer.innerHTML = '';
+        }
     }
 
-    extractDateFromFilename(filename) {
-        // Tentar extrair data do nome do arquivo (formato YYYY-MM-DD ou DD-MM-YYYY)
-        const datePatterns = [
-            /(\d{4})-(\d{2})-(\d{2})/,
-            /(\d{2})-(\d{2})-(\d{4})/
-        ];
+    clearFeedback() {
+        if (this.feedbackElement) {
+            this.feedbackElement.classList.add('hidden');
+            this.feedbackElement.textContent = '';
+        }
+    }
 
-        for (const pattern of datePatterns) {
-            const match = filename.match(pattern);
-            if (match) {
-                if (match[1].length === 4) {
-                    // Formato YYYY-MM-DD
-                    return `${match[1]}-${match[2]}-${match[3]}`;
-                } else {
-                    // Formato DD-MM-YYYY
-                    return `${match[3]}-${match[2]}-${match[1]}`;
-                }
+    setFeedback(message) {
+        if (!this.feedbackElement) return;
+
+        if (!message) {
+            this.clearFeedback();
+            return;
+        }
+
+        this.feedbackElement.textContent = message;
+        this.feedbackElement.classList.remove('hidden');
+    }
+
+    toggleArchiveControls(visible) {
+        if (!this.archiveControls) return;
+        this.archiveControls.classList.toggle('hidden', !visible);
+    }
+
+    updateUpdateInfo(meta = null, { prefix = '', suffix = '' } = {}) {
+        if (!this.updateInfoElement) return;
+
+        if (!meta && !prefix && !suffix) {
+            this.updateInfoElement.textContent = '';
+            return;
+        }
+
+        const parts = [];
+
+        if (prefix) {
+            parts.push(prefix);
+        }
+
+        const timestamp = meta?.timestamp || meta?.updated_at;
+        if (timestamp) {
+            const date = new Date(timestamp);
+            if (!Number.isNaN(date.getTime())) {
+                parts.push(date.toLocaleString('pt-BR'));
             }
         }
 
-        return null;
+        if (suffix) {
+            parts.push(suffix);
+        }
+
+        this.updateInfoElement.textContent = parts.join(' ');
+    }
+    prepareReports(reports) {
+        if (!Array.isArray(reports)) {
+            return [];
+        }
+
+        return reports
+            .map(report => this.normalizeReport(report))
+            .filter(report => report.date) // Filtrar apenas boletins com data válida
+            .sort((a, b) => {
+                // Ordenar por data decrescente (mais recentes primeiro)
+                const dateA = new Date(a.date);
+                const dateB = new Date(b.date);
+                return dateB.getTime() - dateA.getTime();
+            });
+    }
+
+    normalizeReport(report) {
+        if (!report || typeof report !== 'object') {
+            return null;
+        }
+
+        const name = report.name || 'Boletim sem nome.pdf';
+        const title = this.formatFileName(name);
+        const dateValue = report.date || report.modified || new Date().toISOString();
+        const sizeValue = report.size || 0;
+
+        return {
+            name,
+            title,
+            date: dateValue,
+            modified: report.modified || new Date().toISOString(),
+            size: sizeValue,
+            year: report.year || null,
+            month: report.month || null,
+            month_number: report.month_number || null,
+            relative_path: report.relative_path || null,
+            full_path: report.full_path || null,
+            url: report.url || null,
+            formattedDate: this.formatDate(dateValue),
+            formattedSize: this.formatSize(sizeValue)
+        };
+    }
+
+    formatDate(dateString) {
+        const date = new Date(dateString);
+        if (Number.isNaN(date.getTime())) {
+            return 'Data não disponível';
+        }
+        return date.toLocaleDateString('pt-BR', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+    }
+
+    formatFileName(fileName) {
+        return fileName
+            .replace(/\.pdf$/i, '')
+            .replace(/[-_]/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .replace(/\b\w/g, (letter) => letter.toUpperCase());
+    }
+
+    formatSize(size) {
+        if (!size || Number.isNaN(size)) {
+            return 'tamanho desconhecido';
+        }
+        const kb = size / 1024;
+        if (kb < 1024) {
+            return `${Math.round(kb)} KB`;
+        }
+        return `${(kb / 1024).toFixed(2)} MB`;
     }
 
     showLoading() {
-        if (this.reportsContainer) {
-            this.reportsContainer.innerHTML = `
-                <div class="col-span-full text-center py-12">
-                    <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#8B2635] mb-4"></div>
-                    <p class="text-[#6B4423] text-xl">Carregando boletins...</p>
-                </div>
-            `;
-        }
-    }
+        if (!this.reportsContainer) return;
 
-    hideLoading() {
-        // Este método é chamado no finally para garantir que o loading seja removido
-        // A remoção do conteúdo é feita individualmente por cada método
+        this.reportsContainer.innerHTML = `
+            <div class="col-span-full text-center py-12">
+                <div class="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#8B2635] mb-4"></div>
+                <p class="text-[#6B4423] text-xl">Carregando boletins...</p>
+            </div>
+        `;
+        this.clearLoadMore();
     }
 
     showEmptyState() {
-        if (this.reportsContainer) {
-            this.reportsContainer.innerHTML = `
-                <div class="col-span-full text-center py-12">
-                    <span class="material-icons text-5xl text-[#8B2635] mb-4">folder_open</span>
-                    <p class="text-[#6B4423] text-xl">Nenhum boletim encontrado</p>
-                    <p class="text-[#8B2635] mt-2">Ainda não há boletins disponíveis para download.</p>
-                </div>
-            `;
-        }
-    }
+        if (!this.reportsContainer) return;
 
-    addCategoryFilter() {
-        // Verificar se já existe um elemento de filtro na página
-        const filterContainer = document.querySelector('.reports-filter');
-        if (filterContainer) {
-            // Criar elementos de filtro
-            const filterHTML = `
-                <div class="flex flex-wrap justify-center gap-4 mb-8">
-                    <button class="filter-btn bg-[#8B2635] text-white py-2 px-4 rounded-lg hover:bg-[#992D3D] transition-colors duration-300" data-category="all">Todos</button>
-                    <button class="filter-btn bg-white text-[#8B2635] py-2 px-4 rounded-lg border border-[#8B2635] hover:bg-[#F5F0E8] transition-colors duration-300" data-category="relatorio">Boletins Informativos</button>
-                    <button class="filter-btn bg-white text-[#8B2635] py-2 px-4 rounded-lg border border-[#8B2635] hover:bg-[#F5F0E8] transition-colors duration-300" data-category="publicacao">Publicações</button>
-                    <button class="filter-btn bg-white text-[#8B2635] py-2 px-4 rounded-lg border border-[#8B2635] hover:bg-[#F5F0E8] transition-colors duration-300" data-category="acervo">Acervo Histórico</button>
-                </div>
-            `;
-
-            filterContainer.innerHTML = filterHTML;
-
-            // Adicionar eventos de clique aos botões de filtro
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            filterButtons.forEach(button => {
-                button.addEventListener('click', (e) => {
-                    // Remover classe ativa de todos os botões
-                    filterButtons.forEach(btn => {
-                        btn.classList.remove('bg-[#8B2635]', 'text-white');
-                        btn.classList.add('bg-white', 'text-[#8B2635]');
-                    });
-
-                    // Adicionar classe ativa ao botão clicado
-                    e.target.classList.remove('bg-white', 'text-[#8B2635]');
-                    e.target.classList.add('bg-[#8B2635]', 'text-white');
-
-                    // Atualizar categoria e recarregar relatórios
-                    this.currentCategory = e.target.getAttribute('data-category');
-                    this.loadReports();
-                });
-            });
-        }
+        this.reportsContainer.innerHTML = `
+            <div class="col-span-full text-center py-12">
+                <span class="material-icons text-5xl text-[#8B2635] mb-4">folder_open</span>
+                <p class="text-[#6B4423] text-xl">Nenhum boletim encontrado</p>
+                <p class="text-[#8B2635] mt-2">Ainda não há boletins disponíveis para download.</p>
+            </div>
+        `;
+        this.clearLoadMore();
     }
 
     showError(message) {
-        if (this.reportsContainer) {
-            this.reportsContainer.innerHTML = `
-                <div class="col-span-full text-center py-12">
-                    <span class="material-icons text-5xl text-[#8B2635] mb-4">error</span>
-                    <p class="text-[#6B4423] text-xl">${message}</p>
-                    <button class="mt-4 bg-[#8B2635] text-white py-2 px-6 rounded-lg hover:bg-[#992D3D] transition-colors duration-300" onclick="reportsManager.loadReports()">
-                        Tentar novamente
-                    </button>
-                </div>
-            `;
+        if (!this.reportsContainer) return;
+
+        this.reportsContainer.innerHTML = `
+            <div class="col-span-full text-center py-12">
+                <span class="material-icons text-5xl text-[#8B2635] mb-4">error</span>
+                <p class="text-[#6B4423] text-xl">${message}</p>
+                <button class="mt-4 bg-[#8B2635] text-white py-2 px-6 rounded-lg hover:bg-[#992D3D] transition-colors duração-300" id="reports-retry">
+                    Tentar novamente
+                </button>
+            </div>
+        `;
+        this.clearLoadMore();
+
+        const retry = document.getElementById('reports-retry');
+        if (retry) {
+            retry.addEventListener('click', () => this.switchView(this.currentView));
         }
     }
 }

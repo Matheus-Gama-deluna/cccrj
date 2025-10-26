@@ -654,8 +654,29 @@
                 <div class="w-24 h-1 bg-[#8B2635] mx-auto mt-4"></div>
             </div>
 
+            <div class="reports-controls flex flex-wrap justify-center gap-3 mb-8">
+                <button id="reports-latest-btn" class="reports-toggle active-view bg-[#8B2635] text-white py-2 px-5 rounded-lg hover:bg-[#992D3D] transition-colors duration-300">
+                    📌 Últimos boletins
+                </button>
+                <button id="reports-list-btn" class="reports-toggle bg-white text-[#8B2635] py-2 px-5 rounded-lg border border-[#8B2635] hover:bg-[#F5F0E8] transition-colors duration-300">
+                    📋 Visualização em lista
+                </button>
+                <button id="reports-archive-btn" class="reports-toggle bg-white text-[#8B2635] py-2 px-5 rounded-lg border border-[#8B2635] hover:bg-[#F5F0E8] transition-colors duração-300">
+                    📅 Por ano e mês
+                </button>
+            </div>
+
+            <div id="reports-archive-controls" class="archive-controls flex flex-wrap justify-center gap-3 mb-6 hidden"></div>
+
+            <div id="reports-feedback" class="text-center text-[#6B4423] mb-6 hidden"></div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="reports-container">
                 <!-- Os boletins serão carregados dinamicamente aqui via JavaScript -->
+            </div>
+
+            <div class="text-center mt-10" id="reports-load-more-container"></div>
+            <div class="text-center mt-6">
+                <p class="text-sm text-[#6B4423] opacity-80" id="reports-update-info"></p>
             </div>
         </div>
     </section>

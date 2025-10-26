@@ -11,6 +11,7 @@ class PDFPreviewManager {
 
         this.currentFile = null;
         this.currentType = 'boletins';
+        this.currentPath = '';
 
         this.init();
     }
@@ -36,9 +37,10 @@ class PDFPreviewManager {
         });
     }
 
-    show(fileName, title, type = 'boletins') {
+    show(fileName, title, type = 'boletins', relativePath = '') {
         this.currentFile = fileName;
         this.currentType = type;
+        this.currentPath = relativePath || '';
 
         if (!this.modal) {
             console.error('PDFPreviewManager: Modal not available!');
@@ -54,7 +56,10 @@ class PDFPreviewManager {
         this.showLoading();
 
         // URL direta para o PDF (preview inline)
-        const pdfUrl = `api/pdf/preview/index.php?file=${encodeURIComponent(fileName)}&type=${encodeURIComponent(type)}`;
+        const pathQuery = this.currentPath
+            ? `&path=${encodeURIComponent(this.currentPath)}`
+            : '';
+        const pdfUrl = `api/pdf/preview/index.php?file=${encodeURIComponent(fileName)}&type=${encodeURIComponent(type)}${pathQuery}`;
 
         // Tentar carregar no iframe
         this.frame.onload = () => {
@@ -87,14 +92,17 @@ class PDFPreviewManager {
 
     download() {
         if (this.currentFile) {
-            const downloadUrl = `api/reports/download.php?file=${encodeURIComponent(this.currentFile)}&type=${this.currentType}`;
+            const pathQuery = this.currentPath
+                ? `&path=${encodeURIComponent(this.currentPath)}`
+                : '';
+            const downloadUrl = `api/reports/download.php?file=${encodeURIComponent(this.currentFile)}&type=${encodeURIComponent(this.currentType)}${pathQuery}`;
             window.open(downloadUrl, '_blank');
         }
     }
 
     retry() {
         if (this.currentFile) {
-            this.show(this.currentFile, this.title.textContent, this.currentType);
+            this.show(this.currentFile, this.title.textContent, this.currentType, this.currentPath);
         }
     }
 
@@ -118,6 +126,7 @@ class PDFPreviewManager {
         this.modal.classList.add('hidden');
         this.frame.src = '';
         this.currentFile = null;
+        this.currentPath = '';
         this.frame.classList.remove('hidden');
         this.error.classList.add('hidden');
     }
