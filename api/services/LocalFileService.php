@@ -418,6 +418,67 @@ class LocalFileService {
         return "01-{$monthNumber}-{$year}";
     }
 
+    public function uploadFileByDate($file, $title, $dateString, $type = 'boletins') {
+        if (!$this->validateFile($file)) {
+            throw new Exception('Arquivo inválido');
+        }
+
+        // Converter data para DD-MM-YYYY
+        $date = $this->convertToDDMMYYYY($dateString);
+        $year = date('Y', strtotime($dateString));
+        $month = date('m', strtotime($dateString));
+        $monthName = $this->getMonthName($month);
+
+        $fileName = $this->generateUniqueFileName($title, $file['name']);
+        $relativePath = $year . '/' . $month . '_' . $monthName . '/' . $fileName;
+
+        // Criar diretórios
+        $destinationDir = $this->boletinsPath . $year . '/';
+        if (!is_dir($destinationDir)) {
+            mkdir($destinationDir, 0755, true);
+        }
+
+        $monthDir = $destinationDir . $month . '_' . $monthName . '/';
+        if (!is_dir($monthDir)) {
+            mkdir($monthDir, 0755, true);
+        }
+
+        $destinationPath = $monthDir . $fileName;
+
+        if (!move_uploaded_file($file['tmp_name'], $destinationPath)) {
+            throw new Exception('Falha ao mover arquivo');
+        }
+
+        // Criar entrada de metadata
+        $entry = $this->buildMetadataEntry([
+            'name' => $fileName,
+            'relative_path' => $relativePath,
+            'full_path' => $destinationPath,
+            'size' => $file['size'],
+            'modified' => date('c'),
+            'date' => $date,
+            'year' => $year,
+            'month_number' => $month,
+            'month' => $monthName,
+            'month_dir' => $month . '_' . $monthName,
+        ]);
+
+        // Adicionar ao metadata usando o sistema incremental
+        $this->appendMetadataEntry($entry);
+
+        return [
+            'name' => $fileName,
+            'relative_path' => $relativePath,
+            'full_path' => $destinationPath,
+            'size' => $file['size'],
+            'uploaded_at' => date('Y-m-d H:i:s'),
+            'year' => $year,
+            'month' => $month,
+            'month_name' => $monthName,
+            'date' => $date
+        ];
+    }
+
     private function convertGroupsToDate($groups) {
         if (count($groups) === 3) {
             if (strlen($groups[0]) === 4) {

@@ -450,6 +450,120 @@ async function updateNews() {
     }
 }
 
+class BoletimUploader {
+    constructor() {
+        this.form = document.getElementById('uploadBoletimForm');
+        this.endpoint = 'api/upload_boletim.php';
+        this.fileInput = document.getElementById('boletimFileInput');
+        this.fileInfo = document.getElementById('boletimFileInfo');
+        this.init();
+    }
+
+    init() {
+        if (!this.form) {
+            return;
+        }
+
+        this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+        this.fileInput.addEventListener('change', (e) => this.handleFileSelect(e));
+    }
+
+    handleFileSelect(event) {
+        const file = event.target.files[0];
+        if (file && this.fileInfo) {
+            this.fileInfo.innerHTML = `
+                <strong>Arquivo selecionado:</strong> ${file.name}<br>
+                <strong>Tamanho:</strong> ${(file.size / 1024 / 1024).toFixed(2)} MB<br>
+                <strong>Tipo:</strong> ${file.type}
+            `;
+            this.fileInfo.classList.remove('hidden');
+        }
+    }
+
+    async handleSubmit(event) {
+        event.preventDefault();
+
+        const date = document.getElementById('boletimDate').value;
+        const title = document.getElementById('boletimTitle').value;
+
+        if (!this.fileInput.files.length) {
+            alert('Por favor, selecione um arquivo para enviar.');
+            return;
+        }
+
+        if (!date) {
+            alert('Por favor, selecione a data de publicação.');
+            return;
+        }
+
+        const file = this.fileInput.files[0];
+
+        try {
+            this.showUploadStatus('Enviando boletim...', 'processing');
+
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('title', title);
+            formData.append('date', date);
+
+            const response = await fetch(this.endpoint, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error(`Erro no upload: ${response.status}`);
+            }
+
+            const result = await response.json();
+
+            if (result.success) {
+                this.showUploadStatus('Boletim enviado com sucesso!', 'success');
+                this.form.reset();
+                if (this.fileInfo) {
+                    this.fileInfo.classList.add('hidden');
+                }
+                // Optionally, refresh the documents list
+                if (window.adminDashboard) {
+                    window.adminDashboard.loadDashboardData();
+                    window.adminDashboard.loadRecentDocuments();
+                }
+            } else {
+                throw new Error(result.message || 'Falha no upload do boletim');
+            }
+        } catch (error) {
+            console.error('Erro ao enviar boletim:', error);
+            this.showUploadStatus(`Erro: ${error.message}`, 'error');
+        }
+    }
+
+    showUploadStatus(message, status) {
+        let statusElement = document.getElementById('boletimUploadStatus');
+        if (!statusElement) {
+            statusElement = document.createElement('div');
+            statusElement.id = 'boletimUploadStatus';
+            statusElement.className = 'mt-4 p-4 rounded-lg';
+            this.form.appendChild(statusElement);
+        }
+
+        statusElement.textContent = message;
+
+        switch (status) {
+            case 'processing':
+                statusElement.className = 'mt-4 p-4 rounded-lg bg-yellow-100 text-yellow-800';
+                break;
+            case 'success':
+                statusElement.className = 'mt-4 p-4 rounded-lg bg-green-100 text-green-800';
+                break;
+            case 'error':
+                statusElement.className = 'mt-4 p-4 rounded-lg bg-red-100 text-red-800';
+                break;
+            default:
+                statusElement.className = 'mt-4 p-4 rounded-lg bg-gray-100 text-gray-800';
+        }
+    }
+}
+
 // Adicionar evento ao botão de atualização de notícias
 document.addEventListener('DOMContentLoaded', function() {
     const updateNewsBtn = document.getElementById('updateNewsBtn');
@@ -458,5 +572,6 @@ document.addEventListener('DOMContentLoaded', function() {
         updateNewsBtn.addEventListener('click', updateNews);
     }
     
-    new AdminDashboard();
+    window.adminDashboard = new AdminDashboard();
+    new BoletimUploader();
 });

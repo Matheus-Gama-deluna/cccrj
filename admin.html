@@ -147,11 +147,56 @@
                 </div>
             </section>
             
+            <!-- Boletim Upload Section -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-[#6B4423]">Envio de Boletins com Data</h2>
+                        <p class="text-sm text-[#8B2635] mt-1">Envie um boletim selecionando a data de publicação para organização automática.</p>
+                    </div>
+                </div>
+
+                <form id="uploadBoletimForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-[#6B4423] font-medium mb-2" for="boletimDate">Data de Publicação</label>
+                            <input type="date" id="boletimDate" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B2635] focus:border-[#8B2635]" required>
+                        </div>
+                        <div>
+                            <label class="block text-[#6B4423] font-medium mb-2" for="boletimTitle">Título do Boletim</label>
+                            <input type="text" id="boletimTitle" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#8B2635] focus:border-[#8B2635]" placeholder="Ex: Boletim de Cotações" required>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[#6B4423] font-medium mb-2">Arquivo PDF do Boletim</label>
+                        <div class="flex items-center justify-center w-full">
+                            <label for="boletimFileInput" class="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
+                                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                    <span class="material-icons text-4xl text-[#8B2635] mb-2">cloud_upload</span>
+                                    <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Clique para selecionar</span> ou arraste o arquivo</p>
+                                    <p class="text-xs text-gray-500">PDF (máximo 10MB)</p>
+                                </div>
+                                <input id="boletimFileInput" type="file" class="hidden" accept=".pdf" required />
+                            </label>
+                        </div>
+                        <div id="boletimFileInfo" class="mt-3 text-sm text-[#6B4423] hidden bg-[#F5F0E8] px-4 py-3 rounded-lg"></div>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button type="submit" class="bg-[#8B2635] text-white font-semibold py-3 px-6 rounded-lg hover:bg-[#992D3D] transition-colors duration-300 flex items-center gap-2 justify-center">
+                            <span class="material-icons text-base">cloud_done</span>
+                            Enviar Boletim
+                        </button>
+                    </div>
+                </form>
+            </div>
+
             <!-- File Upload Section -->
             <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
                     <div>
-                        <h2 class="text-2xl font-bold text-[#6B4423]">Envio de documentos</h2>
+                        <h2 class="text-2xl font-bold text-[#6B4423]">Envio de Documentos Genéricos</h2>
                         <p class="text-sm text-[#8B2635] mt-1">Selecione o tipo de publicação para direcionar o arquivo para a área correta do site.</p>
                     </div>
                     <span class="inline-flex items-center gap-2 bg-[#F5F0E8] text-[#8B2635] px-4 py-2 rounded-full text-sm font-medium">
