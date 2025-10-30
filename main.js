@@ -102,22 +102,16 @@ function setupArchiveFilters() {
 // Função para aplicar os filtros do acervo
 function applyArchiveFilters() {
     console.log('Aplicando filtros do acervo...');
-    // Esta função pode ser expandida para filtrar os itens do acervo localmente
-    // ou chamar uma API com os parâmetros de busca e filtro
     const searchValue = document.getElementById('search-acervo')?.value || '';
     const typeValue = document.getElementById('filter-type')?.value || '';
     const yearValue = document.getElementById('filter-year')?.value || '';
     
-    // Aqui você pode adicionar lógica para filtragem real,
-    // seja localmente nos dados já carregados ou 
-    // fazendo uma nova requisição à API com os filtros
-    console.log('Filtros aplicados:', { search: searchValue, type: typeValue, year: yearValue });
-    
-    // Se o ArchiveManager estiver disponível, podemos reiniciar a busca
-    if (typeof ArchiveManager !== 'undefined') {
-        // Reiniciar a busca com os filtros aplicados
-        // Isto exigiria modificar o ArchiveManager para aceitar parâmetros de filtro
-        console.log('ArchiveManager encontrado, possível implementação futura de filtros dinâmicos');
+    if (window.archiveManager) {
+        window.archiveManager.applyFilters({
+            search: searchValue,
+            type: typeValue,
+            year: yearValue
+        });
     }
 }
 
@@ -154,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     if (typeof ArchiveManager !== 'undefined' && document.getElementById('archive-container')) {
-        new ArchiveManager();
+        window.archiveManager = new ArchiveManager();
     }
     
     // Inicializar sistema de abas se os elementos existirem

@@ -8,7 +8,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 
 require_once __DIR__ . '/../../../utils/JsonCache.php';
 
-// Verificar se o arquivo JSON existe
+// O caminho do arquivo JSON
 $jsonFile = __DIR__ . '/../../../data/archive/items.json';
 if (!file_exists($jsonFile)) {
     http_response_code(404);
@@ -23,7 +23,7 @@ header('Content-Type: application/json');
 
 try {
     // Ler o arquivo JSON
-    $jsonFile = __DIR__ . '/../../../data/content/archive.json';
+    $jsonFile = realpath(__DIR__ . '/../../../data/archive/items.json');
     
     // Instanciar o cache
     $cache = new JsonCache();
@@ -54,14 +54,40 @@ try {
         });
     }
     
+    // Obter parâmetros de filtro
+    $search = isset($_GET['search']) ? $_GET['search'] : '';
+    $type = isset($_GET['type']) ? $_GET['type'] : '';
+    $year = isset($_GET['year']) ? $_GET['year'] : '';
+
+    // Filtrar itens
+    $filteredItems = $activeItems;
+
+    if (!empty($search)) {
+        $filteredItems = array_filter($filteredItems, function($item) use ($search) {
+            return stristr($item['title'], $search) || stristr($item['description'], $search);
+        });
+    }
+
+    if (!empty($type)) {
+        $filteredItems = array_filter($filteredItems, function($item) use ($type) {
+            return $item['item_type'] === $type;
+        });
+    }
+
+    if (!empty($year)) {
+        $filteredItems = array_filter($filteredItems, function($item) use ($year) {
+            return date('Y', strtotime($item['date'])) === $year;
+        });
+    }
+
     // Paginar itens
-    $items = array_slice($activeItems, $offset, $limit);
+    $items = array_slice($filteredItems, $offset, $limit);
     
     // Retornar resposta
     echo json_encode([
         'success' => true,
         'data' => array_values($items),
-        'total' => count($activeItems),
+        'total' => count($filteredItems),
         'limit' => $limit,
         'offset' => $offset
     ]);

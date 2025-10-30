@@ -5,7 +5,7 @@
             "id": 1,
             "title": "Documento Histórico 1",
             "description": "Descrição do documento histórico 1",
-            "file": "/documents/doc1.pdf",
+            "file": "\/documents\/doc1.pdf",
             "date": "2023-01-15",
             "is_active": true,
             "item_type": "Documento"
@@ -14,7 +14,7 @@
             "id": 2,
             "title": "Documento Histórico 2",
             "description": "Descrição do documento histórico 2",
-            "file": "/documents/doc2.pdf",
+            "file": "\/documents\/doc2.pdf",
             "date": "2023-02-20",
             "is_active": true,
             "item_type": "Documento"
@@ -23,7 +23,7 @@
             "id": 3,
             "title": "Foto Histórica 1",
             "description": "Descrição da foto histórica 1",
-            "file": "/photos/photo1.jpg",
+            "file": "\/photos\/photo1.jpg",
             "date": "2023-03-10",
             "is_active": true,
             "item_type": "Foto"
@@ -32,7 +32,7 @@
             "id": 4,
             "title": "Artigo de 2022",
             "description": "Descrição do artigo de 2022",
-            "file": "/articles/article1.pdf",
+            "file": "\/articles\/article1.pdf",
             "date": "2022-05-01",
             "is_active": true,
             "item_type": "Publicação"
@@ -41,7 +41,7 @@
             "id": 5,
             "title": "Documento inativo",
             "description": "Este documento está inativo",
-            "file": "/documents/inactive.pdf",
+            "file": "\/documents\/inactive.pdf",
             "date": "2023-01-01",
             "is_active": false,
             "item_type": "Documento"
@@ -50,7 +50,7 @@
             "id": 6,
             "title": "Revista de 2022",
             "description": "Uma revista do ano passado",
-            "file": "/magazines/mag1.pdf",
+            "file": "\/magazines\/mag1.pdf",
             "date": "2022-11-15",
             "is_active": true,
             "item_type": "Revista"
@@ -59,7 +59,7 @@
             "id": 7,
             "title": "Outro documento histórico",
             "description": "Mais um para a coleção",
-            "file": "/documents/doc4.pdf",
+            "file": "\/documents\/doc4.pdf",
             "date": "2023-06-20",
             "is_active": true,
             "item_type": "Documento"

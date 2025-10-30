@@ -6,6 +6,11 @@ class ArchiveManager {
         this.itemsPerPage = 6;
         this.hasMoreItems = true;
         this.apiUrl = 'api/json/archive/list.php'; // Novo endpoint JSON
+        this.filters = {
+            search: '',
+            type: '',
+            year: ''
+        };
         this.init();
     }
 
@@ -18,7 +23,10 @@ class ArchiveManager {
         try {
             const params = new URLSearchParams({
                 page: this.currentPage,
-                limit: this.itemsPerPage
+                limit: this.itemsPerPage,
+                search: this.filters.search,
+                type: this.filters.type,
+                year: this.filters.year
             });
             
             const response = await fetch(`${this.apiUrl}?${params}`);
@@ -43,6 +51,11 @@ class ArchiveManager {
         const archiveContainer = document.getElementById('archive-container');
         if (!archiveContainer) return;
 
+        if (this.archiveItems.length === 0) {
+            this.showError(true, 'Nenhum item encontrado.');
+            return;
+        }
+
         this.archiveItems.forEach(item => {
             const archiveCard = this.createArchiveCard(item);
             archiveContainer.appendChild(archiveCard);
@@ -53,6 +66,18 @@ class ArchiveManager {
         if (loadMoreButton) {
             loadMoreButton.classList.toggle('hidden', !this.hasMoreItems);
         }
+    }
+
+    async applyFilters(filters) {
+        this.filters = filters;
+        this.currentPage = 1;
+        this.archiveItems = [];
+        const archiveContainer = document.getElementById('archive-container');
+        if (archiveContainer) {
+            archiveContainer.innerHTML = '';
+        }
+        this.showError(false);
+        await this.loadArchiveItems();
     }
 
     createArchiveCard(item) {
